@@ -1,35 +1,77 @@
 ---
-title: Home
-layout: home
+title: 홈
+layout: default
+nav_order: 1
+description: "기술, 개발, 사업, 투자, 취미, 여행"
+permalink: /
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+# Mimi Note
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+{: .fs-9 }
 
-More specifically, the created site:
+Jekyll과 Just the Docs 테마로 만든 개발 블로그입니다.
+{: .fs-6 .fw-300 }
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+[시작하기](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[GitHub에서 보기](https://github.com/minhopark1271/minhopark1271.github.io){: .btn .fs-5 .mb-4 .mb-md-0 }
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+---
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+## 소개
 
-To get started with creating a site, simply:
+기술, 개발, 사업, 투자, 취미, 여행 관련하여 조사하고 경험한 지식이 증발하지 않도록 모아두는 곳입니다.
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+### 주요 특징
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+- **빠른 검색**: 내장된 검색 기능으로 원하는 내용을 빠르게 찾을 수 있습니다
+- **반응형 디자인**: 모바일, 태블릿, 데스크톱 모든 환경에서 최적화된 경험을 제공합니다
+- **다크 모드**: 눈에 편한 다크 테마를 지원합니다
+- **GitHub Pages**: GitHub Actions를 통해 자동으로 배포됩니다
 
-----
+## Getting started
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+### 구조
 
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+이 사이트는 다음과 같은 구조로 구성되어 있습니다:
+
+```
+blog/
+├── _config.yml          # Jekyll 설정
+├── Gemfile              # Ruby 의존성
+├── index.md             # 홈페이지
+├── docs/               # 문서들
+│   ├── guides/         # 가이드
+│   └── tutorials/      # 튜토리얼
+└── assets/             # 이미지, CSS 등
+```
+
+### 로컬 개발
+
+1. 저장소를 클론합니다:
+   ```bash
+   git clone https://github.com/minhopark1271/minhopark1271.github.io.git
+   cd minhopark1271.github.io
+   ```
+
+2. 의존성을 설치합니다:
+   ```bash
+   bundle install
+   ```
+
+3. 로컬 서버를 시작합니다:
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. [http://localhost:4000](http://localhost:4000)에서 확인합니다.
+
+---
+
+## 기여하기
+
+이 프로젝트에 기여하고 싶으시다면 [GitHub Issues](https://github.com/minhopark1271/minhopark1271.github.io/issues)를 통해 제안해주세요.
+
+## 라이선스
+
+이 프로젝트는 [MIT License](https://github.com/just-the-docs/just-the-docs/blob/main/LICENSE.txt)를 따릅니다.

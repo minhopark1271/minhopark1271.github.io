@@ -1,8 +1,98 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
-theme: just-the-docs
+# Site settings
+title: Mimi Note
+description: "All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences."
+baseurl: ""
+url: "https://minhopark1271.github.io"
 
-url: https://just-the-docs.github.io
+# Theme settings
+remote_theme: just-the-docs/just-the-docs
 
+# Color scheme
+color_scheme: light
+
+# Logo and favicon
+# logo: "/assets/images/just-the-docs.png"
+# favicon_ico: "/assets/images/favicon.ico"
+
+# Search settings
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 2
+  preview_words_before: 3
+  preview_words_after: 3
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+  button: false
+
+# Navigation settings
+nav_enabled: true
+
+# Auxiliary links
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  "GitHub Repository":
+    - "https://github.com/minhopark1271/minhopark1271.github.io"
+
+aux_links_new_tab: true
+
+# Footer settings
+footer_content: "Copyright &copy; 2025 MinHo Park. Distributed by an <a href=\"https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt\">MIT license.</a>"
+
+# GitHub edit links
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/minhopark1271/minhopark1271.github.io"
+gh_edit_branch: "main"
+
+# Last edit timestamp
+last_edit_timestamp: true
+last_edit_time_format: "%b %e %Y at %I:%M %p"
+
+# Back to top
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# Heading anchors
+heading_anchors: true
+
+# Code copy button
+enable_copy_code_button: true
+
+# Mermaid diagrams (uncomment to enable)
+# mermaid:
+#   version: "10.9.0"
+
+# Callouts
+callouts_level: loud
+callouts_opacity: 0.2
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
+# Kramdown
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# HTML compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+# Exclude from processing
+exclude:
+  - node_modules/
+  - "*.gemspec"
+  - "*.gem"
+  - Gemfile
+  - Gemfile.lock
+  - pkg/
+  - vendor/
+  - _site/
