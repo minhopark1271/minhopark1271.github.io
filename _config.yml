@@ -12,7 +12,7 @@ color_scheme: light
 
 # Logo and favicon
 # logo: "/assets/images/just-the-docs.png"
-# favicon_ico: "/assets/images/favicon.ico"
+favicon_ico: "/assets/images/icon2.png"
 
 # Search settings
 search_enabled: true
