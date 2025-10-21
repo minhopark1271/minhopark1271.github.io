@@ -5,14 +5,14 @@ baseurl: ""
 url: "https://minhopark1271.github.io"
 
 # Theme settings
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 
 # Color scheme
 color_scheme: light
 
 # Logo and favicon
 # logo: "/assets/images/just-the-docs.png"
-favicon_ico: "/assets/images/icon2.png"
+favicon_ico: "/assets/images/icon128.ico"
 
 # Search settings
 search_enabled: true

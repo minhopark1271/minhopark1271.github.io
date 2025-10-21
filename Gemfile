@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # GitHub Pages
 gem "github-pages", group: :jekyll_plugins
 
-# Theme
+# Theme - using local gem instead of remote theme
 gem "just-the-docs"
 
 # Required for Ruby 3.0+
