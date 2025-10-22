@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem "github-pages", group: :jekyll_plugins
 
 # Theme - using local gem instead of remote theme
-gem "just-the-docs"
+# gem "just-the-docs"
 
 # Required for Ruby 3.0+
 gem "webrick"
