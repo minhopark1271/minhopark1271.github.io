@@ -8,16 +8,6 @@ permalink: /
 
 # Mimi Note
 
-{: .fs-9 }
-
-Jekyll과 Just the Docs 테마로 만든 개발 블로그입니다.
-{: .fs-6 .fw-300 }
-
-[시작하기](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[GitHub에서 보기](https://github.com/minhopark1271/minhopark1271.github.io){: .btn .fs-5 .mb-4 .mb-md-0 }
-
----
-
 ## 소개
 
 기술, 개발, 사업, 투자, 취미, 여행 관련하여 조사하고 경험한 지식이 증발하지 않도록 모아두는 곳입니다.
@@ -65,13 +55,3 @@ blog/
    ```
 
 4. [http://localhost:4000](http://localhost:4000)에서 확인합니다.
-
----
-
-## 기여하기
-
-이 프로젝트에 기여하고 싶으시다면 [GitHub Issues](https://github.com/minhopark1271/minhopark1271.github.io/issues)를 통해 제안해주세요.
-
-## 라이선스
-
-이 프로젝트는 [MIT License](https://github.com/just-the-docs/just-the-docs/blob/main/LICENSE.txt)를 따릅니다.

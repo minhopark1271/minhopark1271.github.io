@@ -11,7 +11,7 @@ remote_theme: just-the-docs/just-the-docs
 color_scheme: light
 
 # Logo and favicon
-# logo: "/assets/images/just-the-docs.png"
+# logo: "/assets/images/icon6.png"
 favicon_ico: "/assets/images/icon6.png"
 
 # Search settings
@@ -30,23 +30,12 @@ nav_enabled: true
 
 # Auxiliary links
 aux_links:
-  "GitHub Repository":
-    - "https://github.com/minhopark1271/minhopark1271.github.io"
-
+  "LinkedIn": "https://www.linkedin.com/in/minho-park-"
+  "GitHub": "https://github.com/minhopark1271/minhopark1271.github.io"
 aux_links_new_tab: true
 
 # Footer settings
 footer_content: "Copyright &copy; 2025 MinHo Park. Distributed by an <a href=\"https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt\">MIT license.</a>"
-
-# GitHub edit links
-gh_edit_link: true
-gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/minhopark1271/minhopark1271.github.io"
-gh_edit_branch: "main"
-
-# Last edit timestamp
-last_edit_timestamp: true
-last_edit_time_format: "%b %e %Y at %I:%M %p"
 
 # Back to top
 back_to_top: true
