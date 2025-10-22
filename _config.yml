@@ -5,7 +5,7 @@ baseurl: ""
 url: "https://minhopark1271.github.io"
 
 # Theme settings
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 # Color scheme
 color_scheme: light
@@ -68,6 +68,7 @@ callouts_opacity: 0.2
 
 # Plugins
 plugins:
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-github-metadata
 

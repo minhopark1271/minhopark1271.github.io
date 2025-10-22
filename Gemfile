@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # GitHub Pages
 gem "github-pages", group: :jekyll_plugins
 
-# Theme - using local gem instead of remote theme
-# gem "just-the-docs"
+# Plugins for remote theme support
+gem "jekyll-remote-theme", group: :jekyll_plugins
 
 # Required for Ruby 3.0+
 gem "webrick"
