@@ -1,0 +1,79 @@
+{"0": {
+    "doc": "Github Pages",
+    "title": "제목",
+    "content": "내용 . ",
+    "url": "/docs/development/github-pages.html#%EC%A0%9C%EB%AA%A9",
+    
+    "relUrl": "/docs/development/github-pages.html#제목"
+  },"1": {
+    "doc": "Github Pages",
+    "title": "추가 섹션",
+    "content": "이것은 테스트용 추가 내용입니다. ",
+    "url": "/docs/development/github-pages.html#%EC%B6%94%EA%B0%80-%EC%84%B9%EC%85%98",
+    
+    "relUrl": "/docs/development/github-pages.html#추가-섹션"
+  },"2": {
+    "doc": "Github Pages",
+    "title": "more details",
+    "content": "detail is found . ",
+    "url": "/docs/development/github-pages.html#more-details",
+    
+    "relUrl": "/docs/development/github-pages.html#more-details"
+  },"3": {
+    "doc": "Github Pages",
+    "title": "this is test title",
+    "content": "detail is found . ",
+    "url": "/docs/development/github-pages.html#this-is-test-title",
+    
+    "relUrl": "/docs/development/github-pages.html#this-is-test-title"
+  },"4": {
+    "doc": "Github Pages",
+    "title": "이거는 테스트용 제목이야",
+    "content": " ",
+    "url": "/docs/development/github-pages.html#%EC%9D%B4%EA%B1%B0%EB%8A%94-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9-%EC%A0%9C%EB%AA%A9%EC%9D%B4%EC%95%BC",
+    
+    "relUrl": "/docs/development/github-pages.html#이거는-테스트용-제목이야"
+  },"5": {
+    "doc": "Github Pages",
+    "title": "Github Pages",
+    "content": " ",
+    "url": "/docs/development/github-pages.html",
+    
+    "relUrl": "/docs/development/github-pages.html"
+  },"6": {
+    "doc": "개발",
+    "title": "개발",
+    "content": "개발 관련 문서들입니다. ",
+    "url": "/docs/development/",
+    
+    "relUrl": "/docs/development/"
+  },"7": {
+    "doc": "홈",
+    "title": "Mimi Note",
+    "content": " ",
+    "url": "/#mimi-note",
+    
+    "relUrl": "/#mimi-note"
+  },"8": {
+    "doc": "홈",
+    "title": "소개",
+    "content": "기술, 개발, 사업, 투자, 취미, 여행 관련하여 조사하고 경험한 지식이 증발하지 않도록 모아두는 곳입니다. 주요 특징 . | 빠른 검색: 내장된 검색 기능으로 원하는 내용을 빠르게 찾을 수 있습니다 | 반응형 디자인: 모바일, 태블릿, 데스크톱 모든 환경에서 최적화된 경험을 제공합니다 | 다크 모드: 눈에 편한 다크 테마를 지원합니다 | GitHub Pages: GitHub Actions를 통해 자동으로 배포됩니다 | . ",
+    "url": "/#%EC%86%8C%EA%B0%9C",
+    
+    "relUrl": "/#소개"
+  },"9": {
+    "doc": "홈",
+    "title": "Getting started",
+    "content": "구조 . 이 사이트는 다음과 같은 구조로 구성되어 있습니다: . blog/ ├── _config.yml # Jekyll 설정 ├── Gemfile # Ruby 의존성 ├── index.md # 홈페이지 ├── docs/ # 문서들 │ ├── guides/ # 가이드 │ └── tutorials/ # 튜토리얼 └── assets/ # 이미지, CSS 등 . 로컬 개발 . | 저장소를 클론합니다: git clone https://github.com/minhopark1271/minhopark1271.github.io.git cd minhopark1271.github.io . | 의존성을 설치합니다: bundle install . | 로컬 서버를 시작합니다: bundle exec jekyll serve . | http://localhost:4000에서 확인합니다. | . ",
+    "url": "/#getting-started",
+    
+    "relUrl": "/#getting-started"
+  },"10": {
+    "doc": "홈",
+    "title": "홈",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  }
+}
