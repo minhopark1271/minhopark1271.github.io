@@ -65,6 +65,7 @@ plugins:
 
 # Kramdown
 kramdown:
+  toc_levels: 1..2
   syntax_highlighter_opts:
     block:
       line_numbers: false

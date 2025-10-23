@@ -55,9 +55,9 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Github Pages | Mimi Note</title>
+<title>Github Pages 블로그 생성 | Mimi Note</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Github Pages" />
+<meta property="og:title" content="Github Pages 블로그 생성" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences." />
 <meta property="og:description" content="All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences." />
@@ -66,9 +66,9 @@
 <meta property="og:site_name" content="Mimi Note" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Github Pages" />
+<meta property="twitter:title" content="Github Pages 블로그 생성" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences.","headline":"Github Pages","url":"http://localhost:4000/docs/development/github-pages.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences.","headline":"Github Pages 블로그 생성","url":"http://localhost:4000/docs/development/github-pages.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -163,7 +163,7 @@
   
     <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">홈</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in 개발 category" aria-pressed="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
-      </button><a href="/docs/development/" class="nav-list-link">개발</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/development/github-pages.html" class="nav-list-link">Github Pages</a></li></ul></li></ul>
+      </button><a href="/docs/development/" class="nav-list-link">개발</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/development/github-pages.html" class="nav-list-link">Github Pages 블로그 생성</a></li></ul></li></ul>
   
 </nav>
 
@@ -228,7 +228,7 @@
       <nav aria-label="Breadcrumb" class="breadcrumb-nav">
   <ol class="breadcrumb-nav-list">
     <li class="breadcrumb-nav-list-item"><a href="/docs/development/">개발</a></li>
-    <li class="breadcrumb-nav-list-item"><span>Github Pages</span></li>
+    <li class="breadcrumb-nav-list-item"><span>Github Pages 블로그 생성</span></li>
   </ol>
 </nav>
 
@@ -236,53 +236,468 @@
       <div id="main-content" class="main-content">
         <main>
           
-            <h1 id="제목">
+            <h1 class="no_toc" id="github-pages-블로그-생성">
   
   
-    <a href="#제목" class="anchor-heading" aria-labelledby="제목"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 제목
+    <a href="#github-pages-블로그-생성" class="anchor-heading" aria-labelledby="github-pages-블로그-생성"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GitHub Pages 블로그 생성
   
   
 </h1>
     
-
-<p>내용</p>
-<h2 id="추가-섹션">
+<h2 class="no_toc" id="목차">
   
   
-    <a href="#추가-섹션" class="anchor-heading" aria-labelledby="추가-섹션"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 추가 섹션
-  
-  
-</h2>
-    
-
-<p>이것은 테스트용 추가 내용입니다.</p>
-<h2 id="more-details">
-  
-  
-    <a href="#more-details" class="anchor-heading" aria-labelledby="more-details"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> more details
+    <a href="#목차" class="anchor-heading" aria-labelledby="목차"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 목차
   
   
 </h2>
     
 
-<p>detail is found</p>
-<h2 id="this-is-test-title">
+<ol id="markdown-toc">
+  <li><a href="#github-pages-개요" id="markdown-toc-github-pages-개요">GitHub Pages 개요</a></li>
+  <li><a href="#사전-준비사항" id="markdown-toc-사전-준비사항">사전 준비사항</a></li>
+  <li><a href="#저장소-생성-및-github-pages-활성화" id="markdown-toc-저장소-생성-및-github-pages-활성화">저장소 생성 및 GitHub Pages 활성화</a></li>
+  <li><a href="#로컬-개발-환경-설정" id="markdown-toc-로컬-개발-환경-설정">로컬 개발 환경 설정</a></li>
+  <li><a href="#jekyll-테마-선택-및-적용" id="markdown-toc-jekyll-테마-선택-및-적용">Jekyll 테마 선택 및 적용</a></li>
+  <li><a href="#기본-설정-_configyml" id="markdown-toc-기본-설정-_configyml">기본 설정 (_config.yml)</a></li>
+  <li><a href="#콘텐츠-구조-설정" id="markdown-toc-콘텐츠-구조-설정">콘텐츠 구조 설정</a></li>
+  <li><a href="#seo-및-웹마스터-도구-설정" id="markdown-toc-seo-및-웹마스터-도구-설정">SEO 및 웹마스터 도구 설정</a></li>
+  <li><a href="#배포-및-자동화" id="markdown-toc-배포-및-자동화">배포 및 자동화</a></li>
+  <li><a href="#성능-최적화" id="markdown-toc-성능-최적화">성능 최적화</a></li>
+  <li><a href="#참고-자료" id="markdown-toc-참고-자료">참고 자료</a></li>
+</ol><hr />
+<h2 id="github-pages-개요">
   
   
-    <a href="#this-is-test-title" class="anchor-heading" aria-labelledby="this-is-test-title"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> this is test title
+    <a href="#github-pages-개요" class="anchor-heading" aria-labelledby="github-pages-개요"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GitHub Pages 개요
   
   
 </h2>
     
 
-<p>detail is found</p>
-<h2 id="이거는-테스트용-제목이야">
+<p>GitHub Pages는 GitHub에서 제공하는 무료 정적 웹사이트 호스팅 서비스입니다.</p>
+
+<ul>
+  <li><strong>무료 호스팅</strong>: 별도 비용 없이 웹사이트 운영</li>
+  <li><strong>Jekyll 지원</strong>: 정적 사이트 생성기 내장</li>
+  <li><strong>커스텀 도메인</strong>: 개인 도메인 연결 가능</li>
+  <li><strong>HTTPS 자동 적용</strong>: SSL 인증서 자동 제공</li>
+</ul><hr />
+<h2 id="사전-준비사항">
   
   
-    <a href="#이거는-테스트용-제목이야" class="anchor-heading" aria-labelledby="이거는-테스트용-제목이야"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 이거는 테스트용 제목이야
+    <a href="#사전-준비사항" class="anchor-heading" aria-labelledby="사전-준비사항"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 사전 준비사항
   
   
 </h2>
+    
+<h3 id="필수-요구사항">
+  
+  
+    <a href="#필수-요구사항" class="anchor-heading" aria-labelledby="필수-요구사항"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 필수 요구사항
+  
+  
+</h3>
+    
+<ul>
+  <li>GitHub 계정</li>
+  <li>Git 기본 지식</li>
+  <li>텍스트 에디터</li>
+  <li><strong>Ruby</strong>: Jekyll 실행을 위한 런타임</li>
+</ul><hr />
+<h2 id="저장소-생성-및-github-pages-활성화">
+  
+  
+    <a href="#저장소-생성-및-github-pages-활성화" class="anchor-heading" aria-labelledby="저장소-생성-및-github-pages-활성화"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 저장소 생성 및 GitHub Pages 활성화
+  
+  
+</h2>
+    
+<h3 id="repository-생성">
+  
+  
+    <a href="#repository-생성" class="anchor-heading" aria-labelledby="repository-생성"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Repository 생성
+  
+  
+</h3>
+    
+<ol>
+  <li>GitHub에 로그인 후 <code class="language-plaintext highlighter-rouge">New repository</code> 클릭</li>
+  <li>Repository 이름을 <code class="language-plaintext highlighter-rouge">username.github.io</code> 형식으로 입력</li>
+  <li><code class="language-plaintext highlighter-rouge">Public</code>으로 설정 - (유료 플랜에서 단계적으로 Private 지원)</li>
+  <li><code class="language-plaintext highlighter-rouge">Add a README file</code> 체크</li>
+  <li><code class="language-plaintext highlighter-rouge">Create repository</code> 클릭</li>
+</ol>
+<h3 id="github-pages-활성화">
+  
+  
+    <a href="#github-pages-활성화" class="anchor-heading" aria-labelledby="github-pages-활성화"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GitHub Pages 활성화
+  
+  
+</h3>
+    
+<ol>
+  <li>생성된 저장소의 <code class="language-plaintext highlighter-rouge">Settings</code> 탭 이동</li>
+  <li>왼쪽 메뉴에서 <code class="language-plaintext highlighter-rouge">Pages</code> 클릭</li>
+  <li>Source를 <code class="language-plaintext highlighter-rouge">Deploy from a branch</code> 선택</li>
+  <li>Branch를 <code class="language-plaintext highlighter-rouge">main</code> 선택</li>
+  <li><code class="language-plaintext highlighter-rouge">Save</code> 클릭</li>
+</ol><hr />
+<h2 id="로컬-개발-환경-설정">
+  
+  
+    <a href="#로컬-개발-환경-설정" class="anchor-heading" aria-labelledby="로컬-개발-환경-설정"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 로컬 개발 환경 설정
+  
+  
+</h2>
+    
+<h3 id="ruby-설치">
+  
+  
+    <a href="#ruby-설치" class="anchor-heading" aria-labelledby="ruby-설치"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ruby 설치
+  
+  
+</h3>
+    
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>ruby
+<span class="nb">echo</span> <span class="s1">'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.zshrc
+<span class="nb">source</span> ~/.zshrc
+</code></pre></div></div>
+<h3 id="jekyll-설치">
+  
+  
+    <a href="#jekyll-설치" class="anchor-heading" aria-labelledby="jekyll-설치"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Jekyll 설치
+  
+  
+</h3>
+    
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Jekyll과 Bundler 설치</span>
+gem <span class="nb">install </span>jekyll bundler
+<span class="c"># WebRick 설치 (Ruby 3.0+에서 필요)</span>
+gem <span class="nb">install </span>webrick
+</code></pre></div></div>
+<h3 id="저장소-클론">
+  
+  
+    <a href="#저장소-클론" class="anchor-heading" aria-labelledby="저장소-클론"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 저장소 클론
+  
+  
+</h3>
+    
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 저장소를 로컬로 클론</span>
+git clone https://github.com/username/username.github.io.git
+<span class="nb">cd </span>username.github.io
+</code></pre></div></div><hr />
+<h2 id="jekyll-테마-선택-및-적용">
+  
+  
+    <a href="#jekyll-테마-선택-및-적용" class="anchor-heading" aria-labelledby="jekyll-테마-선택-및-적용"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Jekyll 테마 선택 및 적용
+  
+  
+</h2>
+    
+<h3 id="인기-jekyll-테마-사이트">
+  
+  
+    <a href="#인기-jekyll-테마-사이트" class="anchor-heading" aria-labelledby="인기-jekyll-테마-사이트"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 인기 Jekyll 테마 사이트
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="http://jekyllthemes.org/">Jekyll Themes</a></li>
+  <li><a href="https://jekyllthemes.io/free">Jekyll Themes IO</a></li>
+  <li><a href="https://github.com/topics/jekyll-theme">GitHub Jekyll Themes</a></li>
+</ul>
+<h3 id="테마-적용-방법-1-remote-theme-사용">
+  
+  
+    <a href="#테마-적용-방법-1-remote-theme-사용" class="anchor-heading" aria-labelledby="테마-적용-방법-1-remote-theme-사용"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 테마 적용 방법 1: Remote Theme 사용
+  
+  
+</h3>
+    
+<p>(제공되는 테마를 바탕으로 커스텀할 항목이 많은 경우 오히려 복잡할 수 있음)</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># _config.yml에 추가</span>
+<span class="na">remote_theme</span><span class="pi">:</span> <span class="s">username/theme-name</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-remote-theme</span>
+</code></pre></div></div>
+<h3 id="방법-2-fork-또는-다운로드">
+  
+  
+    <a href="#방법-2-fork-또는-다운로드" class="anchor-heading" aria-labelledby="방법-2-fork-또는-다운로드"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 방법 2: Fork 또는 다운로드
+  
+  
+</h3>
+    
+<ol>
+  <li>테마 저장소를 Fork하거나 ZIP 다운로드</li>
+  <li>파일들을 로컬 저장소에 복사</li>
+  <li><code class="language-plaintext highlighter-rouge">bundle install</code> 실행</li>
+</ol>
+<h3 id="나의-경우">
+  
+  
+    <a href="#나의-경우" class="anchor-heading" aria-labelledby="나의-경우"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 나의 경우
+  
+  
+</h3>
+    
+<p><a href="https://just-the-docs.com/">just-the-docs</a> 사용.<br />
+정보를 카테고리별로 깔끔하게 정리하고 추후 검색하기 용이한 템플릿으로 판단.<br />
+just-the-docs에서 사용하는 검색에 사용하는 lunr라이브러리가 기본적으로 한국어 지원을 하지 않아서 한국어 검색 기능을 커스텀으로 추가.<br />
+<a href="https://github.com/MihaiValentin/lunr-languages">참고; lunr-languages</a></p>
+<h3 id="jekyll-사이트-초기화">
+  
+  
+    <a href="#jekyll-사이트-초기화" class="anchor-heading" aria-labelledby="jekyll-사이트-초기화"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Jekyll 사이트 초기화
+  
+  
+</h3>
+    
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 새로운 Jekyll 사이트 생성</span>
+jekyll new ./
+<span class="c"># 의존성 설치</span>
+bundle <span class="nb">install</span>
+<span class="c"># 로컬 서버 실행</span>
+bundle <span class="nb">exec </span>jekyll serve
+<span class="c"># 브라우저에서 http://localhost:4000 확인</span>
+</code></pre></div></div><hr />
+<h2 id="기본-설정-_configyml">
+  
+  
+    <a href="#기본-설정-_configyml" class="anchor-heading" aria-labelledby="기본-설정-_configyml"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 기본 설정 (_config.yml)
+  
+  
+</h2>
+    
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 사이트 기본 정보</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">내</span><span class="nv"> </span><span class="s">블로그"</span>
+<span class="na">tagline</span><span class="pi">:</span> <span class="s2">"</span><span class="s">개발과</span><span class="nv"> </span><span class="s">일상</span><span class="nv"> </span><span class="s">이야기"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">블로그입니다"</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://username.github.io"</span>
+<span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+
+<span class="c1"># 플러그인</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-feed</span>
+  <span class="pi">-</span> <span class="s">jekyll-sitemap</span>
+  <span class="pi">-</span> <span class="s">jekyll-seo-tag</span>
+  <span class="pi">-</span> <span class="s">...</span>
+</code></pre></div></div>
+
+<p>템플릿에 따라 표시되기도하고 숨겨져있기도 함.<br />
+검색시에 크롤러가 긁어갈 수 있는 항목들은 검색 최적화 고려해서 작성.<br />
+템플릿 및 플러그인마다 사용하는 항목이 있다면 적절히 추가.</p><hr />
+<h2 id="콘텐츠-구조-설정">
+  
+  
+    <a href="#콘텐츠-구조-설정" class="anchor-heading" aria-labelledby="콘텐츠-구조-설정"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 콘텐츠 구조 설정
+  
+  
+</h2>
+    
+<h3 id="기본-디렉토리-구조">
+  
+  
+    <a href="#기본-디렉토리-구조" class="anchor-heading" aria-labelledby="기본-디렉토리-구조"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 기본 디렉토리 구조
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username.github.io/
+├── _config.yml          # Jekyll 설정
+├── index.md             # 홈페이지
+└── Gemfile              # Ruby 의존성
+</code></pre></div></div>
+<h3 id="필수-페이지-생성">
+  
+  
+    <a href="#필수-페이지-생성" class="anchor-heading" aria-labelledby="필수-페이지-생성"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 필수 페이지 생성
+  
+  
+</h3>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: 홈
+layout: default
+nav_order: 1
+description: "description"
+permalink: /
+---
+
+# Title
+
+Contents...
+
+</code></pre></div></div>
+<p>markdown으로 index.md 적당히 작성</p><hr />
+<h2 id="seo-및-웹마스터-도구-설정">
+  
+  
+    <a href="#seo-및-웹마스터-도구-설정" class="anchor-heading" aria-labelledby="seo-및-웹마스터-도구-설정"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> SEO 및 웹마스터 도구 설정
+  
+  
+</h2>
+    
+<h3 id="google-search-console-등록">
+  
+  
+    <a href="#google-search-console-등록" class="anchor-heading" aria-labelledby="google-search-console-등록"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Google Search Console 등록
+  
+  
+</h3>
+    
+<ol>
+  <li><a href="https://search.google.com/search-console">Google Search Console</a> 접속 -&gt; 시작하기</li>
+  <li>속성 추가 -&gt; URL 접두어 선택</li>
+  <li>사이트 URL 입력: <code class="language-plaintext highlighter-rouge">https://username.github.io</code></li>
+  <li>소유권 확인용 HTML 파일을 저장소 루트에 업로드</li>
+</ol>
+<h3 id="sitemap-생성">
+  
+  
+    <a href="#sitemap-생성" class="anchor-heading" aria-labelledby="sitemap-생성"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sitemap 생성
+  
+  
+</h3>
+    
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># _config.yml에 플러그인 추가</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-sitemap</span>
+</code></pre></div></div>
+<h3 id="robotstxt-생성">
+  
+  
+    <a href="#robotstxt-생성" class="anchor-heading" aria-labelledby="robotstxt-생성"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> robots.txt 생성
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: null
+---
+User-agent: *
+Allow: /
+
+Sitemap: http://localhost:4000/sitemap.xml
+</code></pre></div></div>
+<h3 id="google-analytics-연동">
+  
+  
+    <a href="#google-analytics-연동" class="anchor-heading" aria-labelledby="google-analytics-연동"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Google Analytics 연동
+  
+  
+</h3>
+    
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- _includes/google-analytics.html --&gt;</span>
+<span class="c">&lt;!-- Google tag (gtag.js) --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">"https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
+  <span class="nx">gtag</span><span class="p">(</span><span class="dl">'</span><span class="s1">js</span><span class="dl">'</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+  <span class="nx">gtag</span><span class="p">(</span><span class="dl">'</span><span class="s1">config</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">G-XXXXXXXXXX</span><span class="dl">'</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+<p>내 경우엔 Footer에 추가함.</p><hr />
+<h2 id="배포-및-자동화">
+  
+  
+    <a href="#배포-및-자동화" class="anchor-heading" aria-labelledby="배포-및-자동화"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 배포 및 자동화
+  
+  
+</h2>
+    
+<h3 id="github-actions로-자동-배포">
+  
+  
+    <a href="#github-actions로-자동-배포" class="anchor-heading" aria-labelledby="github-actions로-자동-배포"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GitHub Actions로 자동 배포
+  
+  
+</h3>
+    
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .github/workflows/pages.yml</span>
+<span class="na">name</span><span class="pi">:</span> <span class="s">Build and deploy Jekyll site</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build-and-deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Setup Ruby</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ruby/setup-ruby@v1</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">ruby-version</span><span class="pi">:</span> <span class="m">3.1</span>
+        <span class="na">bundler-cache</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build site</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">bundle exec jekyll build</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+      <span class="na">if</span><span class="pi">:</span> <span class="s">github.ref == 'refs/heads/main'</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">github_token</span><span class="pi">:</span> <span class="s">$</span>
+        <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
+</code></pre></div></div><hr />
+<h2 id="성능-최적화">
+  
+  
+    <a href="#성능-최적화" class="anchor-heading" aria-labelledby="성능-최적화"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 성능 최적화
+  
+  
+</h2>
+    
+<h3 id="cdn-사용">
+  
+  
+    <a href="#cdn-사용" class="anchor-heading" aria-labelledby="cdn-사용"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> CDN 사용
+  
+  
+</h3>
+    
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># _config.yml</span>
+<span class="na">cdn_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://cdn.jsdelivr.net/gh/username/username.github.io@main"</span>
+</code></pre></div></div>
+<p>이미지가 많이 들어갈 일이 없을듯. 추후 고려</p>
+<h3 id="압축-및-최적화">
+  
+  
+    <a href="#압축-및-최적화" class="anchor-heading" aria-labelledby="압축-및-최적화"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 압축 및 최적화
+  
+  
+</h3>
+    
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># _config.yml</span>
+<span class="na">sass</span><span class="pi">:</span>
+  <span class="na">style</span><span class="pi">:</span> <span class="s">compressed</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-compress-html</span>
+</code></pre></div></div>
+<p>이것도 추후 고려</p><hr />
+<h2 id="참고-자료">
+  
+  
+    <a href="#참고-자료" class="anchor-heading" aria-labelledby="참고-자료"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 참고 자료
+  
+  
+</h2>
+    
+
+<ul>
+  <li><a href="https://jekyllrb.com/">Jekyll 공식 문서</a></li>
+  <li><a href="https://pages.github.com/">GitHub Pages 문서</a></li>
+  <li><a href="https://shopify.github.io/liquid/">Liquid 템플릿 언어</a></li>
+  <li><a href="https://www.markdownguide.org/">Markdown 가이드</a></li>
+  <li><a href="http://jekyllthemes.org/">Jekyll 테마 갤러리</a></li>
+</ul>
 
           
 
