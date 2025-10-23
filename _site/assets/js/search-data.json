@@ -176,7 +176,7 @@
   },"25": {
     "doc": "MCP",
     "title": "MCP 서버 개발",
-    "content": "Build an MCP server . ",
+    "content": "Build an MCP server . | Resources: File-like data that can be read by clients (like API responses or file contents) | Tools: Functions that can be called by the LLM (with user approval) | Prompts: Pre-written templates that help users accomplish specific tasks | . ",
     "url": "/docs/development/mcp.html#mcp-%EC%84%9C%EB%B2%84-%EA%B0%9C%EB%B0%9C",
     
     "relUrl": "/docs/development/mcp.html#mcp-서버-개발"
@@ -188,6 +188,13 @@
     
     "relUrl": "/docs/development/mcp.html#mcp-사용기-참조"
   },"27": {
+    "doc": "MCP",
+    "title": "TODO",
+    "content": "직접 MCP 만들어보기 . | Read | Write | . ",
+    "url": "/docs/development/mcp.html#todo",
+    
+    "relUrl": "/docs/development/mcp.html#todo"
+  },"28": {
     "doc": "MCP",
     "title": "MCP",
     "content": " ",

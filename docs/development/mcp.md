@@ -114,8 +114,20 @@ Remote MCP 서버는 로컬 MCP 서버와 유사하게 동작하지만, 인터�
 
 [Build an MCP server](https://modelcontextprotocol.io/docs/develop/build-server)
 
+- Resources: File-like data that can be read by clients (like API responses or file contents)
+- Tools: Functions that can be called by the LLM (with user approval)
+- Prompts: Pre-written templates that help users accomplish specific tasks
+
 ---
 
 ## MCP 사용기 참조
 
 [우아한기술블로그](https://techblog.woowahan.com/22342/)
+
+---
+
+## TODO
+
+직접 MCP 만들어보기  
+1. Read
+2. Write
