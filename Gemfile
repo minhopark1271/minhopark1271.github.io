@@ -6,6 +6,9 @@ gem "github-pages", group: :jekyll_plugins
 # Plugins for remote theme support
 gem "jekyll-remote-theme", group: :jekyll_plugins
 
+# Required for local theme with include_cached
+gem "jekyll-include-cache", group: :jekyll_plugins
+
 # Required for Ruby 3.0+
 gem "webrick"
 

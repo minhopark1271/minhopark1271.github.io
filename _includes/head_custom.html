@@ -1,0 +1,54 @@
+<!-- Custom Korean Search Support -->
+<script src="{{ '/assets/js/vendor/lunr.stemmer.support.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/vendor/lunr.multi.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/vendor/lunr.ko.js' | relative_url }}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Store the original initSearch function
+  const originalInitSearch = window.initSearch;
+  
+  // Create custom initSearch with Korean support
+  function customInitSearch() {
+    console.log('Custom initSearch called with Korean support');
+    
+    // Build lunr index with multi-language support
+    window.index = lunr(function () {
+      // Use multi-language support for Korean and English
+      this.use(lunr.multiLanguage('en', 'ko'));
+      
+      this.ref('id');
+      this.field('title', { boost: 200 });
+      this.field('content', { boost: 2 });
+      this.field('url');
+      this.metadataWhitelist = ['position'];
+
+      // Index all documents
+      if (window.docs) {
+        for (var i in window.docs) {
+          this.add({
+            id: i,
+            title: window.docs[i].title,
+            content: window.docs[i].content,
+            url: window.docs[i].url
+          });
+        }
+      }
+    });
+    
+    // Call searchLoaded if it exists
+    if (typeof searchLoaded === 'function') {
+      searchLoaded(window.index, window.docs);
+    }
+  }
+  
+  // Override the global initSearch
+  window.initSearch = customInitSearch;
+  
+  // If search is already loaded, initialize now
+  // Otherwise, wait for the search script to call initSearch
+  if (window.docs) {
+    setTimeout(customInitSearch, 100);
+  }
+});
+</script>
