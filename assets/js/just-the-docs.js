@@ -103,6 +103,9 @@ function initSearch() {
       lunr.tokenizer.separator = {{ site.search.tokenizer_separator | default: site.search_tokenizer_separator | default: "/[\s\-/]+/" }}
 
       var index = lunr(function(){
+        // Enable multi-language support for Korean and English
+        this.use(lunr.multiLanguage('en', 'ko'));
+        
         this.ref('id');
         this.field('title', { boost: 200 });
         this.field('content', { boost: 2 });
