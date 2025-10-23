@@ -1,10 +1,10 @@
 ---
-title: Github Pages 블로그 생성
+title: Github Pages
 parent: 개발
 nav_order: 1
 ---
 
-# GitHub Pages 블로그 생성
+# GitHub Pages 사용한 블로그 생성 및 배포
 {:.no_toc}
 
 ## 목차
@@ -247,6 +247,10 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_site
 ```
+
+### 빌드 & 배포 확인 및 접속
+Github main 푸시 이후 build, deploy 상태 확인  
+[https://minhopark1271.github.io/](https://minhopark1271.github.io/)
 
 ---
 
