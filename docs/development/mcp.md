@@ -52,7 +52,7 @@ Agent, Lenggraph가 필요한 입력을 취득하고 실행하는 반복작업�
 
 ---
 
-## MCP 서버 리스팅 플랫폼
+## MCP 서버 마켓플레이스
 
 MCP 서버를 공유·탐색할 수 있는 주요 플랫폼 목록  
 
@@ -117,6 +117,9 @@ Remote MCP 서버는 로컬 MCP 서버와 유사하게 동작하지만, 인터�
 - Resources: File-like data that can be read by clients (like API responses or file contents)
 - Tools: Functions that can be called by the LLM (with user approval)
 - Prompts: Pre-written templates that help users accomplish specific tasks
+
+### 주의
+1. STDIO 통신방식 사용하는 경우 서버 로직 내에서 쓰기 금지 (print, console.log 등)
 
 ---
 
