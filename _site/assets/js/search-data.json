@@ -8,7 +8,7 @@
   },"1": {
     "doc": "Github Pages",
     "title": "목차",
-    "content": ". | GitHub Pages 개요 | 사전 준비사항 | 저장소 생성 및 GitHub Pages 활성화 | 로컬 개발 환경 설정 | Jekyll 테마 선택 및 적용 | 기본 설정 (_config.yml) | 콘텐츠 구조 설정 | SEO 및 웹마스터 도구 설정 | 배포 및 자동화 | 성능 최적화 | 참고 자료 | . ",
+    "content": ". | GitHub Pages 개요 | 사전 준비사항 . | 필수 요구사항 | . | 저장소 생성 및 GitHub Pages 활성화 . | Repository 생성 | GitHub Pages 활성화 | . | 로컬 개발 환경 설정 . | Ruby 설치 | Jekyll 설치 | 저장소 클론 | . | Jekyll 테마 선택 및 적용 . | 인기 Jekyll 테마 사이트 | 테마 적용 방법 1: Remote Theme 사용 | 방법 2: Fork 또는 다운로드 | 나의 경우 | Jekyll 사이트 초기화 | . | 기본 설정 (_config.yml) | 콘텐츠 구조 설정 . | 기본 디렉토리 구조 | 필수 페이지 생성 | . | SEO 및 웹마스터 도구 설정 . | Google Search Console 등록 | Sitemap 생성 | robots.txt 생성 | Google Analytics 연동 | . | 배포 및 자동화 . | GitHub Actions로 자동 배포 | 빌드 &amp; 배포 확인 및 접속 | . | 성능 최적화 . | CDN 사용 | 압축 및 최적화 | . | 참고 자료 | . ",
     "url": "/docs/development/github-pages.html#%EB%AA%A9%EC%B0%A8",
     
     "relUrl": "/docs/development/github-pages.html#목차"

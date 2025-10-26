@@ -50,7 +50,7 @@
 
   
 
-  <link rel="icon" href="/assets/images/icon6.png" type="image/x-icon">
+  <link rel="icon" href="/assets/images/icon.png" type="image/x-icon">
 
 
 
@@ -199,22 +199,12 @@
   <ul class="aux-nav-list">
     
       <li class="aux-nav-list-item">
-        <a href="https://www.linkedin.com/in/minho-park-" class="site-button"
-          
-          target="_blank" rel="noopener noreferrer"
-          
-        >
-          LinkedIn
-        </a>
-      </li>
-    
-      <li class="aux-nav-list-item">
         <a href="https://github.com/minhopark1271/minhopark1271.github.io" class="site-button"
           
           target="_blank" rel="noopener noreferrer"
           
         >
-          GitHub
+          GitHub Repository
         </a>
       </li>
     
@@ -255,15 +245,52 @@
 
 <ol id="markdown-toc">
   <li><a href="#github-pages-개요" id="markdown-toc-github-pages-개요">GitHub Pages 개요</a></li>
-  <li><a href="#사전-준비사항" id="markdown-toc-사전-준비사항">사전 준비사항</a></li>
-  <li><a href="#저장소-생성-및-github-pages-활성화" id="markdown-toc-저장소-생성-및-github-pages-활성화">저장소 생성 및 GitHub Pages 활성화</a></li>
-  <li><a href="#로컬-개발-환경-설정" id="markdown-toc-로컬-개발-환경-설정">로컬 개발 환경 설정</a></li>
-  <li><a href="#jekyll-테마-선택-및-적용" id="markdown-toc-jekyll-테마-선택-및-적용">Jekyll 테마 선택 및 적용</a></li>
+  <li><a href="#사전-준비사항" id="markdown-toc-사전-준비사항">사전 준비사항</a>    <ol>
+      <li><a href="#필수-요구사항" id="markdown-toc-필수-요구사항">필수 요구사항</a></li>
+    </ol>
+  </li>
+  <li><a href="#저장소-생성-및-github-pages-활성화" id="markdown-toc-저장소-생성-및-github-pages-활성화">저장소 생성 및 GitHub Pages 활성화</a>    <ol>
+      <li><a href="#repository-생성" id="markdown-toc-repository-생성">Repository 생성</a></li>
+      <li><a href="#github-pages-활성화" id="markdown-toc-github-pages-활성화">GitHub Pages 활성화</a></li>
+    </ol>
+  </li>
+  <li><a href="#로컬-개발-환경-설정" id="markdown-toc-로컬-개발-환경-설정">로컬 개발 환경 설정</a>    <ol>
+      <li><a href="#ruby-설치" id="markdown-toc-ruby-설치">Ruby 설치</a></li>
+      <li><a href="#jekyll-설치" id="markdown-toc-jekyll-설치">Jekyll 설치</a></li>
+      <li><a href="#저장소-클론" id="markdown-toc-저장소-클론">저장소 클론</a></li>
+    </ol>
+  </li>
+  <li><a href="#jekyll-테마-선택-및-적용" id="markdown-toc-jekyll-테마-선택-및-적용">Jekyll 테마 선택 및 적용</a>    <ol>
+      <li><a href="#인기-jekyll-테마-사이트" id="markdown-toc-인기-jekyll-테마-사이트">인기 Jekyll 테마 사이트</a></li>
+      <li><a href="#테마-적용-방법-1-remote-theme-사용" id="markdown-toc-테마-적용-방법-1-remote-theme-사용">테마 적용 방법 1: Remote Theme 사용</a></li>
+      <li><a href="#방법-2-fork-또는-다운로드" id="markdown-toc-방법-2-fork-또는-다운로드">방법 2: Fork 또는 다운로드</a></li>
+      <li><a href="#나의-경우" id="markdown-toc-나의-경우">나의 경우</a></li>
+      <li><a href="#jekyll-사이트-초기화" id="markdown-toc-jekyll-사이트-초기화">Jekyll 사이트 초기화</a></li>
+    </ol>
+  </li>
   <li><a href="#기본-설정-_configyml" id="markdown-toc-기본-설정-_configyml">기본 설정 (_config.yml)</a></li>
-  <li><a href="#콘텐츠-구조-설정" id="markdown-toc-콘텐츠-구조-설정">콘텐츠 구조 설정</a></li>
-  <li><a href="#seo-및-웹마스터-도구-설정" id="markdown-toc-seo-및-웹마스터-도구-설정">SEO 및 웹마스터 도구 설정</a></li>
-  <li><a href="#배포-및-자동화" id="markdown-toc-배포-및-자동화">배포 및 자동화</a></li>
-  <li><a href="#성능-최적화" id="markdown-toc-성능-최적화">성능 최적화</a></li>
+  <li><a href="#콘텐츠-구조-설정" id="markdown-toc-콘텐츠-구조-설정">콘텐츠 구조 설정</a>    <ol>
+      <li><a href="#기본-디렉토리-구조" id="markdown-toc-기본-디렉토리-구조">기본 디렉토리 구조</a></li>
+      <li><a href="#필수-페이지-생성" id="markdown-toc-필수-페이지-생성">필수 페이지 생성</a></li>
+    </ol>
+  </li>
+  <li><a href="#seo-및-웹마스터-도구-설정" id="markdown-toc-seo-및-웹마스터-도구-설정">SEO 및 웹마스터 도구 설정</a>    <ol>
+      <li><a href="#google-search-console-등록" id="markdown-toc-google-search-console-등록">Google Search Console 등록</a></li>
+      <li><a href="#sitemap-생성" id="markdown-toc-sitemap-생성">Sitemap 생성</a></li>
+      <li><a href="#robotstxt-생성" id="markdown-toc-robotstxt-생성">robots.txt 생성</a></li>
+      <li><a href="#google-analytics-연동" id="markdown-toc-google-analytics-연동">Google Analytics 연동</a></li>
+    </ol>
+  </li>
+  <li><a href="#배포-및-자동화" id="markdown-toc-배포-및-자동화">배포 및 자동화</a>    <ol>
+      <li><a href="#github-actions로-자동-배포" id="markdown-toc-github-actions로-자동-배포">GitHub Actions로 자동 배포</a></li>
+      <li><a href="#빌드--배포-확인-및-접속" id="markdown-toc-빌드--배포-확인-및-접속">빌드 &amp; 배포 확인 및 접속</a></li>
+    </ol>
+  </li>
+  <li><a href="#성능-최적화" id="markdown-toc-성능-최적화">성능 최적화</a>    <ol>
+      <li><a href="#cdn-사용" id="markdown-toc-cdn-사용">CDN 사용</a></li>
+      <li><a href="#압축-및-최적화" id="markdown-toc-압축-및-최적화">압축 및 최적화</a></li>
+    </ol>
+  </li>
   <li><a href="#참고-자료" id="markdown-toc-참고-자료">참고 자료</a></li>
 </ol><hr />
 <h2 id="github-pages-개요">
@@ -734,6 +761,11 @@ Sitemap: http://localhost:4000/sitemap.xml
 </script>
 
 
+    
+      <div class="d-flex mt-2">
+        
+        
+      </div>
     
   </footer>
 
