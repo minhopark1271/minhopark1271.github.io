@@ -29,10 +29,7 @@ Anthropic에서 제안 / OpenAI는 A2A(Agent간 통신 프로토콜) 표준 제�
 - **사전 구축된 커넥터**: 파일 시스템, DB, 개발 도구, 생산성 도구 등 다양한 통합 지원
 - **유연한 모델 교체**: GPT-4, Claude, Gemini 등 다양한 LLM을 손쉽게 교체 가능
 - **복잡한 워크플로우 지원**: 여러 데이터/도구를 조합한 고도화된 AI 에이전트 구축 가능
-- **핵심 역할 구조**
-  - MCP 서버: 도구/데이터 제공
-  - MCP 클라이언트: LLM과 서버 연결
-  - MCP 호스트: 사용자 인터페이스
+- **핵심 역할 구조**: 서버 / 클라이언트 / 호스트 (아래 섹션 참고)
 - **보안 및 인증**: 개인 액세스 토큰(PAT) 등 안전한 데이터 접근 방식 제공
 - **비즈니스 가치 연결**: AI와 실제 업무/서비스/데이터를 연결하는 다리 역할
 
@@ -44,12 +41,6 @@ Agent의 눈과 귀; 입력 확장
 Agent의 팔 다리; 직접 실행  
 Agent, Lenggraph가 필요한 입력을 취득하고 실행하는 반복작업을 가능하게 함.  
 확장성 높음, 보안 및 안전성에 주의 필요.
-
-- **통합의 표준화**: 기존에는 AI 모델과 외부 시스템(예: 데이터베이스, 웹 서비스, 애플리케이션)을 연결할 때마다 복잡한 맞춤형 코드를 작성해야 했으나, MCP는 단일 프로토콜로 통합하여 개발자가 효율적으로 다양한 시스템을 연동할 수 있게 함.
-- **에이전트형 AI 실현**: MCP를 통해 AI는 단순 질의응답을 넘어, 날씨 API 조회, 캘린더 일정 등록, 파일 정리, 웹 크롤링 등 실제 외부 도구와 연동해 실시간 작업을 수행하는 에이전트로 동작할 수 있음.
-- **데이터 접근성 확대**: AI 모델은 학습 데이터에만 의존하지 않고, MCP를 통해 기업 내부 데이터베이스, 최신 웹 정보 등 다양한 외부 데이터를 실시간으로 활용하여 더 정확하고 최신의 답변을 제공할 수 있음.
-- **유연하고 안전한 연결**: MCP 구조는 서비스별 독립적 업데이트가 가능해 시스템 간 영향이 적고, 접근 권한을 세분화하여 AI가 필요한 데이터와 도구만 안전하게 사용할 수 있도록 지원함.
-- **개방형 생태계 조성**: MCP는 오픈소스 표준으로 누구나 새로운 도구와 서비스를 MCP 생태계에 연결할 수 있어, 다양한 AI·도구·서비스가 상호작용하는 혁신적인 생태계가 빠르게 확장되고 있음.
 
 ---
 
@@ -65,9 +56,10 @@ Agent, Lenggraph가 필요한 입력을 취득하고 실행하는 반복작업�
 
 MCP 서버를 공유·탐색할 수 있는 주요 플랫폼 목록  
 
-1. **MCP Market**  
-   - 주소: [https://mcpmarket.com](https://mcpmarket.com)  
-   - 특징: 다양한 MCP 서버를 카테고리별로 정리한 대표적인 플랫폼. Claude, Cursor 등과 연동 가능한 서버를 한눈에 탐색할 수 있음. 매일 인기 서버 순위 갱신, 각 서버의 기능·API·커뮤니티 평판 제공.
+1. **Smithery.ai**  
+   - 주소: [https://smithery.ai](https://smithery.ai)  
+   - 설명: 실험적·커뮤니티 기반 MCP 서버를 모아둔 웹 디렉터리. NotebookLM 및 Anthropic 커뮤니티에서 자주 언급. 서버별 설치 명령어와 설정 예시 제공.
+   - 클라우드 호스팅 서비스(원격 호출용 런처 스크립트) 제공
 
 2. **GitHub MCP Registry**  
    - 주소: [https://github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)  
@@ -77,9 +69,11 @@ MCP 서버를 공유·탐색할 수 있는 주요 플랫폼 목록
    - 주소: [https://github.com/punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)  
    - 설명: 전 세계 MCP 서버를 큐레이션한 오픈소스 목록. Claude, NotebookLM, Cursor 사용자들이 참고용으로 많이 활용. 300개 이상의 프로덕션급 서버 포함.
 
-4. **Smithery.ai**  
-   - 주소: [https://smithery.ai](https://smithery.ai)  
-   - 설명: 실험적·커뮤니티 기반 MCP 서버를 모아둔 웹 디렉터리. NotebookLM 및 Anthropic 커뮤니티에서 자주 언급. 서버별 설치 명령어와 설정 예시 제공.
+4. **MCP Market**  
+   - 주소: [https://mcpmarket.com](https://mcpmarket.com)  
+   - 특징: 다양한 MCP 서버를 카테고리별로 정리한 플랫폼. Claude, Cursor 등과 연동 가능한 서버를 한눈에 탐색할 수 있음. 매일 인기 서버 순위 갱신, 각 서버의 기능·API·커뮤니티 평판 제공.
+
+5. 기타 LLM 클라이언트마다 운영하는 마켓플레이스
 
 ---
 
@@ -103,19 +97,103 @@ MCP 서버를 공유·탐색할 수 있는 주요 플랫폼 목록
 
 ---
 
-## Local MCP 서버 운용
+## MCP 서버 통신 프로토콜
 
-[Connect to local MCP servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers)
+MCP 서버와 클라이언트는 구현 및 배포 시나리오에 따라 두 가지 대표적인 전송(Transport) 방식을 활용한다.
+SSE 방식은 지원 종료 예정으로, 제외했다.
+
+### 1. STDIO (Standard Input/Output)
+
+한 프로세스의 표준 출력(stdout)을 다른 프로세스의 표준 입력(stdin)에 파이프로 연결해 메시지를 교환한다. 별도 네트워크 소켓을 열지 않아 방화벽/포트/SSL 설정이 필요 없다.
+
+**주요 특징:**
+- 동일 머신(로컬)에서 가장 단순하고 빠른 연결 형태 (IPC 수준 지연)
+- 외부 노출 포트가 없어 공격 표면 최소화 (보안에 유리)
+- 프로세스 생명주기와 세션이 일치 → 상태 정리 용이
+- 운영/모니터링(메트릭, 중앙 로그) 추가 구성은 수작업 필요
+
+**적합한 사용 사례:**
+- 개인 개발 환경, IDE 통합(VS Code, Cursor, Claude Desktop 등)
+- 민감 내부 데이터 접근(사내 코드베이스, 비공개 문서)
+- 빠른 프로토타이핑 & 실험
+
+**제약 사항:**
+- 원격/수평 확장 어려움 (머신 경계 밖 통신 불가)
+- 장애 복구 자동화(헬스체크, 재시작 정책) 별도 작성 필요
+- 장시간 작업 중간 진행 상황 스트리밍은 별도 프로토콜 설계 요구
+
+### 2. Streamable HTTP
+
+HTTP/1.1 Chunked Transfer Encoding + HTTP/2 Frame 기반 스트리밍을 활용해 응답을 조각(chunk/frame) 단위로 점진적으로 전송한다. 일반 HTTP가 짧은 정적 리소스에 최적화된 것과 달리 대용량/점진 생성/실시간 로그/오디오/서버 푸시 등에 적합. MCP 문서에서 프로덕션 확장 시 권장되는 방식.
+
+**주요 특징:**
+- 기존 웹 인프라(로드 밸런서, 프록시, CDN, Observability 스택) 재사용 가능
+- 수평 확장 및 컨테이너/Kubernetes 배포 용이
+- 장시간 실행되는 툴 호출의 중간 진행 상황 스트리밍 가능
+- 표준 HTTP 인증/캐시/전송 암호화(TLS) 적용 쉬움
+
+**적합한 사용 사례:**
+- 팀/조직 공유 공용 MCP 서버
+- 대용량 처리(크롤링, 분석) 진행 상황 피드백 필요
+- SLA/모니터링/자동 복구 요구되는 프로덕션 환경
+
+**제약 사항:**
+- 초기 구성 복잡도(Reverse Proxy, TLS, 인증) 증가
+- 네트워크 노출로 공격 표면 확대 → Rate Limit/WAF/권한 스코프 관리 필수
+
+### 비교
+
+| 구분 | STDIO | Streamable HTTP |
+|------|-------|-----------------|
+| **연결 범위** | 동일 머신 | 네트워크/인터넷 |
+| **확장성** | 단일 프로세스 | 수평 확장/로드밸런싱 |
+| **보안 표면** | 포트 미노출(최소) | 공개 엔드포인트(통제 필요) |
+| **지연** | 매우 낮음 | 네트워크 지연 영향 |
+| **스트리밍** | 직접 구현 필요 | Chunk/Frame 즉시 활용 |
+| **장애 복구** | 수동/간단 재시작 | 오케스트레이션 자동 복구 |
+| **관측성** | 별도 파이프/스크립트 | 표준 로그·메트릭·트레이싱 |
+| **배포** | 로컬 스크립트 | 컨테이너/클라우드 표준화 |
+| **인증** | OS 사용자/파일 권한 | 토큰/OAuth/프록시 계층 |
+
+- **개인 실험/로컬 IDE/민감 데이터** → STDIO 우선
+- **공유 서비스/확장성/운영 관측성/스트리밍** → Streamable HTTP 선택
+- !! STDIO 통신방식 사용하는 경우 서버 로직 내에서 쓰기 금지 (print, console.log 등)
 
 ---
 
-## remote MCP 서버 사용
+## Claude Desctop으로 MCP 사용하기
+
+[Connect to local MCP servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers)
 
 [Connect to remote MCP servers](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)
 
-Remote MCP 서버는 로컬 MCP 서버와 유사하게 동작하지만, 인터넷에 호스팅되어 로컬 설치 없이 어디서든 접근할 수 있음
+---
 
-`MCP 연동 핵심은 서비스별로 필요한 인증 키 및 권한 설정인듯`
+## VS Code로 MCP 사용하기
+
+내 경우 Visual Studio Code에 GitHub Copilot설치해서 Coding Agent로 자주 이용하는 편이다.
+VS Code 내부적으로 MCP 서버 마켓플레이를 운영하고 있어서 클릭 몇번으로 간단히 연동하고 사용할 수 있다.
+지원하는 MCP 서버 종류가 상대적으로 적으나, 있을 건 다 있음.
+
+[Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+
+- **필요사항**: VS Code, Copilot
+- **VS Code MCP 사용 설정**: Settings - chat.mcp.access
+
+### VS code 자체 마켓플레이스 이용 (Extensions view)
+- **MCP gallery 이용 설정**: Settings - chat.mcp.gallery.enabled
+- **검색** - Code - Preferences - Extensions (cmd + shift + x) - @mcp 검색
+- **설치** - install (사용준비 끝. 연동된 서비스 인증 필요한 경우 인증키 넣기)
+
+### Custom config 입력
+- workspace에서 .vscode/mcp.json 추가
+- mcp.json에 서버 설정 추가
+
+---
+
+## Cursor에서 MCP 사용하기
+
+[MCP로 외부 도구와 데이터 소스를 Cursor에 연결하기](https://docs.cursor.com/ko/context/mcp)
 
 ---
 
@@ -127,19 +205,14 @@ Remote MCP 서버는 로컬 MCP 서버와 유사하게 동작하지만, 인터�
 - Tools: Functions that can be called by the LLM (with user approval)
 - Prompts: Pre-written templates that help users accomplish specific tasks
 
-### 주의
-1. STDIO 통신방식 사용하는 경우 서버 로직 내에서 쓰기 금지 (print, console.log 등)
+--
 
----
+## MCP 클라이언트 개발
 
-## MCP 사용기 참조
+[Build an MCP client](https://modelcontextprotocol.io/docs/develop/build-client)
 
-[우아한기술블로그](https://techblog.woowahan.com/22342/)
+--
 
----
+## MCP Inspector
 
-## TODO
-
-직접 MCP 만들어보기  
-1. Read
-2. Write
+[MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector)
