@@ -5,13 +5,22 @@ nav_order: 2
 ---
 
 # MCP(Model Context Protocol)
+{:.no_toc}
 
 LLM이 외부 데이터와 도구에 표준화된 방식으로 접근할 수 있게 해주는 개방적 프로토콜  
 Anthropic에서 제안 / OpenAI는 A2A(Agent간 통신 프로토콜) 표준 제시  
 [Introducing the Model Context Protocol – Anthropic](https://www.anthropic.com/news/model-context-protocol)  
 [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)  
 
+## 목차
+{:.no_toc}
+
+1. TOC
+{:toc}
+
 --- 
+
+## 특징
 
 - **표준화된 연결**: 다양한 AI 모델과 데이터 소스, 도구를 하나의 규칙으로 연결
 - **지식 한계 극복**: LLM의 훈련 데이터 한계, 업데이트 지연 문제를 외부 정보 연결로 해결
