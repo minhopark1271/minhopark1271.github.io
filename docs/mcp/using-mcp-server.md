@@ -1,10 +1,10 @@
 ---
-title: MCP 서버 사용
+title: MCP 서버 연결
 parent: MCP
 nav_order: 2
 ---
 
-# MCP Server 사용
+# MCP Server 연결
 {:.no_toc}
 
 ## 목차
@@ -13,14 +13,17 @@ nav_order: 2
 1. TOC
 {:toc}
 
---- 
+---
 
-## VS Code로 MCP 사용
+## VS Code MCP 연결
 
 [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 
-```
-# project-dir/.vscode/mcp.json
+### 설정 파일
+
+project-dir/.vscode/mcp.json
+
+```json
 {
   "servers": {
     "weather": {
@@ -40,14 +43,37 @@ nav_order: 2
 }
 ```
 
+### 설정 필드 (STDIO)
+
+| Field   | Required | Description | Examples |
+|---------|----------|-------------|----------|
+| type    | Yes      | Server connection type | "stdio" |
+| command | Yes      | Command to start the server executable. Must be available on your system path or contain its full path. | "npx", "node", "python", "docker" |
+| args    | No       | Array of arguments passed to the command | ["server.py", "--port", "3000"] |
+| env     | No       | Environment variables for the server | {"API_KEY": "${input:api-key}"} |
+| envFile | No       | Path to an environment file to load more variables |  |
+
+### 설정 필드 (HTTP/SSE)
+
+| Field   | Required | Description | Examples |
+|---------|----------|-------------|----------|
+| type    | Yes      | Server connection type | "http", "sse" |
+| url     | Yes      | URL of the server | "http://localhost:3000", "https://api.example.com/mcp" |
+| headers | No       | HTTP headers for authentication or configuration | {"Authorization": "Bearer ${input:api-token}"} |
+
+**.github/copilot-instructions.md** 에서 툴 사용여부 튜닝 가능
+
 ---
 
-## Cursor로 MCP 사용
+## Cursor MCP 연결
 
 [MCP로 외부 도구와 데이터 소스를 Cursor에 연결하기](https://docs.cursor.com/ko/context/mcp)
 
-```
-# project-dir/.cursor/mcp.json
+### 설정 파일
+
+project-dir/.cursor/mcp.json
+
+```json
 {
   "mcpServers": {
     "weather": {
@@ -66,6 +92,18 @@ nav_order: 2
   }
 }
 ```
+
+### 지원 전송 방식
+
+| Transport      | Execution environment | Deployment       | Users         | Input                  | Auth  |
+|----------------|-----------------------|------------------|---------------|------------------------|-------|
+| stdio          | Local                 | Cursor manages   | Single user   | Shell command          | Manual |
+| SSE            | Local/Remote          | Deploy as server | Multiple users| URL to an SSE endpoint | OAuth  |
+| Streamable HTTP| Local/Remote          | Deploy as server | Multiple users| URL to an HTTP endpoint| OAuth  |
+
+### 설정 필드
+
+VS Code와 동일
 
 ---
 
