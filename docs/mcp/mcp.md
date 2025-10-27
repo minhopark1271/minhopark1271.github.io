@@ -65,6 +65,7 @@ MCP 서버를 공유·탐색할 수 있는 주요 플랫폼 목록
 2. **GitHub MCP Registry**  
    - 주소: [https://github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)  
    - 설명: GitHub이 출시한 공식 MCP 서버 검색 허브. 안정성과 신뢰성 보장. GitHub Copilot 등 AI 도구에서 바로 서버 추가 가능. 각 서버의 README에서 기능·보안 정보 확인 가능.
+   - GitHub Hosting Registry: [https://github.com/mcp](https://github.com/mcp)
 
 3. **Awesome MCP Servers**  
    - 주소: [https://github.com/punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)  
