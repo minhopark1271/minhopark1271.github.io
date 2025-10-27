@@ -1,10 +1,10 @@
 ---
-title: MCP Client 제작
+title: SDD
 parent: 개발
-nav_order: 4
+nav_order: 3
 ---
 
-# MCP Client 제작
+# SDD(Spec Driven Development)
 {:.no_toc}
 
 ## 목차

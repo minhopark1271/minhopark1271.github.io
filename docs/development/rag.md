@@ -1,10 +1,10 @@
 ---
-title: MCP Server 제작
+title: RAG
 parent: 개발
-nav_order: 3
+nav_order: 4
 ---
 
-# MCP Server 제작
+# RAG(Retrieval-Augmented Generation)
 {:.no_toc}
 
 ## 목차

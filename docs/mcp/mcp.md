@@ -1,7 +1,7 @@
 ---
-title: MCP
-parent: 개발
-nav_order: 2
+title: MCP 개요
+parent: MCP
+nav_order: 1
 ---
 
 # MCP(Model Context Protocol)
@@ -183,7 +183,7 @@ VS Code 내부적으로 MCP 서버 마켓플레이를 운영하고 있어서 클
 ### VS code 자체 마켓플레이스 이용 (Extensions view)
 - **MCP gallery 이용 설정**: Settings - chat.mcp.gallery.enabled
 - **검색** - Code - Preferences - Extensions (cmd + shift + x) - @mcp 검색
-- **설치** - install (사용준비 끝. 연동된 서비스 인증 필요한 경우 인증키 넣기)
+- **설치** - install 버튼 클릭 (사용준비 끝. 연동된 서비스 인증 필요한 경우 인증키 넣기)
 
 ### Custom config 입력
 - workspace에서 .vscode/mcp.json 추가
