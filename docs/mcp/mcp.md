@@ -205,13 +205,13 @@ VS Code 내부적으로 MCP 서버 마켓플레이를 운영하고 있어서 클
 - Tools: Functions that can be called by the LLM (with user approval)
 - Prompts: Pre-written templates that help users accomplish specific tasks
 
---
+---
 
 ## MCP 클라이언트 개발
 
 [Build an MCP client](https://modelcontextprotocol.io/docs/develop/build-client)
 
---
+---
 
 ## MCP Inspector
 
