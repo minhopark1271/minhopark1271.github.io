@@ -1,10 +1,10 @@
 ---
-title: MCP Client 제작
+title: MCP Client 개발
 parent: MCP
 nav_order: 3
 ---
 
-# MCP Client 제작
+# MCP Client 개발
 {:.no_toc}
 
 ## 목차

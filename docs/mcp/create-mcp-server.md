@@ -1,10 +1,10 @@
 ---
-title: MCP Server 제작
+title: MCP Server 개발
 parent: MCP
-nav_order: 2
+nav_order: 3
 ---
 
-# MCP Server 제작
+# MCP Server 개발
 {:.no_toc}
 
 ## 목차

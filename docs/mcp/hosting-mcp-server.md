@@ -1,7 +1,7 @@
 ---
 title: MCP Server 호스팅
 parent: MCP
-nav_order: 4
+nav_order: 5
 ---
 
 # MCP Server 호스팅
