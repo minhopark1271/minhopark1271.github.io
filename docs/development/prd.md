@@ -1,7 +1,7 @@
 ---
 title: PRD
 parent: 개발
-nav_order: 2
+nav_order: 6
 ---
 
 # PRD(Product Requirement Document)
