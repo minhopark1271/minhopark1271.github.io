@@ -40,6 +40,8 @@ nav_order: 2
 }
 ```
 
+---
+
 ## Cursor로 MCP 사용
 
 [MCP로 외부 도구와 데이터 소스를 Cursor에 연결하기](https://docs.cursor.com/ko/context/mcp)
@@ -64,3 +66,10 @@ nav_order: 2
   }
 }
 ```
+
+---
+
+## ChatGPT로 MCP 사용
+
+- 웹앱 > 계정 > 설정 > 연동 앱 및 커넥터 > 고급 설정 > 개발자 모드
+- 웹앱 > 계정 > 설정 > 연동 앱 및 커넥터 > 만들기 > URL을 통한 연동만 지원

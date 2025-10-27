@@ -1,7 +1,7 @@
 ---
 title: MCP Client 개발
 parent: MCP
-nav_order: 3
+nav_order: 4
 ---
 
 # MCP Client 개발
