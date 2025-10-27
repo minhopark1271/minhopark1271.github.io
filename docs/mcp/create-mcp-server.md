@@ -15,6 +15,5 @@ nav_order: 2
 
 --- 
 
-## 내용
+## MCP 개발을 위해 제공되는 SDK
 
-TBU

@@ -8,7 +8,8 @@ nav_order: 1
 {:.no_toc}
 
 LLM이 외부 데이터와 도구에 표준화된 방식으로 접근할 수 있게 해주는 개방적 프로토콜  
-Anthropic에서 제안 / OpenAI는 A2A(Agent간 통신 프로토콜) 표준 제시  
+Anthropic에서 제안 
+
 [Introducing the Model Context Protocol – Anthropic](https://www.anthropic.com/news/model-context-protocol)  
 [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)  
 
@@ -39,7 +40,7 @@ Anthropic에서 제안 / OpenAI는 A2A(Agent간 통신 프로토콜) 표준 제�
 
 Agent의 눈과 귀; 입력 확장  
 Agent의 팔 다리; 직접 실행  
-Agent, Lenggraph가 필요한 입력을 취득하고 실행하는 반복작업을 가능하게 함.  
+Agent, LangGraph가 필요한 입력을 취득하고 실행하는 반복작업을 가능하게 함.  
 확장성 높음, 보안 및 안전성에 주의 필요.
 
 ---
