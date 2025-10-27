@@ -15,48 +15,30 @@ nav_order: 2
 
 --- 
 
-## MCP 서버 개발을 위해 제공되는 SDK
+## MCP SDK
 
-[Python](https://github.com/modelcontextprotocol/python-sdk)
+- [Python](https://github.com/modelcontextprotocol/python-sdk)
+- [TypeScript](https://github.com/modelcontextprotocol/typescript-sdk) - 브라우저/Node 환경 모두 지원, 타입 안전한 서버/클라이언트 구현에 적합
+- [Go](https://github.com/modelcontextprotocol/go-sdk) - 경량/병렬 처리 강점, 단일 바이너리 배포 및 원격 서버 제작에 유리
+- [Kotlin](https://github.com/modelcontextprotocol/kotlin-sdk) - JVM 기반 서비스/Android 연계 가능, 코루틴 활용 비동기 처리 용이
+- [Swift](https://github.com/modelcontextprotocol/swift-sdk) - Apple 생태계(macOS, iOS) 특화 클라이언트/툴 제작에 활용
+- [Java](https://github.com/modelcontextprotocol/java-sdk) - 엔터프라이즈 환경, Spring 등 기존 인프라와 통합 쉬움
+- [C#](https://github.com/modelcontextprotocol/csharp-sdk) - .NET 환경 / Windows, 서버 및 데스크톱 에이전트 통합
+- [Ruby](https://github.com/modelcontextprotocol/ruby-sdk) - 간결한 DSL 스타일, 빠른 프로토타이핑 및 스크립트형 MCP 서버에 적합
+- [Rust](https://github.com/modelcontextprotocol/rust-sdk) - 고성능/메모리 안전, 고부하 서버나 네이티브 확장 제작에 적합
+- [PHP](https://github.com/modelcontextprotocol/php-sdk) - 웹 중심(WordPress/Laravel 등) 시스템과의 통합에 활용 가능
 
-[TypeScript](https://github.com/modelcontextprotocol/typescript-sdk)  
-브라우저/Node 환경 모두 지원, 타입 안전한 서버/클라이언트 구현에 적합
-
-[Go](https://github.com/modelcontextprotocol/go-sdk)  
-경량/병렬 처리 강점, 단일 바이너리 배포 및 원격 서버 제작에 유리
-
-[Kotlin](https://github.com/modelcontextprotocol/kotlin-sdk)  
-JVM 기반 서비스/Android 연계 가능, 코루틴 활용 비동기 처리 용이
-
-[Swift](https://github.com/modelcontextprotocol/swift-sdk)  
-Apple 생태계(macOS, iOS) 특화 클라이언트/툴 제작에 활용
-
-[Java](https://github.com/modelcontextprotocol/java-sdk)  
-엔터프라이즈 환경, Spring 등 기존 인프라와 통합 쉬움
-
-[C#](https://github.com/modelcontextprotocol/csharp-sdk)  
-.NET 환경 / Windows, 서버 및 데스크톱 에이전트 통합
-
-[Ruby](https://github.com/modelcontextprotocol/ruby-sdk)  
-간결한 DSL 스타일, 빠른 프로토타이핑 및 스크립트형 MCP 서버에 적합
-
-[Rust](https://github.com/modelcontextprotocol/rust-sdk)  
-고성능/메모리 안전, 고부하 서버나 네이티브 확장 제작에 적합
-
-[PHP](https://github.com/modelcontextprotocol/php-sdk)  
-웹 중심(WordPress/Laravel 등) 시스템과의 통합에 활용 가능
+---
 
 ## 기능 유형 (Types of capabilities)
-
-MCP 서버는 리소스(읽기), 도구(실행), 프롬프트(문맥 제공) 세 축을 통해 LLM의 외부 시스템 활용 범위를 확장합니다.
 
 1. **Resources (리소스)**: 클라이언트가 읽을 수 있는 파일 유사 데이터 (예: API 응답, 파일 내용 등)
 2. **Tools (도구)**: LLM이 사용자 승인 하에 호출할 수 있는 실행 가능한 함수/작업 단위
 3. **Prompts (프롬프트)**: 사용자가 특정 목표를 빠르게 달성하도록 돕는 사전 작성된 템플릿
 
-## 서버 개발
+---
 
-### 프로젝트 생성
+## 프로젝트 생성
 
 ```
 # Create a new directory for our project
@@ -74,7 +56,9 @@ uv add "mcp[cli]" httpx
 touch weather.py
 ```
 
-### weather.py MCP 서버 로직 작성
+---
+
+## weather.py MCP 서버 로직 작성
 
 - get_forecast: 날씨예보 API 호출해서 미국 내 특정 지역 날씨 정보 조회
 - write_my_secret_file: 프로젝트 폴더 내의 `비밀파일`에 입력한 정보 작성
@@ -173,9 +157,9 @@ if __name__ == "__main__":
     main()
 ```
 
-## VS Code에서 Weather MCP 연결 및 사용
+---
 
-### 로컬 MCP 서버 구동 (STDIO)
+## VS Code에서 Weather MCP 연결 및 구동 (StdIO)
 
 .vscode/mcp.json 편집
 
@@ -219,13 +203,12 @@ IDE 터미널에 출력되는 MCP 구동 결과
 2025-10-27 14:43:21.870 [info] Discovered 2 tools
 ```
 
-이제 프롬프트에서 weather MCP 사용을 명시하거나  
-명확히 관계된 명령을 날리면 해당하는 MCP 툴을 사용해야하는데,  
-VS Code & Copilot 조합은 명시적으로 사용하라는 프롬프트 던졌을 때도  
-MCP 툴을 잘 못잡아오는 경향 있는듯...  
-MCP 툴 이름을 명령과 헷갈리지 않는 고유명사로 잘 지어줘야 할 것 같다.
+이제 프롬프트에서 weather MCP 사용을 명시하거나 관련된 프롬프트를 날리면 해당하는 MCP 툴을 사용해야하는데,  
+VS Code & Copilot 조합은 명시적으로 사용하라는 프롬프트 던졌을 때도 MCP 툴을 잘 못잡아오는 경향 있는듯...
 
-### Docker로 MCP 서버 구동 후 Streamable HTTP로 연결
+---
+
+## Docker로 MCP 서버 구동 후 Streamable HTTP로 연결
 
 Dockerfile - 도커 컨테이너 이미지 구성
 
@@ -307,4 +290,8 @@ VS Code 연동 설정 (.vscode/mcp.json)
 }
 ```
 
-![VS Code MCP 프롬프팅 결과](/assets/images/weather-and-secret-usage.png)
+---
+
+## 프롬프팅으로 MCP 툴 호출
+
+![VS Code 프롬프팅으로 MCP 사용](/assets/images/weather-and-secret-usage.png)
