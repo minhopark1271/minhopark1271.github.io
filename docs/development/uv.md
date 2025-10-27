@@ -6,8 +6,11 @@ nav_order: 6
 
 # UV
 {:.no_toc}
+
 파이썬 버전 및 가상환경 관리 툴
+
 An extremely fast Python package and project manager, written in Rust.
+
 [uv - GitHub](https://github.com/astral-sh/uv)
 
 ## 목차
@@ -94,7 +97,8 @@ pip 호환 실행 엔진 (설치/제거/업그레이드 호출)
 파일 시스템(.venv/, 캐시 디렉토리)
 ```
 
-요약:
+**요약:**  
+
 - uv는 pip를 "대체"한다기보다 pip 기능(설치/삭제/목록)을 상위 추상화로 감싸 재현성·속도·환경 일관성을 강화.
 - 사용자는 `uv add` 같은 선언적 명령을 통해 의존성 **의도(intent)** 를 기록하고, 실제 설치는 해결된 lock을 기반으로 pip 호환 실행기로 적용.
 - venv 생성/활성화는 **명시적 activate** 없이도 uv가 명령 실행 시 자동으로 해당 가상환경을 선택(디렉토리 기준 루트 탐색).
@@ -102,17 +106,9 @@ pip 호환 실행 엔진 (설치/제거/업그레이드 호출)
 - `uv run`은 실행 직전 필요한 Python 버전 및 의존성 존재 여부를 확인 → 없으면 설치 후 실행.
 - pip 직접 호출이 필요한 경우(`uv pip ...`)도 동일 캐시/환경 최적화 레이어를 재사용.
 
-주요 차별화 포인트:
-| 영역 | 기존 조합 (pyenv + venv + pip) | uv 통합 |
-|------|-------------------------------|---------|
-| Python 버전 | 별도 툴(pyenv) 관리 | `uv python install/pin` 내장 |
-| venv 생성 | 수동 `python -m venv` | `uv init` / `uv venv` 자동/옵션 |
-| 활성화 | 셸 수동 `source` 필요 | 명령 실행 시 자동 진입 |
-| 설치 속도 | 순차 + 중복 다운로드 | 병렬 + 전역 캐시 + 하드 링크 |
-| 선언적 의존성 | requirements.txt freeze | `pyproject.toml` 직접 편집 + `uv add` |
-| 재현성 | 사람 의존 freeze 관리 | `uv.lock` + `uv sync` 보장 |
 
-실행 흐름 예 (의존성 추가 후 스크립트 실행):
+**실행 흐름 예 (의존성 추가 후 스크립트 실행):**  
+
 1. `uv add requests` → pyproject 수정 + 해석 + (필요 시) lock 갱신
 2. `uv lock` (자동 또는 명시) → 결정된 버전 스냅샷 저장
 3. `uv sync` → venv 생성/업데이트 + 캐시 활용 설치
@@ -120,17 +116,20 @@ pip 호환 실행 엔진 (설치/제거/업그레이드 호출)
 
 ## `pyproject.toml` 와 `uv.lock` 관계
 
-역할 분담:
+**역할 분담:**  
+
 - `pyproject.toml`: "선언적 의도" (직접 의존성, 버전 범위, 메타데이터, 최소 Python 버전 등)
 - `uv.lock`: "구체적 결괏값" (모든 직·간접 의존성의 **정확한 버전 + 해시** 스냅샷)
 
-관계 모델:
+**관계 모델:**  
+
 | 파일 | 성격 | 포함 내용 | 변경 트리거 | VCS 포함 권장 | 사용 시점 |
 |------|------|-----------|-------------|---------------|-----------|
 | pyproject.toml | 선언(Declarative) | 직접 dependencies / constraints | 개발자가 add/편집 | 예 | 해석 입력 |
 | uv.lock | 해석 결과(Resolved) | 전체 dependency graph 확정 버전/해시 | 해석 알고리즘 결과(PubGrub) | 예 (재현성 목적) | 설치/동기화 |
 
-워크플로우 시나리오:
+**워크플로우 시나리오:**
+
 1. 초기화: `uv init` → 빈 dependencies / 기본 메타 생성
 2. 의존성 추가: `uv add fastapi` → pyproject 수정 + 즉시 해석 → lock 갱신
 3. 팀 공유: pyproject + lock 커밋 → 동료는 `uv sync`로 동일 그래프 재현
@@ -138,18 +137,21 @@ pip 호환 실행 엔진 (설치/제거/업그레이드 호출)
 5. 설치 재현: 클린 환경에서 `uv sync` 실행 → lock 기준 설치 (변동 없음)
 6. 업그레이드: `uv lock --upgrade` (주의: 존재할 경우 전체 그래프 재평가)
 
-베스트 프랙티스:
+**베스트 프랙티스:**  
+
 - lock은 항상 VCS에 포함해 CI/배포/컨테이너 재현성 확보.
 - pyproject 수동 편집 후 lock 재생성 안 하면 "stale lock" 상태 → 의존성 drift 가능 → CI에서 pyproject vs lock diff 검사 권장.
 - 보안 스캔/라이선스 검증은 lock을 기준으로 수행하면 transitive까지 정확히 파악 가능.
 - 긴 범위(`>=`, `<`)보다 **좁은 범위 또는 고정 버전** + 주기적 업그레이드 윈도우 설정으로 예측 가능성 유지.
 
-문제/경고 사례:
+**문제/경고 사례:**  
+
 - (A) `uv pip install` 로 임시 추가 후 `uv add` 생략 → pyproject 누락 → lock과 실행 환경 괴리 → 장기적 재현성 저하.
 - (B) 수동으로 lock 삭제 후 sync → 해석 다시 수행, 결과가 이전과 달라 빌드 재현성 깨짐.
 - (C) Python 버전 변경 (`.python-version`) 후 기존 lock 유지 → 일부 패키지 환경별 선택적 의존성 충족 실패 가능 → 반드시 `uv lock` 재실행.
 
-업데이트 패턴 요약:
+**업데이트 패턴 요약:**  
+
 | 작업 | 권장 명령 | 이유 |
 |------|-----------|------|
 | 새 패키지 추가 | `uv add <pkg>` → `uv lock` (자동) | 선언 + 해석 일관성 |
