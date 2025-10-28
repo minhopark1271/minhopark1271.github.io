@@ -478,8 +478,167 @@ Convention: Mark left-to-right. Skip states not applicable (e.g., pure perf task
 
 ```
 
-## 7. 구현 시작
+---
+
+## 7. uv 사용 설정
+
+```
+/plan
+
+파이썬 및 라이브러리 버전관리는 uv 사용
+```
+
+명령 넣었더니 uv 초기 설정하며 오류가 엄청 나는데  
+아 모르겠고 알아서 해줘.  
+tensorflow, keras, sklearn, pandas, numpy간 버전 맞추기 반복.
+
+```
+✅ 모든 작업 완료 - TensorFlow 2.20.0 기준으로 정렬
+
+적용된 변경사항
+pyproject.toml
+
+tensorflow==2.20.0
+keras>=3.10.0 (TensorFlow 2.20 요구사항)
+numpy>=1.26.0 (TensorFlow 2.20 요구사항)
+pandas>=2.2.0 (numpy 2.x 바이너리 호환성)
+scikit-learn>=1.5.0 (numpy 2.x 호환성)
+mysql-connector-python>=9.0.0 (protobuf>=5.28 호환)
+streamlit>=1.40.0 (protobuf>=5.28 호환)
+실제 설치된 버전 (uv.lock 생성됨)
+
+TensorFlow: 2.20.0
+Keras: 3.12.0
+NumPy: 2.3.4
+pandas: 2.3.3
+scikit-learn: 1.7.2
+Streamlit: 1.50.0
+MySQL Connector: 9.5.0
+문서 업데이트
+
+quickstart.md: 의존성 목록 및 TensorFlow 2.20 호환성 노트 추가
+test_environment.py: 메이저 버전 prefix 체크로 완화 (유연한 버전 허용)
+검증 완료
+
+✅ 모든 패키지 import 성공
+✅ pytest 테스트 통과
+✅ uv.lock 파일 생성 완료
+```
+
+---
+
+## 8. implement
+
+### Phase 0
 
 ```
 /implement
+
+Phase 0: Environment & Tooling 태스크 진행
 ```
+
+Phase 0 완료
+
+```
+Follow instructions in speckit.tasks.prompt.md.
+phase 단위로 구현 완료할 때 마다 파일 커밋하도록 룰에 추가해줘.
+```
+
+커밋 완료
+
+```
+/implement
+db config 값은 .resources/database/.env.mysql에 있는 값을 카피해서 적절한 곳에 넣어주고,
+db 초기화 할 때 기본값으로도 넣어줘
+```
+
+DB 설정 값 불러오고 .env 및 src/databse/connection.py 디폴트 값 설정 완료
+
+
+### Phase 1 tasks 재정의
+
+기존에 만들어져 있는 db 정보 전달,  
+데이터 들어있는 상황에 맞춰 Phase 2 tasks 다시 정의 요청
+
+```
+/tasks
+
+.resources/database/sql/create_database.sql
+.resources/database/sql/create_ohlcv_table.sql
+.resources/database/sql/grant_privileges.sql
+.resources/database/sql/modify_exchange_symbol.sql
+에 따라서 기존에 OHLCV_1M, OHLCV_15M, OHLCV_1H 테이블을 만들어져있고,
+OHLCV_1M 안에는 데이터도 들어있음을 참고해서 Phase1 task 상세 내용 수정해줘.
+```
+
+### Phase 1 implement
+
+```
+/implement
+
+implement tasks in phase 1
+mark progress checkboxes when all done
+```
+
+결과
+
+```
+Phase 1 complete! All tasks (T010-T016) finished. Summary:
+
+Phase 1: Database Schema & Connectivity - Complete ✅
+
+# Completed Tasks:
+
+- ✅ T010: Connection pooling (10 tests: 5 unit + 5 integration)
+- ✅ T011: Migration SQL (5 new tables: ASSET, TECHNICAL_INDICATORS, LSTM_MODEL, PREDICTION, TRADING_DECISION)
+- ✅ T012: Migration runner (idempotent, tested twice)
+- ✅ T013: Repository layer (4 repositories: ohlcv, indicators, prediction, decision)
+- ✅ T014: Validation tests (54 unit tests for ENUM/RSI/confidence/price validation)
+- ✅ T015: Partition manager placeholder (deferred to Phase 11)
+- ✅ T016: Performance tests (4 tests: p95 latency 120ms, index_merge acceptable for MVP)
+
+# Files Created:
+
+- connection.py - Connection pooling
+- create_tables.sql - Schema DDL
+- migrate.py - Migration executor
+- repositories - 4 repository modules with validation
+- partition_manager.py - Placeholder for optimization
+- database - 4 test files (59 unit tests)
+- test_performance.py - 4 performance tests
+
+## Database Schema:
+
+- 8 tables total (3 existing OHLCV + 5 new)
+- ENUM constraints for exchange/symbol/timeframe/decision_type
+- Foreign keys with CASCADE/RESTRICT
+- PRIMARY KEY indexing (partitioning deferred)
+
+## Test Coverage:
+
+- 72 tests total (71 passing when run together, all pass when isolated)
+- Unit test isolation note documented
+- Performance: avg 38ms SELECT, p95 120ms (acceptable for MVP)
+```
+
+### 중간에 룰 업데이트
+
+- 자꾸 체크리스트 체크하는거 빠트림.  
+- 다 구현했다고 하는데 마음에 안들거나 수정하고 싶은 부분 있으니 커밋후 대기하도록 함.  
+- 한 브랜치에서 계속 작업하는데, Phase별로 branch를 나누도록 변경
+
+```
+Phase 단위로 implement를 하려고 하는데,
+Implement완료할 때 마다 tasks.md에 Task Progress Checklists를 체크하도록 해줘.
+Implement가 완료될 때마다 커밋 해주고
+이후 사용자가 수정사항을 요청하는 프로세스로 이어지도록 해줘.
+새로운 Phase를 implement하기 전에 새로운 브랜치를 만들어줘.
+```
+
+### 여기까지 하다가 발견한 다른 기능들
+
+- analyze
+- checklist
+- clarify
+
+아마 이것들 쓰면 투두 리스트 만들고, 수정사항 만들기 편할 것 같은데 사용법 추가 조사하기
