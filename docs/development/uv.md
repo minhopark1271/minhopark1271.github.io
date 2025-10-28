@@ -7,11 +7,12 @@ nav_order: 2
 # UV
 {:.no_toc}
 
-파이썬 버전 및 가상환경 관리 툴
-
+파이썬 버전 및 가상환경 관리 툴  
 An extremely fast Python package and project manager, written in Rust.
 
-[uv - GitHub](https://github.com/astral-sh/uv)
+### Link
+
+- [uv - GitHub](https://github.com/astral-sh/uv)
 
 ## 목차
 {:.no_toc}
