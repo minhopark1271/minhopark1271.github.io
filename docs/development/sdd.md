@@ -13,8 +13,10 @@ nav_order: 3
 - [Spec Kit - GitHub](https://github.com/github/spec-kit)
 - [SDD with AI - GitHub Blog](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/)
 - [Spec Kit Comprehensive Guide](https://github.com/github/spec-kit/blob/main/spec-driven.md)
-- [Video Overview](https://www.youtube.com/watch?v=a9eR1xsfvHg)
 - [VS Code & GitHub Copilot: Spec-Driven Development](youtube.com/watch?v=DTw9X7MtU5s&utm_source=pytorchkr&ref=pytorchkr)
+- [Video Overview](https://www.youtube.com/watch?v=a9eR1xsfvHg)
+- [Vidoe CLARIFY and ANALYZE](https://www.youtube.com/watch?v=YD66SBpJY2M)
+- [Video CHECKLIST](https://www.youtube.com/watch?v=zTiLF3-BvGs)
 
 ## 목차
 {:.no_toc}
@@ -70,11 +72,39 @@ specify init <PROJECT_NAME>
         └── tasks-template.md
 ```
 
-### 가용한 툴 확인
+### 가용한 AI Coding Agents 확인
 
 ```
 specify check
 ```
+
+### 핵심 기능
+1. **/constitution**: 프로젝트의 대원칙 및 개발 가이드 정의
+   - 세세한 규칙 포함되지 않도록 최소로 정의하는 것에서 시작
+   - 개발을 진행하면서 꼭 포함하고싶은 절차, 가이드 등도 제공 가능
+     - ex. implement할 때는 task 단위로 브랜치를 만들고 구현완료 후에 커밋해줘
+     - ex. 비슷한 속성을 공유하더라도 Object를 상속하는 경우는 최대한 배제해줘
+
+2. **/specify**: 특정 요구사항과 기능을 상세하게 명세.
+   - 무엇을 왜 하는지에 대해 상세 정의
+   - Requirements, User Stories가 핵심 결과물
+
+3. **/plan**: 기술스택과 아키텍처 포함해서 실제 구현 계획 생성.
+
+4. **/task**: plan에서 수립한 계획을 바탕으로 실제 구현 가능한 작업 단위 생성
+   - 각 태스크의 구체적인 목표치와 완료 기준까지 작성하면 좋음
+
+5. **/implement**: task를 직접 코드로 구현하는 단계.
+   - 코드 작성 - 테스트코드 작성 - 테스트 - 디버깅의 반복
+
+### 보조 기능
+- **/clarify**: 스펙의 불명확한 부분을 찾고 사용자가 답변함으로써 스펙 구체화.
+  - /specify 뒤(/plan 전)에 사용 추천
+  - 언더스펙 문제 대응
+- **/analyze**: 스펙, 기술 계획, 작업 간의 일관성 및 헌법 위반 여부 분석.
+  - /task 뒤(/implement 전)에 사용 추천
+  - 요구사항 모순점 개선으로 일관성 확보
+- **/checklist**: 완결성, 명확성, 일관성 확보를 위해 사용자가 임의로 추가하고싶은 체크리스트 생성
 
 --- 
 
