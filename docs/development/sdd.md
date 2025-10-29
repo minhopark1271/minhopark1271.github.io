@@ -72,6 +72,10 @@ specify init <PROJECT_NAME>
         └── tasks-template.md
 ```
 
+---
+
+## 3. 프로젝트 진행 전 기능 확인
+
 ### 가용한 AI Coding Agents 확인
 
 ```
@@ -108,7 +112,7 @@ specify check
 
 --- 
 
-## 3. Constitution 작성
+## 4. Constitution 작성
 
 ### 초안 작성
 
@@ -187,7 +191,7 @@ Fill the constitution with the **bare minimum requirements** for a local applica
 
 ---
 
-## 4. spec 작성
+## 5. spec 작성
 
 ### What and Why 에 집중해서 기능적 스펙 작성
 
@@ -262,7 +266,7 @@ LSTM modeling 부분도 추후 내가 샘플 모델을 제공할 예정이야
 
 ---
 
-## 5. plan 작성
+## 6. plan 작성
 
 ### Tech Stack and Architecture 명시
 
@@ -442,7 +446,7 @@ Agent가 반환한 내용
 
 ---
 
-## 6. task 작성
+## 7. task 작성
 
 - 요청
 
@@ -510,7 +514,7 @@ Convention: Mark left-to-right. Skip states not applicable (e.g., pure perf task
 
 ---
 
-## 7. uv 사용 설정
+## 8. uv 사용 설정
 
 ```
 /plan
@@ -557,7 +561,7 @@ test_environment.py: 메이저 버전 prefix 체크로 완화 (유연한 버전 
 
 ---
 
-## 8. implement
+## 9. implement
 
 ### Phase 0
 
@@ -658,6 +662,8 @@ Phase 1: Database Schema & Connectivity - Complete ✅
 - 한 브랜치에서 계속 작업하는데, Phase별로 branch를 나누도록 변경
 
 ```
+/constitution
+
 Phase 단위로 implement를 하려고 하는데,
 Implement완료할 때 마다 tasks.md에 Task Progress Checklists를 체크하도록 해줘.
 Implement가 완료될 때마다 커밋 해주고
@@ -665,10 +671,94 @@ Implement가 완료될 때마다 커밋 해주고
 새로운 Phase를 implement하기 전에 새로운 브랜치를 만들어줘.
 ```
 
-### 여기까지 하다가 발견한 다른 기능들
+### Phase 3 까지 진행 후 코드 구조 확인
 
-- analyze
-- checklist
-- clarify
+상세 내용은 대충 알아서 잘 만들고 테스트하고 있는것 같아서 안보고 넘김  
+디비 테이블 양식이랑, api 양식이 잘 구현되어 있는지 정도 확인하고  
+Phase 3까지 쭉 진행.  
 
-아마 이것들 쓰면 투두 리스트 만들고, 수정사항 만들기 편할 것 같은데 사용법 추가 조사하기
+```
+trading_bot/
+├── .specify/
+│   └── memory/
+│       └── constitution.md (v2.2.0 - Phase-based workflow with checklist discipline)
+│
+├── specs/
+│   └── 001-continuous-ohlcv-data/
+│       ├── spec.md (Feature specification)
+│       ├── plan.md (Technical architecture)
+│       ├── tasks.md (Phase 0-12 task breakdown)
+│       └── checklists/
+│           └── requirements.md (12/16 complete)
+│
+├── src/
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── database.py ✅ (DB config loader)
+│   │   └── logging_config.py ✅ (Structured logging setup)
+│   │
+│   ├── database/
+│   │   ├── __init__.py
+│   │   ├── connection.py ✅ (Connection pooling)
+│   │   ├── migrations/
+│   │   │   ├── create_tables.sql ✅ (ASSET, TECHNICAL_INDICATORS, etc.)
+│   │   │   └── create_ohlcv_1d.sql ✅ [Phase 3] (Daily candle table)
+│   │   └── repositories/
+│   │       └── ohlcv_repository.py ✅ (insert_ohlcv, get_latest_timestamp, get_ohlcv_range)
+│   │
+│   └── data_collection/
+│       ├── __init__.py
+│       ├── fetchers/
+│       │   └── coindesk_api.py ✅ [Phase 2] (HTTP client for CoinDesk API)
+│       │       ├── fetch_ohlcv_data() - Single batch fetch
+│       │       └── fetch_ohlcv_batch() - Multi-batch with pagination
+│       │
+│       ├── collectors/
+│       │   ├── backfill_collector.py ✅ [Phase 2] (Historical data backfill)
+│       │   │   └── BackfillCollector class
+│       │   │       ├── collect() - Full historical backfill
+│       │   │       └── Duplicate handling via ON DUPLICATE KEY UPDATE
+│       │   │
+│       │   └── continuous_collector.py ✅ [Phase 3] (Incremental hourly collection)
+│       │       └── ContinuousCollector class
+│       │           ├── collect_asset() - Single asset incremental fetch
+│       │           ├── aggregate_asset() - Post-collection aggregation
+│       │           ├── collect_cycle() - Multi-asset orchestration
+│       │           ├── run_daemon() - Continuous mode (schedule library)
+│       │           └── run_once() - Single-shot mode (cron-friendly)
+│       │
+│       └── aggregators/
+│           └── candle_aggregator.py ✅ [Phase 2] (Timeframe conversion)
+│               └── aggregate_candles() - 1m → 15m/1h/1d
+│
+├── tests/
+│   ├── unit/
+│   │   ├── config/
+│   │   │   ├── test_database.py ✅ (6 tests)
+│   │   │   └── test_logging.py ✅ (4 tests)
+│   │   │
+│   │   ├── database/
+│   │   │   ├── test_connection.py ✅ (4 tests)
+│   │   │   └── test_ohlcv_repository.py ✅ (8 tests)
+│   │   │
+│   │   └── data_collection/
+│   │       ├── test_coindesk_api.py ⚠️ [Phase 2] (6 tests - 6 failing, pre-existing)
+│   │       ├── test_backfill_collector.py ✅ [Phase 2] (10 tests - all passing)
+│   │       └── test_continuous_collector.py ✅ [Phase 3] (20 tests - all passing)
+│   │           ├── TestContinuousCollector (12 tests)
+│   │           ├── TestAggregationTrigger (6 tests) - T033 performance
+│   │           └── TestMultiAssetOrchestration (2 tests) - T034/T035
+│   │
+│   └── integration/
+│       └── database/
+│           └── test_performance.py ✅ (1 test)
+│
+├── pyproject.toml ✅ (uv project config)
+├── uv.lock ✅ (Dependency lock file)
+├── .python-version (3.11.13)
+└── pytest.ini ✅ (Test configuration)
+```
+
+specs 하위에 phase0 내용 하단에 프로젝트 계획파일들이 있어서 상위로 옮기고,  
+checklist에 불필요한 requirements 정의되어있어서 삭제 후  
+Phase 4로 이어서 진행
