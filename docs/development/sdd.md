@@ -39,6 +39,8 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 
 ```
 specify init <PROJECT_NAME>
+
+specify init --here
 ```
 
 ### 결과로 생성되는 폴더 및 파일 목록
@@ -196,7 +198,8 @@ Fill the constitution with the **bare minimum requirements** for a local applica
 
 ### What and Why 에 집중해서 기능적 스펙 작성
 
-이번 시도에서는 내가 하려고 했던 모든 기능을 처음부터 끝까지 모두 제시했는데, spec 하나하나가 브랜치로 작동하기 때문에 작은 기능단위로 나눠서 실행하기에 더 적합한 듯 싶다.
+이번 시도에서는 내가 하려고 했던 모든 기능을 처음부터 끝까지 모두 제시했는데,  
+spec 하나하나가 브랜치로 작동하기 때문에 작은 기능단위로 나눠서 실행하기에 더 적합한 듯 싶다.
 
 ```
 /speckit.specify 
