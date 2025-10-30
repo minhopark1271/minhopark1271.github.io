@@ -270,6 +270,10 @@ Backfilling data에서 자료 받아오는 부분과 database 구성은 추후 �
 LSTM modeling 부분도 추후 내가 샘플 모델을 제공할 예정이야
 ```
 
+### clarify
+
+이어서 /clarify 실행하고 Agent가 명확히 정의되지 않은 부분이라고 판단하는 부분 찾아서 추가 정의하기
+
 ---
 
 ## 6. plan 작성
