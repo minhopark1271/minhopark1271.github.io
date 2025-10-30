@@ -17,6 +17,7 @@ nav_order: 3
 - [Video Overview](https://www.youtube.com/watch?v=a9eR1xsfvHg)
 - [Vidoe CLARIFY and ANALYZE](https://www.youtube.com/watch?v=YD66SBpJY2M)
 - [Video CHECKLIST](https://www.youtube.com/watch?v=zTiLF3-BvGs)
+- [Video Speckit with existing project](https://www.youtube.com/watch?v=SGHIQTsPzuY)
 
 ## 목차
 {:.no_toc}
@@ -759,6 +760,288 @@ trading_bot/
 └── pytest.ini ✅ (Test configuration)
 ```
 
-specs 하위에 phase0 내용 하단에 프로젝트 계획파일들이 있어서 상위로 옮기고,  
+specs 하위에 001-continuous-ohlcv-data 내용 하단에 프로젝트 계획파일들이 있어서 상위로 옮기고,  
 checklist에 불필요한 requirements 정의되어있어서 삭제 후  
 Phase 4로 이어서 진행
+
+---
+
+001-continuous-ohlcv-data지우고 내용 상위로 옮겼더니 인식을 잘 못함.  
+현재 specify, plan, task, implement 한 프로젝트 내용 모두가 저기에 포함되나봄.  
+원래대로 복구
+
+---
+
+작업하다보니 깨달은건데,  
+Feature 단위로 /specify, /plan, /task, /implement 사이클을 한번씩 돌리게 설계되었나봄.  
+TODO. Phase 단위로 끊어서 브랜치 따서 작업할 때 어떻게 연계해야 하는지 더 살펴보기
+
+---
+
+작업 끝나면 docs/phase-description.md 형태로 문서 작성하고 마무리하게 constitution에 넣기
+새 phase 작업하기 전에 기존 작업 내용 참고하도록하기
+
+---
+
+### Phase 7 까지 마무리
+
+중간중간 앞에 실제로 미완료 된 항목들(실제 데이터 계속 수집, 모델 학습)에 따라
+Scaffold까지만 작성하도록 하는 등 tasks 일부 수정
+
+```
+참고: 기존 코드에 lint 경고 444개 발견 (대부분 typing.List → list 등 Python 3.11 스타일 업그레이드). Phase 7 코드는 통과, 전체 정리는 별도 작업 필요.
+
+이 부분 전반적으로 수정해줘.
+
+use context7 mcp
+```
+
+이런 식으로 중간중간 부족한 부분 채우기
+
+---
+
+### Phase 9 까지 마무리
+
+Phase 9에서 몇 가지 모니터링 api를 구현하고 별도의 app으로 구동하도록 만듦.
+
+Phase 10은 streamlit 사용해서 대시보드 구현하는 부분이어서  
+Phsee 9구현사항 기반으로 task 구체화 요청했더니 아주 상세한 리스트로 작성됨.
+
+기존 tasks.md
+
+```
+### Phase 10: Streamlit Dashboard (US5 - P5 continuation)
+
+| ID | Story | FR | Priority | Type | Depends On |
+|----|-------|----|----------|------|------------|
+| T100 | US5 | FR-015..FR-020 | P5 | build | T090 |
+| T101 | US5 | FR-015..FR-020 | P5 | test | T100 |
+| T102 | US5 | FR-015..FR-020 | P5 | build | T100 |
+| T103 | US5 | FR-015..FR-020 | P5 | test | T102 |
+| T104 | US5 | FR-015..FR-020 | P5 | perf | T100 |
+
+#### T100: Streamlit dashboard (`monitoring/streamlit_dashboard.py`) layout (asset selector, prediction chart, position decisions table)
+Tests: Manual smoke; component rendering without exceptions.
+
+#### T101: Dashboard data fetch tests (mock API responses).
+
+#### T102: Auto-refresh & caching (`@st.cache_data`) integration
+Tests: Refresh toggled; cache invalidates on new prediction.
+
+#### T103: Filtering (confidence slider, date range, position type) tests.
+
+#### T104: Dashboard load time test (<3s initial render, <1s refresh).
+```
+
+요청
+
+```
+/tasks
+
+phase 9에서 구현한 app의 api를 바탕으로 Phase 10 태스크를 구체화해줘
+```
+
+수정된 tasks.md
+
+```
+### Phase 10: Streamlit Dashboard (US5 - P5 continuation)
+
+| ID | Story | FR | Priority | Type | Depends On |
+|----|-------|----|----------|------|------------|
+| T100 | US5 | FR-015..FR-020 | P5 | build | T090 |
+| T101 | US5 | FR-015..FR-020 | P5 | test | T100 |
+| T102 | US5 | FR-015..FR-020 | P5 | build | T100 |
+| T103 | US5 | FR-015..FR-020 | P5 | build | T100 |
+| T104 | US5 | FR-015..FR-020 | P5 | test | T102,T103 |
+| T105 | US5 | FR-015..FR-020 | P5 | perf | T100,T102 |
+
+#### T100: Create Streamlit dashboard layout in `src/dashboard/app.py` with 3 tabs: Predictions, Positions, Performance
+**Description**: Implement multi-tab Streamlit application consuming Phase 9 API (http://127.0.0.1:8000). Layout includes:
+- **Predictions Tab**: Asset selector (dropdown), date range picker, prediction table with columns (prediction_id, symbol, predicted_price, confidence, actual_price, direction), line chart showing predicted vs actual prices over time
+- **Positions Tab**: Position decisions table with filters (action: LONG/SHORT/STAY, execution status), columns (position_id, symbol, action, confidence, entry_price, profit_loss_pct, evaluation_status)
+- **Performance Tab**: Metrics cards (total predictions, accuracy rate, win rate, avg profit/loss), symbol-wise accuracy breakdown table, position performance by action type
+
+**API Endpoints Used**:
+- `GET /predictions?symbol={symbol}&start_date={date}&end_date={date}&page={n}&page_size=50`
+- `GET /predictions/accuracy?symbol={symbol}&start_date={date}&end_date={date}`
+- `GET /positions?symbol={symbol}&action={action}&is_executed={bool}&page={n}&page_size=50`
+- `GET /positions/performance?symbol={symbol}&start_date={date}&end_date={date}`
+
+**Exit Criteria**:
+- Dashboard loads without exceptions
+- All 3 tabs render with placeholder data (empty tables show "No data available")
+- Asset selector populated from hardcoded list (BTC-USDT, ETH-USDT, BTC-EUR, ETH-EUR)
+- Date range picker defaults to last 7 days
+
+**Tests**: Manual smoke test - start dashboard with `streamlit run src/dashboard/app.py`, verify tabs clickable, widgets interactive.
+
+**Edge Cases**: API unavailable (display error message), empty response (show "No data" message), invalid date range (start > end, show validation error).
+
+**Risks**: Streamlit version compatibility; mitigate by pinning streamlit>=1.40.0 in pyproject.toml.
+
+#### T101: Implement API client module `src/dashboard/api_client.py` with error handling and retry logic
+**Description**: Create HTTP client wrapper using `httpx` to call Phase 9 API endpoints. Functions:
+- `fetch_predictions(symbol=None, start_date=None, end_date=None, page=1, page_size=50)` → returns dict with 'data' and 'pagination' keys
+- `fetch_prediction_accuracy(symbol=None, start_date=None, end_date=None)` → returns accuracy metrics dict
+- `fetch_positions(symbol=None, action=None, is_executed=None, page=1, page_size=50)` → returns positions list
+- `fetch_position_performance(symbol=None, start_date=None, end_date=None)` → returns performance metrics dict
+
+**Error Handling**:
+- Connection errors: Retry up to 3 times with exponential backoff (1s, 2s, 4s)
+- Timeout: 5 seconds per request
+- HTTP errors: Raise custom `APIClientError` with status code and message
+- Rate limiting (429): Respect Retry-After header, show user message
+
+**Exit Criteria**:
+- All 4 functions implemented with type hints
+- Connection errors trigger retry (verify with mock)
+- 429 response raises APIClientError with retry_after value
+
+**Tests**: Unit tests with mocked httpx responses (success, timeout, 429, 500, connection error).
+
+#### T102: Add auto-refresh with Streamlit timer and `@st.cache_data` for API responses
+**Description**: Implement automatic data refresh every 60 seconds using `st.empty()` and `time.sleep()` pattern. Cache API responses with `@st.cache_data(ttl=60)` decorator to avoid redundant API calls within refresh window. Add manual refresh button in sidebar.
+
+**Caching Strategy**:
+- Predictions list: Cache key includes (symbol, start_date, end_date, page)
+- Accuracy metrics: Cache key includes (symbol, start_date, end_date)
+- Positions list: Cache key includes (symbol, action, is_executed, page)
+- Performance metrics: Cache key includes (symbol, start_date, end_date)
+
+**Exit Criteria**:
+- Auto-refresh updates data every 60 seconds (visible timestamp in sidebar)
+- Manual refresh button clears cache and reloads data
+- Cache hit reduces API calls (verify with logging)
+
+**Tests**: Integration test - verify cached data served within TTL, fresh data fetched after TTL expires.
+
+#### T103: Implement filtering controls in sidebar: symbol selector, date range, confidence slider (0.0-1.0), action filter (LONG/SHORT/STAY/ALL)
+**Description**: Add Streamlit sidebar widgets:
+- `st.selectbox("Symbol", options=["ALL", "BTC-USDT", "ETH-USDT", ...])` - filters predictions/positions by symbol
+- `st.date_input("Date Range", value=(7 days ago, today))` - filters by prediction_ts or executed_at
+- `st.slider("Min Confidence", 0.0, 1.0, 0.6, 0.05)` - filters predictions/positions by confidence ≥ threshold
+- `st.radio("Action", ["ALL", "LONG", "SHORT", "STAY"])` - filters positions by action type
+
+**Filter Application**:
+- Filters update query parameters sent to API endpoints
+- "ALL" option omits filter parameter from API call
+- Apply filters on tab change (each tab respects current filter state)
+
+**Exit Criteria**:
+- All 4 filter widgets render in sidebar
+- Changing filter triggers API call with new parameters
+- Filter state persists across tab switches
+
+**Tests**: Manual test - change filter, verify API call query params match filter values (inspect network or add debug logging).
+
+#### T104: Add visualization components: prediction accuracy chart (line chart), profit/loss histogram, position distribution pie chart
+**Description**: Implement data visualizations using `st.line_chart()`, `st.bar_chart()`, and `plotly.express`:
+- **Predictions Tab**: Line chart showing predicted_price vs actual_price over time for selected symbol (x=target_ts, y=price, 2 lines)
+- **Positions Tab**: Histogram of profit_loss_pct distribution (bins: <-10%, -10 to -5%, ..., >10%)
+- **Performance Tab**: Pie chart of position distribution by action (LONG/SHORT/STAY counts)
+
+**Chart Requirements**:
+- Use Streamlit native charts for simplicity (line/bar charts)
+- Use plotly for interactive pie chart with hover tooltips
+- Display "No data for chart" message if response empty
+- Color code: Green for positive P&L, Red for negative, Gray for STAY
+
+**Exit Criteria**:
+- All 3 chart types render with sample data
+- Charts update when filters change
+- Empty data shows placeholder message
+
+**Tests**: Visual inspection with mock data (positive/negative P&L, multiple symbols).
+
+**Edge Cases**: Single data point (chart still renders), all STAY positions (pie chart shows 100% STAY), missing actual_price (line chart shows predicted only).
+
+#### T105: Performance test: dashboard initial load <3s, refresh <1s, handle 1000+ prediction rows without lag
+**Description**: Benchmark dashboard performance under realistic data volumes. Measure:
+- **Initial Load Time**: Time from `streamlit run` to first render (<3s target)
+- **Refresh Time**: Time from manual refresh click to updated data display (<1s target)
+- **Large Dataset Handling**: Paginated table with 1000+ rows (pagination prevents lag)
+- **Concurrent Users**: Dashboard responds correctly when API has multiple dashboard instances (rate limiting tested in Phase 9)
+
+**Performance Targets** (from plan.md):
+- p95 initial load: <3s
+- p95 refresh: <1s
+- Memory: Stable (no growth beyond 100MB after 10 refreshes)
+- UI responsiveness: No freezes during API calls (use `st.spinner()`)
+
+**Exit Criteria**:
+- Initial load completes <3s (measured with `time.time()`)
+- Refresh completes <1s
+- Table with 1000 rows renders smoothly (pagination at 50 rows/page)
+- Memory profiling shows no leaks
+
+**Tests**: 
+- Automated: `tests/dashboard/test_performance.py` using `selenium` or `streamlit.testing.v1`
+- Load test: Run dashboard, perform 10 manual refreshes, verify memory stable with `psutil`
+
+**Edge Cases**: Slow API response (>5s timeout), rate limit hit (429 error displayed), network disconnection (error message shown).
+
+**Risks**: Streamlit performance degradation with large datasets; mitigate by implementing pagination and limiting chart data points to latest 100.
+```
+
+상세 내용은 살피지 않았지만 대충 좋아보여서 /implement 이어서 진행
+
+---
+
+### specs/* 하단 spec guides 인식 문제 개선
+
+Phase별로 /implement 진행하기 전에 수동으로 브랜치명과 동일하게 파일 복사해주니 잘 인식함.
+
+```
+git checkout -b phase-10-dashboard
+cp -r specs/phase-9-monitoring-api specs/phase-10-dashboard
+```
+
+---
+
+## 그때그때 해야할 일
+
+1. Phase 단위로 나눠서 구현 진행
+2. 구현을 진행하기 전에 master로 부터 새 브랜치로 포크
+3. 브랜치 명은 phase-{phase}-{description}
+4. 직전 Phase의 specs를 이번 Phase의 브랜치명과 동일하게 카피
+  ex. `cp -r phase-0-init phase-1-some-execution`
+5. /implement
+  1. Phase 내의 tasks구현 (디폴트)
+  2. TDD 기반 구현 (디폴트)
+  3. 테스트 통과 못해도 넘어가기도 하고, 테스트를 이상하게 줄여서 넘어가기도함 - 프롬프트로 제한하기
+  4. docs, readme 작성 요청하면 좋을 듯
+  5. Phase 및 tasks 단위 체크리스트 모두 체크하도록 하기
+  6. TBU 구체적으로 더 요청하면 좋을 내용
+6. 모든 Phase의 구현이 완료된 이후에는 docs/ 아래 브랜치명으로 구현 내용 문서 작성
+7. 완료된 구현을 바탕으로 기존 구현된 내용 수정
+8. 완료된 구현을 바탕으로 다음 task에 수정 필요한 것 수정 & 구제화
+9. 커밋
+10. 사용자 확인, 마스터머지: 요건 사용자가 해야할 듯
+
+- Python 버전과 라이브러리 의존성
+  - Python 버전 다양성 최소화, 가능하면 단일화
+  - Python 의존성은 uv로 관리 명시 speckit 프로젝트 내에서 관리(constitution)
+
+브랜치 안/밖에서 할 일이 따로 있네
+
+### /checklist 사용해서 시킬 일 정리
+
+1. Before implement
+  - phase-{phase}-{description} 브랜치로 포크
+  - 직전 Phase의 specs 파일 새 phase명에 맞춰 복사
+2. After implement
+  - phase 별로 docs작성
+  - 새로운 아키텍처 구성요소가 추가되는 경우 Readme 추가
+  - 새로운 애플리케이션 추가되는 경우 Readme 추가
+  - 완료된 구현 내용에 맞춰 기존 구현사항 중 수정할 내용이 있는지 검토
+  - 완료된 구현 내용에 맞춰 다음 tasks 구체화
+  - 커밋
+
+---
+
+TODO later
+1. script/evaluate_positions.py 실행부분 따로 떼기
+2. src/data_collection 안에 collectors/continuous_collector.py 실행하는 app 생성
+3. src/features 안에 inference_assembler.py, training_assembler.py 합치기
+
+...

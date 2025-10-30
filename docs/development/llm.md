@@ -1,7 +1,7 @@
 ---
 title: LLM
 parent: 개발
-nav_order: 5
+nav_order: 6
 ---
 
 # LLM(Large Language Model)
