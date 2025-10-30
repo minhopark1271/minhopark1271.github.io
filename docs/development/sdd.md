@@ -199,7 +199,9 @@ Fill the constitution with the **bare minimum requirements** for a local applica
 ### What and Why 에 집중해서 기능적 스펙 작성
 
 이번 시도에서는 내가 하려고 했던 모든 기능을 처음부터 끝까지 모두 제시했는데,  
-spec 하나하나가 브랜치로 작동하기 때문에 작은 기능단위로 나눠서 실행하기에 더 적합한 듯 싶다.
+spec 하나하나가 브랜치로 작동하기 때문에 작은 기능단위로 나눠서 실행하기에 더 적합한 듯 싶다.  
+
+정확히 원하는 구조, 기술스택, 파일 등이 있다면 여기서 정의해도 됨.
 
 ```
 /speckit.specify 
