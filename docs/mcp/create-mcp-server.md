@@ -1,7 +1,7 @@
 ---
 title: MCP Server 개발
 parent: MCP
-nav_order: 3
+nav_order: 30
 ---
 
 # MCP Server 개발

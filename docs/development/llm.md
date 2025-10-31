@@ -1,7 +1,7 @@
 ---
-title: LLM
+title: LLM (TBU)
 parent: 개발
-nav_order: 6
+nav_order: 60
 ---
 
 # LLM(Large Language Model)

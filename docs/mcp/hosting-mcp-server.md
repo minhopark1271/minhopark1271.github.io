@@ -1,7 +1,7 @@
 ---
-title: MCP Server 호스팅
+title: MCP Server 호스팅 (TBU)
 parent: MCP
-nav_order: 5
+nav_order: 50
 ---
 
 # MCP Server 호스팅

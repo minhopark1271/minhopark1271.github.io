@@ -1,7 +1,7 @@
 ---
-title: MCP Client 개발
+title: MCP Client 개발 (TBU)
 parent: MCP
-nav_order: 4
+nav_order: 40
 ---
 
 # MCP Client 개발

@@ -1,7 +1,7 @@
 ---
 title: MCP 서버 연결
 parent: MCP
-nav_order: 2
+nav_order: 20
 ---
 
 # MCP Server 연결

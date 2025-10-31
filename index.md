@@ -1,7 +1,7 @@
 ---
 title: 홈
 layout: default
-nav_order: 1
+nav_order: 10
 description: "기술, 개발, 사업, 투자, 취미, 여행"
 permalink: /
 ---

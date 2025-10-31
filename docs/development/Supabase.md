@@ -1,7 +1,7 @@
 ---
-title: Supabase
+title: Supabase (TBU)
 parent: 개발
-nav_order: 9
+nav_order: 90
 ---
 
 # Vercel

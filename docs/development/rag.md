@@ -1,7 +1,7 @@
 ---
-title: RAG
+title: RAG (TBU)
 parent: 개발
-nav_order: 5
+nav_order: 50
 ---
 
 # RAG(Retrieval-Augmented Generation)
