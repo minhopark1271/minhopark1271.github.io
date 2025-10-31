@@ -222,7 +222,42 @@ You have exceeded your premium request allowance. We have automatically switched
 
 어떤 쓰레기를 뱉어낼지...  
 
-응... 여기서 스탑
+응. 여기서 스탑  
+모델의 문제만이 아니라 tasks 단계에서 정의가 잘못 된 것들이 있는 듯.  
+/specify 했던 요소들이 tasks에서 Phase로 정의할 때 이상한 작업으로 치환된 것 같네.  
+Existing Project에서 이어서 작업할 때는 딱 한 Phase 단위로 작업하자.
+
+```
+/specify
+   > /clarify
+      > /plan
+         > /tasks
+            > /analyze
+               > /checklist
+                  > /implement
+
+공통
+- 기존에 구현한 아래 로직들을 수정/이용하여 고도화 할거야.
+   - 데이터베이스에 구현된 테이블들,
+   - OHLCV_1M 테이블에 적재된 데이터,
+   - data_collection 부분에 구현된 backfill 로직,
+   - data_collection 부분에 구현된 데이터 추가 수집 로직,
+   - dashboard에 구현된 대시보드 scaffold
+
+Phase 11
+- 어떤 종류의 ASSET 데이터를 얼마나 갖고 있는지 확인하고 싶어.
+- OHLCV_1M 데이터베이스에 수집된 데이터 종류(exchange, symbol)를 확인하고 ASSET 테이블에 업데이트 할거야.
+- 수집된 데이터가 어느 기간에 해당하는지도 ASSET 테이블에 기록할 수 있도록 수정할거야.
+
+Phase 12
+- ASSET 종류와 기간을 대시보드에서 확인할 수 있게 api만들거야
+
+Phase 13
+- ASSET 종류와 기간을 확인하는 대시보드 페이지를 추가할거야.
+- ASSET별로 최신 OHLCV_1M 데이터를 계속 수집하는 로컬 앱을 만들거야.
+- ASSET별로 1분봉 최대 2000개씩 한번에 조회할 수 있으니깐, 현재로서는 하루에 한 번 돌면 데이터를 모으기는 충분한 것 같아.
+- 추후에는 실시간에 가깝게 예측에 필요한 입력으로 사용할거라서 더 자주(1시간 단위) 돌리는 것도 고려하지면, 현재로서는 MVP로 24시간에 한번씩 수집하는 것만 구현할거야.
+```
 
 ---
 
