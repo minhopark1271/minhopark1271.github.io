@@ -73,8 +73,6 @@ nav_order: 30
 
 [Cursor AI pricing](https://cursor.com/pricing)
 
-
-
 [GitHub Copilot pricing](https://github.com/features/copilot/plans?locale=ko-KR)
 
 ![모델](/assets/images/copilot-models.png)
