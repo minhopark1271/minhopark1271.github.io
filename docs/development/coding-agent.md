@@ -73,6 +73,23 @@ nav_order: 30
 
 [Cursor AI pricing](https://cursor.com/pricing)
 
+- 개인용
+    - Hobby 0
+    - Pro $20
+    - Pro+ $60
+    - Ultra $200
+- 비지니스
+    - Teams $40
+    - Enterprise Custom
+
 [GitHub Copilot pricing](https://github.com/features/copilot/plans?locale=ko-KR)
+
+- 개인용
+    - Free 0
+    - Pro $10
+    - Pro+ $39
+- 비지니스
+    - Business $19
+    - Enterprise $39
 
 ![모델](/assets/images/copilot-models.png)
