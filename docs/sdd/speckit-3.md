@@ -1,10 +1,10 @@
 ---
-title: Spec Kit 2
+title: Spec Kit 3
 parent: SDD
-nav_order: 20
+nav_order: 30
 ---
 
-# Spec Kit 기존 프로젝트 개선에 사용 - Trial & Error Season 2
+# Spec Kit 기존 프로젝트 개선에 사용 - Trial & Error Season 3
 {:.no_toc}
 
 ## 목차
@@ -16,6 +16,8 @@ nav_order: 20
 --- 
 
 ## 1. Constitution 작성
+
+=== WIP ===
 
 ```
 /constitution
