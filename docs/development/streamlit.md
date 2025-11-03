@@ -37,3 +37,8 @@ nav_order: 30
 - Custom components
 - Configuration and theming
 - App testing
+
+---
+
+## App에 DB 바로 물리기 <-> API 서버 + App
+
