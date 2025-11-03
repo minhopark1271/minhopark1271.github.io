@@ -73,6 +73,7 @@ nav_order: 30
 
 ## Pricing
 
+
 [Cursor AI pricing](https://cursor.com/pricing)
 
 - 개인용

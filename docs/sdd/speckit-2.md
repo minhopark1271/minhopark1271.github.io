@@ -244,7 +244,7 @@ Existing Project에서 이어서 작업할 때는 딱 한 Phase 단위로 작업
    - data_collection 부분에 구현된 데이터 추가 수집 로직,
    - dashboard에 구현된 대시보드 scaffold
 
-Phase 11
+Phase 11 - Done
 - 어떤 종류의 ASSET 데이터를 얼마나 갖고 있는지 확인하고 싶어.
 - OHLCV_1M 데이터베이스에 수집된 데이터 종류(exchange, symbol)를 확인하고 ASSET 테이블에 업데이트 할거야.
 - 수집된 데이터가 어느 기간에 해당하는지도 ASSET 테이블에 기록할 수 있도록 수정할거야.
