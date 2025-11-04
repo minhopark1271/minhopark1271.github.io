@@ -13,6 +13,44 @@ nav_order: 50
 1. TOC
 {:toc}
 
+---
+
+## Git Worktree 개념
+
+### 다른 디렉토리에 다른 브랜치로 checkout  
+
+```
+project/.git/
+project/                 (main branch)
+project-feature/         (feature branch)
+```
+
+같은 .git 저장소를 공유하지만  
+각 디렉토리는 서로 다른 브랜치를 가리킴
+
+### 주요 명령어
+
+```
+# 현재 연결된 worktree 목록 확인
+git worktree list
+
+# 새로운 worktree 디렉터리 생성 및 브랜치 checkout
+git worktree add ../newdir branch_name
+
+# 해당 worktree 제거
+git worktree remove ../newdir
+
+# 삭제된 worktree 정보 정리
+git worktree prune
+```
+
+### 특징
+
+- 로컬에 clone 받아서 다른 브랜치를 편집하는 것과 같은 효과
+- 로컬 repo 하나만 유지한 채로 clone을 여러번 한 것 같은 효과 - 여러 브랜치 동시에 유지 가능
+- .git 폴더는 루트 repo에만 존재하고, worktree 쪽은 .git 파일(포인터)만 있음.
+- worktree를 수동으로 삭제하면 git worktree prune으로 정리 필요.
+
 --- 
 
 ## Git Worktree 사용 시나리오
