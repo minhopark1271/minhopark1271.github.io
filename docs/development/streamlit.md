@@ -17,6 +17,10 @@ nav_order: 40
 
 ## Links
 
+- [Streamlit.io](https://streamlit.io/)
+
+### Docs
+
 - [Multi-Page App](https://docs.streamlit.io/get-started/tutorials/create-a-multipage-app)
 - [Cheat sheet](https://docs.streamlit.io/develop/quick-reference/cheat-sheet)
 - [API reference(tools)](https://docs.streamlit.io/develop/api-reference)
@@ -31,6 +35,12 @@ nav_order: 40
    - Custom components
    - Configuration and theming
    - App testing
+
+### Gallery
+
+- [Gallery - Finance & business](https://streamlit.io/gallery?category=finance-business)
+- [Gallery - Stock peer analysis demo](https://demo-stockpeers.streamlit.app/?ref=streamlit-io-gallery-finance-business)
+- [GitHub - Stock peer analysis demo folk](https://github.com/minhopark1271/demo-stockpeers)
 
 ---
 
