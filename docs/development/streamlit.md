@@ -36,3 +36,4 @@ nav_order: 40
 
 ## App에 DB 바로 물리기 <-> API 서버 + App
 
+App 여러가지 운용하려면 API 서버가 있어야함.
