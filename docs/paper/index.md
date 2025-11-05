@@ -1,6 +1,6 @@
 ---
 title: 논문
-nav_order: 50
+nav_order: 60
 has_children: true
 ---
 

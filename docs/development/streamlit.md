@@ -48,3 +48,10 @@ nav_order: 40
 
 App 여러 형태 (웹/모바일, 이해관계자별) 운용할 때  
 I/O 재사용 하려면 API 서버 따로 떼야함.
+
+---
+
+## Plotting Library
+
+- [Vega-Altair](https://altair-viz.github.io/)
+- [Vega-Altair Candlestick Chart](https://altair-viz.github.io/gallery/candlestick_chart.html)
