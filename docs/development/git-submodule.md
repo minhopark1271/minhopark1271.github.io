@@ -28,17 +28,17 @@ git project안에 다른 git project를 넣으면
 
 ```
 # 서브모듈 추가
-git submodule add https://github.com/example/library.git library
+git submodule add https://github.com/example/sub-proj.git sub-proj
 
 # 서브모듈 초기화 및 클론
 git submodule init
 git submodule update
 
 # 최신 버전으로 업데이트
-cd library
-git pull origin main
+cd sub-proj
+git pull
 cd ..
-git add external/library
+git add sub-proj
 git commit -m "Update submodule to latest"
 ```
 
