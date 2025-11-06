@@ -24,6 +24,8 @@ nav_order: 60
 git project안에 다른 git project를 넣으면  
 상위 저장소가 하위 저장소의 .git을 추적하지 않음.
 
+---
+
 ## 초기화
 
 ```
@@ -41,6 +43,8 @@ cd ..
 git add sub-proj
 git commit -m "Update submodule to latest"
 ```
+
+---
 
 ## 수정 및 푸시 절차
 
@@ -75,6 +79,8 @@ git commit -m "Update submodule to latest commit"
 git push
 ```
 
+---
+
 ## 상위 저장소 클론 받을 때 서브모듈 초기화
 
 ### 새로 클론할 때
@@ -88,6 +94,8 @@ git clone --recurse-submodules <url>
 ```
 git submodule update --init --recursive
 ```
+
+---
 
 ## 원격 변경사항 반영
 
