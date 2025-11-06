@@ -89,7 +89,7 @@ git clone --recurse-submodules <url>
 git submodule update --init --recursive
 ```
 
-## 다른 사람이 원격 변경사항 반영할 때
+## 원격 변경사항 반영
 
 ```
 git submodule init
