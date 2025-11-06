@@ -106,6 +106,7 @@ plugins:
 정보를 카테고리별로 깔끔하게 정리하고 추후 검색하기 용이한 템플릿으로 판단.  
 just-the-docs에서 사용하는 검색에 사용하는 lunr라이브러리가 기본적으로 한국어 지원을 하지 않아서 한국어 검색 기능을 커스텀으로 추가.  
 [참고; lunr-languages](https://github.com/MihaiValentin/lunr-languages)
+[블로그 - just the docs 사용한 사람](https://devshjeon.github.io/12)
 
 ### Jekyll 사이트 초기화
 ```bash
