@@ -30,6 +30,7 @@ nav_enabled: true
 
 # Auxiliary links
 aux_links:
+  "Antenna": "http://localhost:8501"
   "LinkedIn": "https://www.linkedin.com/in/minho-park-"
   "GitHub": "https://github.com/minhopark1271/minhopark1271.github.io"
 aux_links_new_tab: true
