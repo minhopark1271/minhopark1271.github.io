@@ -3,3 +3,19 @@
 <script src="{{ '/assets/js/vendor/lunr.stemmer.support.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/vendor/lunr.multi.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/vendor/lunr.ko.js' | relative_url }}"></script>
+
+<!-- MathJax for LaTeX equation rendering -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
