@@ -1,7 +1,7 @@
 ---
 title: 기술 지표
 parent: 투자
-nav_order: 20
+nav_order: 2
 ---
 
 # 차트 지표

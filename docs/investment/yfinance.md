@@ -1,7 +1,7 @@
 ---
 title: yfinance
 parent: 투자
-nav_order: 10
+nav_order: 1
 ---
 
 # Financial data source - yfinance lib.
