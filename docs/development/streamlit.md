@@ -1,7 +1,7 @@
 ---
 title: Streamlit
 parent: 개발
-nav_order: 40
+nav_order: 4
 ---
 
 # Streamlit

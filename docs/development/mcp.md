@@ -1,7 +1,7 @@
 ---
 title: MCP 개요
-parent: MCP
-nav_order: 10
+parent: 개발
+nav_order: 7
 ---
 
 # MCP(Model Context Protocol)

@@ -1,7 +1,7 @@
 ---
 title: Spec Kit 2
-parent: SDD
-nav_order: 20
+parent: 개발
+nav_order: 11
 ---
 
 # Spec Kit 기존 프로젝트 개선에 사용 - Trial & Error Season 2

@@ -1,7 +1,7 @@
 ---
 title: Git Worktree
 parent: 개발
-nav_order: 50
+nav_order: 5
 ---
 
 # Git Worktree

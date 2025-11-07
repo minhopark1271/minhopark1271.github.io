@@ -1,7 +1,7 @@
 ---
 title: Github Pages
 parent: 개발
-nav_order: 10
+nav_order: 1
 ---
 
 # GitHub Pages 사용한 블로그 생성 및 배포

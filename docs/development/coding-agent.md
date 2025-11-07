@@ -1,7 +1,7 @@
 ---
 title: Coding Agent
 parent: 개발
-nav_order: 30
+nav_order: 3
 ---
 
 # Coding Agent

@@ -1,7 +1,7 @@
 ---
 title: UV
 parent: 개발
-nav_order: 20
+nav_order: 2
 ---
 
 # UV

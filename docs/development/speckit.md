@@ -1,6 +1,6 @@
 ---
 title: Spec Kit
-parent: SDD
+parent: 개발
 nav_order: 10
 ---
 

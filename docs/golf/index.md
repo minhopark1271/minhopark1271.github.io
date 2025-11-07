@@ -1,6 +1,6 @@
 ---
 title: 골프
-nav_order: 60
+nav_order: 40
 has_children: true
 ---
 

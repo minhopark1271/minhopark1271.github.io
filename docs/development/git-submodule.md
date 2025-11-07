@@ -1,7 +1,7 @@
 ---
 title: Git Submodule
 parent: 개발
-nav_order: 60
+nav_order: 6
 ---
 
 # Git Submodule
