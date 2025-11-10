@@ -17,4 +17,4 @@ nav_order: 13
 
 ## 뭐노
 
-[https://github.com/SuperClaude-Org/SuperClaude_Framework]()
+[SuperClaude](https://github.com/SuperClaude-Org/SuperClaude_Framework)
