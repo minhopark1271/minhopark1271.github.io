@@ -41,7 +41,20 @@ nav_order: 7
 | **cdor**   | CoinDesk DeFi Rate                                            | 탈중앙금융(DeFi) 프로토콜의 예치율 및 대출금리 등을 종합해 만든 **탈중앙금융 금리지수(DeFi Reference Rate)**. |
 | **sda**    | CoinDesk Smart Contract Platform Index                         | 스마트 컨트랙트 플랫폼(예: ETH, ADA, SOL 등) 관련 토큰들의 가격을 종합해 산출된 지수로, L1 생태계의 흐름을 반영. |
 
-Market별 가용한 Instruments 조회하려니 브라우저에서는 타임아웃.
+### Market, Instrument pairs
+
+Market별 가용한 Instruments 조회하려니 브라우저에서는 타임아웃.  
+
+참조할만한 인덱스 목록 (binance x 10 스케일 볼륨):
+
+- cadli, BTC-USD
+- cadli, BTC-USDT
+- cadli, ETH-USD
+- cadli, ETH-USDT
+- ccix, BTC-USD
+- ccix, BTC-USDT
+- ccix, ETH-USD
+- ccix, ETH-USDT
 
 ### Fare Rates
 
@@ -65,14 +78,49 @@ Market별 가용한 Instruments 조회하려니 브라우저에서는 타임아�
 - [OHLCV](https://data-api.coindesk.com/futures/v1/historical/minutes?market=binance&instrument=BTC-USDT-VANILLA-PERPETUAL&limit=1&aggregate=1&fill=true&apply_mapping=true&response_format=JSON&to_ts=1762822793)
 - [Market](https://data-api.coindesk.com/futures/v2/markets)
 - [Market specific](https://data-api.coindesk.com/futures/v2/markets?markets=binance)
-- [Instrument](https://data-api.coindesk.com/future/v1/markets/instruments?market=binance&instrument_status=ACTIVE)
+- [Instrument](https://data-api.coindesk.com/futures/v1/markets/instruments?market=binance&instrument_status=ACTIVE)
 - [Instrument specific](https://data-api.coindesk.com/futures/v1/markets/instruments?market=kraken&instruments=BTC-USD-INVERSE-PERPETUAL,ETH-USD-INVERSE-PERPETUAL&instrument_status=ACTIVE)
+
+### OHLCV 응답 주요 변수
+
+- TIMESTAMP
+- MARKET
+- MAPPED_INSTRUMENT
+- QUOTE_CURRENCY
+- SETTLEMENT_CURRENCY
+- OPEN
+- HIGH
+- LOW
+- CLOSE
+- VOLUME
+- VOLUME_BUY
+- VOLUME_SELL
+
+### Market, Instrument pairs
+
+binance
+
+- BTC-USD-INVERSE-20251226
+- BTC-USD-INVERSE-20260327
+- BTC-USD-INVERSE-PERPETUAL
+- BTC-USDC-VANILLA-PERPETUAL
+- BTC-USDT-VANILLA-20251226
+- BTC-USDT-VANILLA-20260327
+- BTC-USDT-VANILLA-PERPETUAL
+
+- ETH-USD-INVERSE-20251226
+- ETH-USD-INVERSE-20260327
+- ETH-USD-INVERSE-PERPETUAL
+- ETH-USDC-VANILLA-PERPETUAL
+- ETH-USDT-VANILLA-20251226
+- ETH-USDT-VANILLA-20260327
+- ETH-USDT-VANILLA-PERPETUAL
 
 ### OI OHLC+
 
 - [Open Interest OHLC+](https://data-api.coindesk.com/futures/v1/historical/open-interest/minutes?market=binance&instrument=BTC-USDT-VANILLA-PERPETUAL&limit=1&aggregate=1&fill=true&apply_mapping=true&response_format=JSON&to_ts=1762822793)
 
-**응답 주요 변수** (response['Data'] array 내)
+**응답 주요 변수**
 
 - TIMESTAMP
 - MARKET
@@ -83,22 +131,18 @@ Market별 가용한 Instruments 조회하려니 브라우저에서는 타임아�
 - CONTRACT_CURRENCY: BTC
 - OPEN_SETTLEMENT
 - OPEN_MARK_PRICE
-- OPEN_QUOTE
 - HIGH_SETTLEMENT
 - HIGH_MARK_PRICE
-- HIGH_QUOTE
 - LOW_SETTLEMENT
 - LOW_MARK_PRICE
-- LOW_QUOTE
-- CLOSE_SETTLEMENT
-- CLOSE_MARK_PRICE
-- CLOSE_QUOTE
+- CLOSE_SETTLEMENT **<< 요거 두개만 넣어도 될듯**
+- CLOSE_MARK_PRICE **<< 요거 두개만 넣어도 될듯**
 
 ### FR OHLC+
 
 - [Funding Rate OHLC+](https://data-api.coindesk.com/futures/v1/historical/funding-rate/minutes?market=binance&instrument=BTC-USDT-VANILLA-PERPETUAL&limit=1&aggregate=1&fill=true&apply_mapping=true&response_format=JSON&to_ts=1762822793)
 
-**응답 주요 변수** (response['Data'] array 내)
+**응답 주요 변수**
 
 - TIMESTAMP
 - MARKET
@@ -110,6 +154,4 @@ Market별 가용한 Instruments 조회하려니 브라우저에서는 타임아�
 - OPEN
 - HIGH
 - LOW
-- CLOSE
-
----
+- CLOSE **<< 요거만 넣어도 될듯**
