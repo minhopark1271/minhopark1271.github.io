@@ -17,7 +17,8 @@ nav_order: 7
 
 ## APIs
 
-[APIs Introduction](https://developers.coindesk.com/documentation/data-api/introduction)
+- [APIs Introduction](https://developers.coindesk.com/documentation/data-api/introduction)
+- [API Keys](https://developers.coindesk.com/settings/api-keys)
 
 ---
 
@@ -96,24 +97,15 @@ Market별 가용한 Instruments 조회하려니 브라우저에서는 타임아�
 - VOLUME_BUY
 - VOLUME_SELL
 
-### Market, Instrument pairs
+### Market, Instrument pairs of interest
 
 binance
 
-- BTC-USD-INVERSE-20251226
-- BTC-USD-INVERSE-20260327
 - BTC-USD-INVERSE-PERPETUAL
 - BTC-USDC-VANILLA-PERPETUAL
-- BTC-USDT-VANILLA-20251226
-- BTC-USDT-VANILLA-20260327
 - BTC-USDT-VANILLA-PERPETUAL
-
-- ETH-USD-INVERSE-20251226
-- ETH-USD-INVERSE-20260327
 - ETH-USD-INVERSE-PERPETUAL
 - ETH-USDC-VANILLA-PERPETUAL
-- ETH-USDT-VANILLA-20251226
-- ETH-USDT-VANILLA-20260327
 - ETH-USDT-VANILLA-PERPETUAL
 
 ### OI OHLC+
