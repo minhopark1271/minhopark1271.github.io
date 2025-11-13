@@ -1,10 +1,10 @@
 ---
-title: POC모델
+title: SWING 모델
 parent: 투자
 nav_order: 6
 ---
 
-# POC 모델 구성
+# SWING 모델 구성
 {:.no_toc}
 
 ## 목차
@@ -12,6 +12,25 @@ nav_order: 6
 
 1. TOC
 {:toc}
+
+---
+
+## Target
+
+- BTC, ETH
+- BTC, ETH는 변동성이 상대적으로 낮고 안정성은 높으므로 긴 시간텀 거래에 적합
+
+### 아이디어
+
+- BTC, ETH OHLCV 자체의 시계열 패턴
+- 시장간 가격 차이에 따른 패턴: cadli, ccix, bianace BTC/USDT, upbit BTC/KRW
+- 선물시장의 가격, 거래량, Open interest, Funding rate 패턴과의 연관성
+   - binance BTC-USDT-VANYLLA-PERPETUAL: OHLCV, Open interest, Funding rate
+   - binance BTC-USDC-VANYLLA-PERPETUAL: OHLCV, Open interest, Funding rate
+   - binance BTC-USD-INVERSE-PERPETUAL: OHLCV, Open interest, Funding rate
+- BTC <> ETH <> 나머지 코인간 연관성
+- BTC <> 금(GC) <> 달러인덱스(DXY) <> 미국채선물(ZN, ZF, ...) <> 공포지수(VIX) <> 암호화폐 탐욕지수 (Crypto F&G)간 연관성
+- 이 중에 중요하고 입수가능한 몇가지를 입력으로 사용해보자
 
 ---
 
