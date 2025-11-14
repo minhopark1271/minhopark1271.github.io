@@ -17,4 +17,7 @@ nav_order: 7
 
 ## Target
 
-- XRP, SOL, ZEC, DOGE
+- BTC, ETH
+- XRP, SOL, ADA, ZEC, DOGE
+
+### TBU
