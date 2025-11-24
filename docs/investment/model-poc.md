@@ -2,6 +2,7 @@
 title: SWING 모델
 parent: 투자
 nav_order: 6
+math: true
 ---
 
 # SWING 모델 구성
@@ -50,7 +51,7 @@ nav_order: 6
 
 **가격변동구간별 확률**
 - 종가 기준 + (Min, Max)
-- 절대가격기준 -10 ~ +10
+- 절대가격기준 -10% ~ +10%
 - 세부 수치는 데이터를 한 번 보고 정하자
 
 ### 출력의 활용
@@ -182,7 +183,3 @@ ETH cadli OHLCV 데이터
 - **방법**: 기준 거래소 가격 대비 상대 비율
 - **공식**: $Spread^{(ex)}_t = \frac{P^{(ex)}_t - P^{(ref)}_t}{P^{(ref)}_t}$
 - **비고**: 여러 거래소(ex)를 집합으로 관리: Upbit KRW, Binance USDC, Coinbase USD 등
-
-**환율 정규화 프리미엄 (FX-Normalized Premium)**
-- **필요**: KRW, USD 등 통화 단위가 다르면 실시간 혹은 일별 USD/KRW 환율 $FX_{KRW\to USD,t}$ 필요
-- **공식 (KRW 시장)**: $Premium^{KRW}_t = \frac{P^{KRW}_t / FX_{KRW\to USD,t} - P^{USDT}_t}{P^{USDT}_t}$
