@@ -211,4 +211,4 @@ ETH cadli OHLCV 데이터
 - 적절 에폭 수 1단계 기반으로 고정
 - 목적 함수: Train MAE
 - 성능 테스트: 없음
-- Early stop: Val MAE (과적합 방지 목적, 하이퍼파라미터 튜닝용도 아님)
+- Early stop: Val MAE (과적합 방지 목적, 하이퍼파라미터 튜닝 용도 아님)
