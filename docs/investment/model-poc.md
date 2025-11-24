@@ -41,8 +41,8 @@ math: true
 
 ### Input: 1D, 1H 조합
 
-- 1D x 60 : 2달간의 장기 추세
-- 1H x 168 (24 * 7) : 7일간의 단기 추세
+- 1D x 14 : 2주간의 중기 추세
+- 1H x 72 (24 * 3) : 3일간의 단기 추세
 
 ### 출력
 
@@ -183,3 +183,32 @@ ETH cadli OHLCV 데이터
 - **방법**: 기준 거래소 가격 대비 상대 비율
 - **공식**: $Spread^{(ex)}_t = \frac{P^{(ex)}_t - P^{(ref)}_t}{P^{(ref)}_t}$
 - **비고**: 여러 거래소(ex)를 집합으로 관리: Upbit KRW, Binance USDC, Coinbase USD 등
+
+---
+
+## 학습 데이터 운용 전략
+
+- 기간별 결손 데이터는 zero-fill 하고 결손 index 추가
+
+### 1단계 학습 - 연구/튜닝 단계
+
+- Train: 2020.01. ~ 2024.12.
+- Validation: 2025.01. ~ 2025.06.
+- Test: 2025.07. ~
+
+**학습 절차**
+- 학습: 모델 구조, 윈도우 길이, hidden size, LR, regularization, epoch, batch 등 Train/Validation Set 이용하여 최적 도출
+- 목적 함수: Val MAE
+- 성능 테스트: Test set 사용
+
+### 2단계 학습 - 운영 모델 최적 학습
+
+- Train: 2020.01. ~ 2025.09.
+- Validation: 2025.10. ~
+- Test: 없음
+
+**학습 절차**
+- 적절 에폭 수 1단계 기반으로 고정
+- 목적 함수: Train MAE
+- 성능 테스트: 없음
+- Early stop: Val MAE (과적합 방지 목적, 하이퍼파라미터 튜닝용도 아님)
