@@ -121,7 +121,7 @@ L_total = λ_reg * L_reg + λ_cls * L_cls
 
 ### Indicators 계산 대상
 
-ETH cadli OHLCV 데이터
+cadli ETH-USDT OHLCV 데이터
 
 ### 요소 요약
 
@@ -185,6 +185,10 @@ ETH cadli OHLCV 데이터
 - **공식**: $Hour_{sin} = \sin(2\pi \cdot hour / 24)$, $Hour_{cos} = \cos(2\pi \cdot hour / 24)$
 - **비고**: 시간대별 거래량 및 변동성 주기를 순환적으로 표현
 
+### 선물 요소 대상
+
+- binance ETH-USDT-VANILLA-PERPETUAL
+
 ### 선물 가격 프리미엄
 
 - **방법**: 현물 대비 선물 가격 프리미엄 비율
@@ -202,7 +206,6 @@ ETH cadli OHLCV 데이터
   - 극단적 스파이크(청산, 뉴스 이벤트)를 완화하면서 규모 비교 가능
   - 변화율 대신 절대적 유입 강도를 직접 반영 (모멘텀 초기 구간에서 유리)
   - Spot 대비 비율(Volume Ratio)와 조합하여 선물 단독 vs 상대적 활성도 모두 포착
-  - USDT/USDC 중 거래량이 많은 것, USD-INVERSE 각각 계산
 
 ### 선물 거래량 비율
 
@@ -211,7 +214,6 @@ ETH cadli OHLCV 데이터
 - **비고**: 
   - 선물 거래 활성도가 높을수록 양수 증가
   - 시장 관심도 및 레버리지 포지션 규모 반영
-  - USDT/USDC 중 거래량이 많은 것, USD-INVERSE 각각 계산
 
 ### Open Interest 변화율
 
@@ -220,7 +222,6 @@ ETH cadli OHLCV 데이터
 - **비고**: 
   - 변화율: 새로운 포지션 유입/청산 속도
   - 급격한 변화는 청산 위험 또는 강한 추세 신호
-  - USDT/USDC 중 거래량이 많은 것, USD-INVERSE 각각 계산
 
 ### Funding Rate
 
@@ -229,16 +230,22 @@ ETH cadli OHLCV 데이터
 - **비고**: 
   - 양수(보통 0~0.1%): Long이 Short에게 지불 → 롱 과열
   - 음수: Short이 Long에게 지불 → 숏 과열  
-  - USDT/USDC 중 거래량이 많은 것, USD-INVERSE 각각 계산
 
-### 시장간 가격 차이 요소 - 환율 필요
+### 시장간 가격 차이 요소
 
 현물 시장 간 가격 괴리(프리미엄/디스카운트)는 단기 수급, 자본 유입/유출, 지역 규제 및 온/오프램프 비용을 반영하는 선행/확인 지표가 될 수 있다. 기준(Reference) 가격을 하나 정하고 다른 시장 가격을 이 기준에 상대화한다.
 
 **기본 상대 프리미엄 (Relative Spread)**
 - **방법**: 기준 거래소 가격 대비 상대 비율
 - **공식**: $Spread^{(ex)}_t = \frac{P^{(ex)}_t - P^{(ref)}_t}{P^{(ref)}_t}$
-- **비고**: 여러 거래소(ex)를 집합으로 관리: Upbit KRW, Binance USDC, Coinbase USD 등
+- 기준 가격은 cadli ETH-USDT, 시장 가격은 binance ETH-USDT
+
+### 연관 자산 가격 요소
+
+cadli BTC-USDT OHLCV 기준
+
+- 가격: 로그수익률($r_t=\ln(C_t/C_{t-1})$), r1, r6, r24
+- 거래량: 로그 거래량 ($v = \ln(1+V)$)
 
 ---
 
