@@ -46,9 +46,9 @@ math: true
 
 ### 출력
 
-- 향후 1일간 Min
-- 향후 1일간 Max
-- 1일 후 종가
+- 향후 1일간 Min 변동률
+- 향후 1일간 Max 변동률
+- 1일 후 종가 변동률
 - 현재가 대비 1일 후 종가의 변동률 구간별 확률
    - -5% 이하
    - -5 ~ -3 %
@@ -158,8 +158,10 @@ cadli ETH-USDT OHLCV 데이터
 
 ### Volume
 
-- **방법**: 로그 거래량
-- **공식**: $v = \ln(1+V)$  
+- **방법**: 로그 거래량 및 상대 거래량 (20이동평균 대비)
+- **공식**: 
+  - $v = \ln(1+V)$
+  - $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$  
 
 ### Month
 
@@ -200,8 +202,10 @@ cadli ETH-USDT OHLCV 데이터
 
 ### 선물 거래량
 
-- **방법**: 선물 거래량 자체를 로그 스케일로 변환해 크기(절대 활성도)를 안정화
-- **공식**: $FV_t = \ln(1 + V_{futures,t})$
+- **방법**: 선물 거래량 로그 스케일 및 상대 거래량
+- **공식**: 
+  - $FV_t = \ln(1 + V_{futures,t})$
+  - $FV_{rel,t} = \ln((1+V_{futures,t})/(1+MA_{20}(V_{futures,t})))$
 - **비고**: 
   - 극단적 스파이크(청산, 뉴스 이벤트)를 완화하면서 규모 비교 가능
   - 변화율 대신 절대적 유입 강도를 직접 반영 (모멘텀 초기 구간에서 유리)
@@ -235,8 +239,8 @@ cadli ETH-USDT OHLCV 데이터
 
 ### Funding Rate
 
-- **방법**: 직접 사용 (이미 정규화된 비율)
-- **공식**: $FR_t$ (as-is)
+- **방법**: 퍼센트 단위로 스케일링
+- **공식**: $FR_t \times 100$ (%)
 - **비고**: 
   - 양수(보통 0~0.1%): Long이 Short에게 지불 → 롱 과열
   - 음수: Short이 Long에게 지불 → 숏 과열  
@@ -255,7 +259,7 @@ cadli ETH-USDT OHLCV 데이터
 cadli BTC-USDT OHLCV 기준
 
 - 가격: 로그수익률($r_t=\ln(C_t/C_{t-1})$), r1, r6, r24
-- 거래량: 로그 거래량 ($v = \ln(1+V)$)
+- 거래량: 로그 거래량 ($v = \ln(1+V)$), 상대 거래량 ($v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$)
 
 ### 입력 총정리
 
@@ -270,6 +274,7 @@ cadli BTC-USDT OHLCV 기준
 | | RSI14_norm | $RSI^\pm_t = (RSI_t - 50)/50$ | [-1,1]로 정규화된 RSI |
 | **변동성** | ATR14_rel | $ATR^\ast_t = ATR_t / C_t$ | 종가 대비 상대 변동성 |
 | **거래량** | log_volume | $v = \ln(1+V)$ | 로그 거래량 (ETH-USDT) |
+| | rel_log_volume | $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$ | 20일 이동평균 대비 상대 거래량 (로그) |
 | **계절성** | month_sin | $\sin(2\pi \cdot month / 12)$ | 월 주기 인코딩 (sin) |
 | | month_cos | $\cos(2\pi \cdot month / 12)$ | 월 주기 인코딩 (cos) |
 | | day_sin | $\sin(2\pi \cdot day / 31)$ | 일 주기 인코딩 (sin) |
@@ -280,15 +285,17 @@ cadli BTC-USDT OHLCV 기준
 | | hour_cos | $\cos(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (cos) |
 | **선물 가격** | futures_premium | $Premium_t = (F_t - S_t) / S_t$ | 현물 대비 선물 프리미엄 |
 | **선물 거래량** | futures_log_volume | $FV_t = \ln(1 + V_{futures,t})$ | 선물 거래량 (로그) |
+| | futures_rel_log_volume | $FV_{rel,t} = \ln((1+V_{futures,t})/(1+MA_{20}(V_{futures,t})))$ | 선물 20일 이동평균 대비 상대 거래량 (로그) |
 | | volume_ratio | $VR_t = \ln(V_{futures} / V_{spot})$ | 현물 대비 선물 거래량 비율 |
 | **선물 지표** | oi_change | $\Delta OI_t = \ln(OI_t / OI_{t-1})$ | Open Interest 변화율 |
 | | mark_spread | $MarkSpread_t = \frac{Mark_t - S_t}{S_t}$ | Mark Price와 현물 가격 간 차이 |
-| | funding_rate | $FR_t$ (as-is) | Funding Rate (직접 사용) |
+| | funding_rate | $FR_t \times 100$ | Funding Rate (%) |
 | **시장간 차이** | spot_spread | $Spread^{(ex)}_t = \frac{P^{(binance)}_t - P^{(cadli)}_t}{P^{(cadli)}_t}$ | cadli 대비 binance 현물 가격 차이 |
 | **연관 자산 (BTC)** | btc_r1 | $r_t=\ln(C_t/C_{t-1})$ | BTC 1시간 로그수익률 |
 | | btc_r6 | $r_t=\ln(C_t/C_{t-6})$ | BTC 6시간 로그수익률 |
 | | btc_r24 | $r_t=\ln(C_t/C_{t-24})$ | BTC 24시간 로그수익률 |
 | | btc_log_volume | $v = \ln(1+V)$ | BTC 로그 거래량 |
+| | btc_rel_log_volume | $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$ | BTC 20일 이동평균 대비 상대 거래량 (로그) |
 | **결손 지표** | missing_oi | 0/1 | OI 데이터 결손 여부 |
 | | missing_fr | 0/1 | FR 데이터 결손 여부 |
 
