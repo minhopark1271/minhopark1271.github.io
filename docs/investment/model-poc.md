@@ -223,6 +223,16 @@ cadli ETH-USDT OHLCV 데이터
   - 변화율: 새로운 포지션 유입/청산 속도
   - 급격한 변화는 청산 위험 또는 강한 추세 신호
 
+### Mark Price
+
+- **방법**: 선물 Mark Price와 현물 가격 간의 차이
+- **공식**: $MarkSpread_t = \frac{Mark_t - S_t}{S_t}$
+- **비고**: 
+  - Mark Price는 여러 거래소 현물 가격의 가중평균으로 산출
+  - 선물 가격과 달리 자금조달료 영향을 받지 않는 "공정한" 기준 가격
+  - Mark Price > Spot: 선물시장 프리미엄 지속적 존재
+  - 극단적 괴리는 자금조달료 급변동 또는 시장 불안정성 신호
+
 ### Funding Rate
 
 - **방법**: 직접 사용 (이미 정규화된 비율)
@@ -247,6 +257,44 @@ cadli BTC-USDT OHLCV 기준
 - 가격: 로그수익률($r_t=\ln(C_t/C_{t-1})$), r1, r6, r24
 - 거래량: 로그 거래량 ($v = \ln(1+V)$)
 
+### 입력 총정리
+
+| 카테고리 | 피쳐명 | 공식/방법 | 설명 |
+|---------|-------|-----------|------|
+| **가격 (ETH-USDT)** | r1 | $r_t=\ln(C_t/C_{t-1})$ | 1시간 로그수익률 |
+| | r6 | $r_t=\ln(C_t/C_{t-6})$ | 6시간 로그수익률 |
+| | r24 | $r_t=\ln(C_t/C_{t-24})$ | 24시간 로그수익률 |
+| **추세 지표** | EMA12_dev | $d_t=(C_t-EMA_{12})/C_t$ | 종가 대비 EMA12 편차 비율 |
+| | EMA26_dev | $d_t=(C_t-EMA_{26})/C_t$ | 종가 대비 EMA26 편차 비율 |
+| | MACD_hist_norm | $Hist. = (MACD-Signal)/ATR$ | ATR로 정규화된 MACD 히스토그램 |
+| | RSI14_norm | $RSI^\pm_t = (RSI_t - 50)/50$ | [-1,1]로 정규화된 RSI |
+| **변동성** | ATR14_rel | $ATR^\ast_t = ATR_t / C_t$ | 종가 대비 상대 변동성 |
+| **거래량** | log_volume | $v = \ln(1+V)$ | 로그 거래량 (ETH-USDT) |
+| **계절성** | month_sin | $\sin(2\pi \cdot month / 12)$ | 월 주기 인코딩 (sin) |
+| | month_cos | $\cos(2\pi \cdot month / 12)$ | 월 주기 인코딩 (cos) |
+| | day_sin | $\sin(2\pi \cdot day / 31)$ | 일 주기 인코딩 (sin) |
+| | day_cos | $\cos(2\pi \cdot day / 31)$ | 일 주기 인코딩 (cos) |
+| | weekday_sin | $\sin(2\pi \cdot weekday / 7)$ | 요일 주기 인코딩 (sin) |
+| | weekday_cos | $\cos(2\pi \cdot weekday / 7)$ | 요일 주기 인코딩 (cos) |
+| | hour_sin | $\sin(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (sin) |
+| | hour_cos | $\cos(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (cos) |
+| **선물 가격** | futures_premium | $Premium_t = (F_t - S_t) / S_t$ | 현물 대비 선물 프리미엄 |
+| **선물 거래량** | futures_log_volume | $FV_t = \ln(1 + V_{futures,t})$ | 선물 거래량 (로그) |
+| | volume_ratio | $VR_t = \ln(V_{futures} / V_{spot})$ | 현물 대비 선물 거래량 비율 |
+| **선물 지표** | oi_change | $\Delta OI_t = \ln(OI_t / OI_{t-1})$ | Open Interest 변화율 |
+| | mark_spread | $MarkSpread_t = \frac{Mark_t - S_t}{S_t}$ | Mark Price와 현물 가격 간 차이 |
+| | funding_rate | $FR_t$ (as-is) | Funding Rate (직접 사용) |
+| **시장간 차이** | spot_spread | $Spread^{(ex)}_t = \frac{P^{(binance)}_t - P^{(cadli)}_t}{P^{(cadli)}_t}$ | cadli 대비 binance 현물 가격 차이 |
+| **연관 자산 (BTC)** | btc_r1 | $r_t=\ln(C_t/C_{t-1})$ | BTC 1시간 로그수익률 |
+| | btc_r6 | $r_t=\ln(C_t/C_{t-6})$ | BTC 6시간 로그수익률 |
+| | btc_r24 | $r_t=\ln(C_t/C_{t-24})$ | BTC 24시간 로그수익률 |
+| | btc_log_volume | $v = \ln(1+V)$ | BTC 로그 거래량 |
+| **결손 지표** | missing_oi | 0/1 | OI 데이터 결손 여부 |
+| | missing_fr | 0/1 | FR 데이터 결손 여부 |
+
+- **일별 데이터 (14일)**: 가격, 추세, 변동성, 거래량, 계절성, 선물 지표, 시장간 차이, BTC 연관성
+- **시간별 데이터 (72시간)**: 동일 피쳐 + 고빈도 계절성 (시간별)
+
 ---
 
 ## 학습 데이터 운용 전략
@@ -255,8 +303,8 @@ cadli BTC-USDT OHLCV 기준
 
 ### 1단계 학습 - 연구/튜닝 단계
 
-- Train: 2020.01. ~ 2024.12.
-- Validation: 2025.01. ~ 2025.06.
+- Train: 2020.01. ~ 2024.06. (앞 80%)
+- Validation: 2024.07. ~ 2025.06. (뒤 20%)
 - Test: 2025.07. ~
 
 **학습 절차**
