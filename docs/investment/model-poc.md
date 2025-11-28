@@ -321,3 +321,42 @@ cadli BTC-USDT OHLCV 기준
 - 목적 함수: Train MAE
 - 성능 테스트: 없음
 - Early stop: Val MAE (과적합 방지 목적, 하이퍼파라미터 튜닝 용도 아님)
+
+---
+
+## Logs; Trouble shooting & Variations
+
+학습이 잘 안된다...  
+입력에 따른 결과의 패턴이 임의적이고 노이즈가 많아서 학습 가능한 것이 제한적인가봄.  
+
+- training, validation 다 섞어서 과적합이라도 만들어보자.
+- cls, reg loss weight 조정
+- 학습 이후 데이터로 평가부터 일단 해보자.
+- t24를 예상하지 말고 좀 더 단기 (t6, t3)의 결과를 예상해보자.
+- daily feature를 제외시키고, hourly time window를 줄여보자.
+- log, delta, rel 처리한 입력 외에 raw data를 z-score(Standard Scaler)로 정규화한것도 추가하자.
+- 출력을 최대한 단순화 한 것 학습시켜보기: 분류 떼고 Max / Min / Close 일부만 예측하는 모델
+- 시간 스케일 줄여서 데이터 수 늘리기 (indicator 계산 해야함.)
+
+### 1. Train & Validation 다 섞어서 학습한 것
+
+- 이건 학습이 된다.
+- Daily Features가 동일한 셋이 Training, Validation에 같이 들어있어서 거기에 과적합 된듯
+- Classification만 학습했을 때 val_loss 0.8158 까지 학습됨.
+- 예측 성능이 어떤지나 한 번 보자.
+- 168_0.815830_1764233120.weights.h5
+
+### 2. cls, reg loss weight 조정
+
+- Training, Validation 날짜 기준으로만 섞이지 않도록 분리
+- 28_1.915654_1764234673.weights.h5
+- LAMBDA_REG = 5.0, LAMBDA_CLS = 1.0, LR = 0.0001 으로 조정했더니
+- regression, classification 둘다 개선되네
+- 72_1.990571_1764295573.weights.h5
+- LAMBDA_REG = 20.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.00001 으로 조정하고 추가 학습
+- 31_2.312712_1764296652.weights.h5
+- Training, Validation 기간을 앞뒤로 나눠서 분리하고 처음부터 재학습
+- 5, 1, 0.0001
+- 42_2.042198_1764302759.weights.h5
+- 20, 1, 0.00001
+- 61_2.361417_1764304148.weights.h5
