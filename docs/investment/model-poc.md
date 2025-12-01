@@ -345,6 +345,8 @@ cadli BTC-USDT OHLCV 기준
 - Classification만 학습했을 때 val_loss 0.8158 까지 학습됨.
 - 예측 성능이 어떤지나 한 번 보자.
 - 168_0.815830_1764233120.weights.h5
+- LAMBDA_REG = 5.0, LAMBDA_CS = 1.0, LR = 0.0001
+- 1764573663_51_0.7176_acc_0.6400_mae_0.0119_val_acc_0.6790_val_mae_0.0102_history.json
 
 ### 2. cls, reg loss weight 조정
 
@@ -360,3 +362,13 @@ cadli BTC-USDT OHLCV 기준
 - 42_2.042198_1764302759.weights.h5
 - 20, 1, 0.00001
 - 61_2.361417_1764304148.weights.h5
+
+### Learning from 1, 2
+
+- train / val 2024-07-01 기준으로 나눈 것 전혀 학습 안됨. 중간만 찍어냄
+- train / val 날짜 기준으로 80% / 20%로 나눈 것 전혀 학습 안됨. 중간만 찍어냄
+- train / val 무작위로 다 섞은 것 (동일 daily feature가 24개 중복) 학습은 되지만 경향성 거의 없음.
+- train / val을 명확히 분리할수록 경향성보다 무작위성이 커서 학습이 안됨
+- 학습 목표값을 일반적으로 설정할 것이 아니라 특수한 경우에 국한해야 할 것으로 보임.
+   - 7개의 cls 빈 > 2개(상승/하락) 또는 3개(상승/횡보/하락)으로 압축
+   - 특정 position을 취했을 때 수익률이 높은 조건만 찾아내기
