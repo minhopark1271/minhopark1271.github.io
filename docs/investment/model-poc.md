@@ -520,6 +520,42 @@ Regression Correlation Analysis:
     R²: 0.5397
 ```
 
+```
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification:
+  Accuracy: 0.3585
+  Per-class distribution: [('<-0.44', 1207, 1142), ('-0.44~+0.55', 1218, 1587), ('>+0.55', 1224, 920)]
+
+  [Actual > Predicted Distribution]
+    <-0.44 (n=1207): <-0.44: 32.7%, -0.44~+0.55: 39.9%, >+0.55: 27.4%
+    -0.44~+0.55 (n=1218): <-0.44: 30.7%, -0.44~+0.55: 47.9%, >+0.55: 21.3%
+    >+0.55 (n=1224): <-0.44: 30.5%, -0.44~+0.55: 42.6%, >+0.55: 26.9%
+
+  [Predicted > Actual Distribution]
+    <-0.44 (n=1142): <-0.44: 34.6%, -0.44~+0.55: 32.7%, >+0.55: 32.7%
+    -0.44~+0.55 (n=1587): <-0.44: 30.3%, -0.44~+0.55: 36.8%, >+0.55: 32.9%
+    >+0.55 (n=920): <-0.44: 36.0%, -0.44~+0.55: 28.3%, >+0.55: 35.8%
+
+Regression (MAE):
+  Min return: 0.010429
+  Max return: 0.009683
+  Close return: 0.015253
+  Direction accuracy: 0.5056
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: -0.0232, Spearman: -0.0248
+    R²: -0.3469
+  max_return:
+    Pearson: 0.0257, Spearman: 0.0637
+    R²: -0.4091
+  close_return:
+    Pearson: -0.0100, Spearman: 0.0185
+    R²: -0.3774
+```
+
 - 응 예측력 없어.
 
 ---
