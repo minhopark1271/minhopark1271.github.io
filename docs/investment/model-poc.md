@@ -324,7 +324,7 @@ cadli BTC-USDT OHLCV 기준
 
 ---
 
-## Logs; Trouble shooting & Variations
+## Logs; Trouble shooting & Variations ~ 20251202_case1_2
 
 학습이 잘 안된다...  
 입력에 따른 결과의 패턴이 임의적이고 노이즈가 많아서 학습 가능한 것이 제한적인가봄.  
@@ -363,7 +363,7 @@ cadli BTC-USDT OHLCV 기준
 - 20, 1, 0.00001
 - 61_2.361417_1764304148.weights.h5
 
-### Learning from 1, 2
+### Leaning
 
 - train / val 2024-07-01 기준으로 나눈 것 전혀 학습 안됨. 중간만 찍어냄
 - train / val 날짜 기준으로 80% / 20%로 나눈 것 전혀 학습 안됨. 중간만 찍어냄
@@ -377,3 +377,150 @@ cadli BTC-USDT OHLCV 기준
    - 데이터 샘플 부족
    - 수 시간 단위로 예측, 패턴은 수 분 단위로 입력 (Day trading 모델이 더 유리할 것으로 추측)
 - 학습을 더 잘할 수 있는 피쳐 입력해주기 (log, delta, rel > standard scaler) < 확인해보기
+- Daily features를 아예 없애는 것 테스트 해볼 필요 있음
+
+---
+
+## Logs; Trouble shooting & Variations ~ 20251202_case3
+
+### train / val 분리 options
+- Opt 1. 2024-07-01 기준 전/후로 분리
+- Opt 2. 날짜 기준으로 겹치지 않도록 80/20%로 분리
+- Opt 3. 무작위로 섞어서 80/20%로 분리
+
+### Bin 수정
+
+- BIN_LABELS = ['<-0.44', '-0.44~+0.55', '>+0.55']
+
+```
+[Duplicate Analysis for t6]
+  Total rows: 51903
+  Unique values: 51899
+  Duplicate rows: 4
+  Duplicate ratio: 0.01%
+
+  bins = [-29.85, -0.44, 0.55, 31.60]
+
+================================================================================
+6H Forward Return (%) Quintile Distribution
+================================================================================
+quintile_t6  count        min       max      mean    median      std
+          0  17301 -29.853877 -0.443197 -1.869070 -1.305243 1.744667
+          1  17301  -0.443192  0.553733  0.043214  0.036948 0.275149
+          2  17301   0.553920 31.604432  1.997357  1.487582 1.612152
+
+--------------------------------------------------------------------------------
+Total samples: 51903
+Mean: 0.0572%
+Median: 0.0369%
+Std: 2.0971%
+
+--------------------------------------------------------------------------------
+Max return: 31.6044% at 2020-03-13 10:00:00
+Min return: -29.8539% at 2020-03-13 04:00:00
+================================================================================
+```
+
+### Label smoothing with temperature
+
+- 학습해보면 accuracy는 올라가는데 loss도 올라가서 종료되는 경우 있음
+- 각각 bin에 속할 확률이 특정 수준을 넘어 과하게 학습되기 때문 (과적합)
+- 각각 bin에 속할 확률을 좀더 균등분배하기위해 temperature 적용
+
+```
+# org
+clss = Dense(num_classes, activation='softmax', name='clss')(cls_dense)
+
+# modified
+SMOOTHING_TEMPERATURE = 3.0
+cls_logits = Dense(num_classes, activation=None, name='cls_logits')(cls_dense)
+clss = Lambda(lambda x: tf.nn.softmax(x / SMOOTHING_TEMPERATURE), name='cls')(cls_logits)
+```
+
+### 3. Target future slide 24 > 6, bin 7 > 3
+
+- Target future slide를 24에서 6으로 줄이고, bin을 7에서 3개로 줄여도 학습률이 극적으로 개선되지는 않음.
+- 다만 **데이터 분리 옵션 2**, Temperature 3 적용하니 꽤 학습됨
+- LAMBDA_REG = 0.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.0001
+- models/1764654412_66_1.0560_acc_0.3423_mae_0.1190_val_acc_0.3790_val_mae_0.0856.weights.h5
+- 파일명 accuracy max 대신 min 넣은 버그 수정 & DROPOUT_RATE = 0.5,LEARNING_RATE = 0.00001
+- DROPOUT_RATE는 학습 방향의 randomness를 올리기 위해서 0.3 > 0.5로 상향해봄
+- models/1764657511_70_1.0543_acc_0.4581_mae_0.3241_val_acc_0.4274_val_mae_0.1843.weights.h5
+- LAMBDA_REG = 5.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.0001
+- classification 정확도 0.33으로 바로 망가져버리네. Smoothing temperature 써서 비중이 더 크게 적용되는듯
+- LAMBDA_REG = 0.1, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.0001
+- models/1764658800_37_1.0544_acc_0.4858_mae_0.0111_val_acc_0.4292_val_mae_0.0108.weights.h5
+
+```
+=== Evaluation Results (2020-02-03 to 2025-06-30) ===
+Samples: 47377
+
+Classification:
+  Accuracy: 0.4630
+  [Predicted > Actual Distribution]
+    <-0.44 (n=11102): <-0.44: 44.1%, -0.44~+0.55: 25.1%, >+0.55: 30.9%
+    -0.44~+0.55 (n=17949): <-0.44: 26.1%, -0.44~+0.55: 50.1%, >+0.55: 23.9%
+    >+0.55 (n=18326): <-0.44: 34.1%, -0.44~+0.55: 21.9%, >+0.55: 43.9%
+```
+
+```
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification:
+  Accuracy: 0.3689
+  [Predicted > Actual Distribution]
+    <-0.44 (n=536): <-0.44: 37.3%, -0.44~+0.55: 24.6%, >+0.55: 38.1%
+    -0.44~+0.55 (n=2075): <-0.44: 30.3%, -0.44~+0.55: 37.9%, >+0.55: 31.8%
+    >+0.55 (n=1038): <-0.44: 36.4%, -0.44~+0.55: 28.9%, >+0.55: 34.7%
+```
+
+- 결론: 방향성에 대해 1도 학습하지 못한다.
+- 현재 피쳐로는 경향성이 나타나지 않는다. > 피쳐 개선 필요 or 원래 경향이 없나?
+   - Standard scaler 사용한 피쳐 추가
+   - Daily features 날리고 Option 3 사용
+- 분류를 먼저 학습하는 방식 말고 회귀만, 특히 기간 중 min, max만 학습하는 경우 패턴이 있을까?
+- 그래도 모르니 일단 Option 3로 한 번 학습해보자.
+- LAMBDA_REG = 0.1, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.5
+- models/1764665257_215_0.7342_acc_0.7604_mae_0.0081_val_acc_0.6832_val_mae_0.0084.weights.h5
+
+```
+=== Evaluation Results (2020-02-03 to 2025-06-30) ===
+Samples: 47377
+
+Classification:
+  Accuracy: 0.7685
+  Per-class distribution: [('<-0.44', 15829, 15738), ('-0.44~+0.55', 15786, 17830), ('>+0.55', 15762, 13809)]
+
+  [Actual > Predicted Distribution]
+    <-0.44 (n=15829): <-0.44: 80.0%, -0.44~+0.55: 17.8%, >+0.55: 2.2%
+    -0.44~+0.55 (n=15786): <-0.44: 15.5%, -0.44~+0.55: 74.9%, >+0.55: 9.6%
+    >+0.55 (n=15762): <-0.44: 4.0%, -0.44~+0.55: 20.3%, >+0.55: 75.7%
+
+  [Predicted > Actual Distribution]
+    <-0.44 (n=15738): <-0.44: 80.4%, -0.44~+0.55: 15.6%, >+0.55: 4.0%
+    -0.44~+0.55 (n=17830): <-0.44: 15.8%, -0.44~+0.55: 66.3%, >+0.55: 17.9%
+    >+0.55 (n=13809): <-0.44: 2.5%, -0.44~+0.55: 11.0%, >+0.55: 86.4%
+
+Regression (MAE):
+  Min return: 0.007657
+  Max return: 0.007007
+  Close return: 0.008676
+  Direction accuracy: 0.8170
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.6517, Spearman: 0.6759
+    R²: 0.3984
+  max_return:
+    Pearson: 0.6880, Spearman: 0.7098
+    R²: 0.4207
+  close_return:
+    Pearson: 0.7486, Spearman: 0.8324
+    R²: 0.5397
+```
+
+- 응 예측력 없어.
+
+---
+
