@@ -557,6 +557,15 @@ Regression Correlation Analysis:
 ```
 
 - 응 예측력 없어.
+- Bin 7개 > 3개로 줄인 것, Label smoothing with Temp.를 도입했으나
+- 과거 입력의 과적합 외에 예측력 있는 유의미한 패턴을 전혀 학습하지 못했다.
+- 너무 하나도 안맞아서 오히려 신기함.
 
 ---
 
+## Logs; Trouble shooting & Variations ~ 202512XX_case4
+
+### 피쳐 변경
+
+- Daily features 삭제
+- Hourly features, standard scaler로 조정한 입력 변수 추가

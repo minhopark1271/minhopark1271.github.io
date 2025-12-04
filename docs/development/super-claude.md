@@ -1,7 +1,7 @@
 ---
-title: SuperClaude(TBU)
+title: SuperClaude(TODO)
 parent: 개발
-nav_order: 13
+nav_order: 15
 ---
 
 # SuperClaude
@@ -15,6 +15,10 @@ nav_order: 13
 
 --- 
 
-## 뭐노
+## Links
 
 [SuperClaude](https://github.com/SuperClaude-Org/SuperClaude_Framework)
+
+---
+
+## TODO descriptions
