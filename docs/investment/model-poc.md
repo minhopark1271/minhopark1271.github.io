@@ -569,3 +569,50 @@ Regression Correlation Analysis:
 
 - Daily features 삭제
 - Hourly features, standard scaler로 조정한 입력 변수 추가
+
+### 4-1. Daily features 삭제
+
+- Daily features 삭제, Opt3 사용.
+- LAMBDA_REG = 0.1, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.5
+- models/1764844898_284_0.7413_acc_0.7644_mae_0.0083_val_acc_0.6836_val_mae_0.0086.weights.h5
+- 약한 상관성 나타남
+
+```
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification:
+  Accuracy: 0.3738
+  Per-class distribution: [('<-0.44', 1207, 1250), ('-0.44~+0.55', 1218, 1358), ('>+0.55', 1224, 1041)]
+
+  [Actual > Predicted Distribution]
+    <-0.44 (n=1207): <-0.44: 37.4%, -0.44~+0.55: 32.5%, >+0.55: 30.2%
+    -0.44~+0.55 (n=1218): <-0.44: 33.2%, -0.44~+0.55: 43.1%, >+0.55: 23.7%
+    >+0.55 (n=1224): <-0.44: 32.3%, -0.44~+0.55: 36.0%, >+0.55: 31.7%
+
+  [Predicted > Actual Distribution]
+    <-0.44 (n=1250): <-0.44: 36.1%, -0.44~+0.55: 32.3%, >+0.55: 31.6%
+    -0.44~+0.55 (n=1358): <-0.44: 28.9%, -0.44~+0.55: 38.7%, >+0.55: 32.5%
+    >+0.55 (n=1041): <-0.44: 35.0%, -0.44~+0.55: 27.8%, >+0.55: 37.3%
+
+Regression (MAE):
+  Min return: 0.010479
+  Max return: 0.009291
+  Close return: 0.014869
+  Direction accuracy: 0.4966
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.1073, Spearman: 0.0845
+    R²: -0.3079
+  max_return:
+    Pearson: 0.0504, Spearman: 0.0536
+    R²: -0.3362
+  close_return:
+    Pearson: 0.0512, Spearman: 0.0526
+    R²: -0.3186
+```
+
+### 4-1. Daily features 삭제
+
+- LAMBDA_REG = 0.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.3
