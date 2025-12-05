@@ -573,9 +573,9 @@ Regression Correlation Analysis:
 ### 4-1. Daily features 삭제
 
 - Daily features 삭제, Opt3 사용.
-- LAMBDA_REG = 0.1, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.5
+- SMOOTHING_TEMPERATURE = 3.0, LAMBDA_REG = 0.1, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.5
 - models/1764844898_284_0.7413_acc_0.7644_mae_0.0083_val_acc_0.6836_val_mae_0.0086.weights.h5
-- 약한 상관성 나타남
+- 아주 약한 상관성 나타남
 
 ```
 === Evaluation Results (2025-07-01 to 2025-11-30) ===
@@ -613,6 +613,88 @@ Regression Correlation Analysis:
     R²: -0.3186
 ```
 
-### 4-1. Daily features 삭제
+### 4-2. Regression 없애고, smoothing term 없앴을 때 예측 개선이 있는지
 
-- LAMBDA_REG = 0.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.3
+- SMOOTHING_TEMPERATURE = 1.0, LAMBDA_REG = 0.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.3
+- models/1764900243_199_0.7318_acc_0.7732_mae_0.6074_val_acc_0.6912_val_mae_0.4868.weights.h5
+
+``` 
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification:
+  Accuracy: 0.3776
+  Per-class distribution: [('<-0.44', 1207, 1089), ('-0.44~+0.55', 1218, 1393), ('>+0.55', 1224, 1167)]
+
+  [Actual > Predicted Distribution]
+    <-0.44 (n=1207): <-0.44: 33.5%, -0.44~+0.55: 32.6%, >+0.55: 33.9%
+    -0.44~+0.55 (n=1218): <-0.44: 26.6%, -0.44~+0.55: 45.6%, >+0.55: 27.8%
+    >+0.55 (n=1224): <-0.44: 29.5%, -0.44~+0.55: 36.3%, >+0.55: 34.2%
+
+  [Predicted > Actual Distribution]
+    <-0.44 (n=1089): <-0.44: 37.1%, -0.44~+0.55: 29.8%, >+0.55: 33.1%
+    -0.44~+0.55 (n=1393): <-0.44: 28.3%, -0.44~+0.55: 39.8%, >+0.55: 31.9%
+    >+0.55 (n=1167): <-0.44: 35.0%, -0.44~+0.55: 29.0%, >+0.55: 35.9%
+```
+
+### 4-3. Regression은 다시 붙였을 때
+
+- SMOOTHING_TEMPERATURE = 1.0, LAMBDA_REG = 1.0, LAMBDA_CLS = 1.0, LEARNING_RATE = 0.001, DROPOUT_RATE = 0.3
+- models/1764903927_183_0.7405_acc_0.7664_mae_0.0080_val_acc_0.6808_val_mae_0.0083.weights.h5
+
+```
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification:
+  Accuracy: 0.3500
+  Per-class distribution: [('<-0.44', 1207, 951), ('-0.44~+0.55', 1218, 1416), ('>+0.55', 1224, 1282)]
+
+  [Actual > Predicted Distribution]
+    <-0.44 (n=1207): <-0.44: 27.0%, -0.44~+0.55: 34.5%, >+0.55: 38.5%
+    -0.44~+0.55 (n=1218): <-0.44: 24.5%, -0.44~+0.55: 43.3%, >+0.55: 32.3%
+    >+0.55 (n=1224): <-0.44: 26.7%, -0.44~+0.55: 38.6%, >+0.55: 34.6%
+
+  [Predicted > Actual Distribution]
+    <-0.44 (n=951): <-0.44: 34.3%, -0.44~+0.55: 31.3%, >+0.55: 34.4%
+    -0.44~+0.55 (n=1416): <-0.44: 29.4%, -0.44~+0.55: 37.2%, >+0.55: 33.4%
+    >+0.55 (n=1282): <-0.44: 36.3%, -0.44~+0.55: 30.7%, >+0.55: 33.1%
+
+Regression (MAE):
+  Min return: 0.010184
+  Max return: 0.010456
+  Close return: 0.015602
+  Direction accuracy: 0.4963
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.1425, Spearman: 0.0735
+    R²: -0.2356
+  max_return:
+    Pearson: 0.0160, Spearman: 0.0305
+    R²: -0.5028
+  close_return:
+    Pearson: -0.0114, Spearman: -0.0223
+    R²: -0.4222
+```
+
+### 4-4. Regression만 남겼을 때
+
+```
+Regression (MAE):
+  Min return: 0.011275
+  Max return: 0.010117
+  Close return: 0.016473
+  Direction accuracy: 0.4867
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.1338, Spearman: 0.1857
+    R²: -0.9648
+  max_return:
+    Pearson: 0.0245, Spearman: 0.0882
+    R²: -0.7714
+  close_return:
+    Pearson: -0.0128, Spearman: -0.0048
+    R²: -0.7931
+```

@@ -58,7 +58,34 @@ claude --resume
 
 ```
 --plan
->> 작업내용 구체화하고 사용자 확인을 통해 clarify까지 함
->> 최종 확인한 작업 내용은 .plan.md로 정리
->> 구현 진행
+# 작업내용 구체화하고 사용자 확인을 통해 clarify까지 함
+# 최종 확인한 작업 내용은 .plan.md로 정리
+# 구현 진행
 ```
+
+```
+# 컨텍스트 비우기
+/clear
+
+# 현재 컨텍스트 사용량
+/context
+```
+
+```
+# 추론 모델 변경
+/model
+
+# 현재 토큰 사용량
+/usage
+```
+
+```
+# plan mode <> accept edit mode 전환
+>> SHIFT + Tab
+```
+
+---
+
+### Super Claude
+
+- [SuperClaude](https://github.com/SuperClaude-Org/SuperClaude_Framework)
