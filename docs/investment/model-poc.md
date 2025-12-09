@@ -255,7 +255,9 @@ cadli BTC-USDT OHLCV 기준
 - 가격: 로그수익률($r_t=\ln(C_t/C_{t-1})$), r1, r6, r24
 - 거래량: 상대 거래량 ($v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$) - log_volume은 스케일 문제로 제거
 
-### 입력 총정리 (Standard Scaler 피쳐 포함)
+---
+
+## 입력 총정리 (Standard Scaler 피쳐 포함)
 
 | No. | 카테고리 | 피쳐명 | 공식/방법 | 설명 |
 |-----|---------|-------|-----------|------|
@@ -899,7 +901,7 @@ Regression Correlation Analysis:
 
 ---
 
-## Logs; Trouble shooting & Variations ~ 20251210_case6
+## Logs; Trouble shooting & Variations ~ 20251209_case6
 
 ### 실수로 빠트린 6개 피쳐 추가
 
