@@ -563,7 +563,7 @@ Regression Correlation Analysis:
 
 ---
 
-## Logs; Trouble shooting & Variations ~ 202512XX_case4
+## Logs; Trouble shooting & Variations ~ 20251205_case4
 
 ### 피쳐 변경
 
@@ -698,3 +698,40 @@ Regression Correlation Analysis:
     Pearson: -0.0128, Spearman: -0.0048
     R²: -0.7931
 ```
+
+---
+
+## Logs; Trouble shooting & Variations ~ 20251205_case5
+
+### Standard Scaler 사용하는 피쳐 추가
+
+| 카테고리 | 피쳐명 | 설명 |
+|---------|--------|------|
+| **가공 피쳐 정규화** | r1_z | 1시간 로그수익률 z-score |
+| **가공 피쳐 정규화** | r6_z | 6시간 로그수익률 z-score |
+| **가공 피쳐 정규화** | r24_z | 24시간 로그수익률 z-score |
+| **가공 피쳐 정규화** | EMA12_dev_z | EMA12 편차 비율 z-score |
+| **가공 피쳐 정규화** | EMA26_dev_z | EMA26 편차 비율 z-score |
+| **가공 피쳐 정규화** | MACD_hist_norm_z | ATR로 정규화된 MACD 히스토그램 z-score |
+| **가공 피쳐 정규화** | ATR14_rel_z | 종가 대비 상대 변동성(ATR) z-score |
+| **가공 피쳐 정규화** | rel_log_volume_z | 20일 이동평균 대비 상대 거래량(log) z-score |
+| **가공 피쳐 정규화** | futures_premium_z | 현물 대비 선물 프리미엄 z-score |
+| **가공 피쳐 정규화** | futures_rel_log_volume_z | 선물 상대 로그 거래량 z-score |
+| **가공 피쳐 정규화** | volume_ratio_z | 선물/현물 거래량 비율 z-score |
+| **가공 피쳐 정규화** | oi_change_z | Open Interest 로그 변화율 z-score |
+| **가공 피쳐 정규화** | funding_rate_z | Funding Rate(%) z-score |
+| **가공 피쳐 정규화** | mark_spread_z | Mark Price vs 현물 가격 차이 z-score |
+| **가공 피쳐 정규화** | spot_spread_z | cadli 대비 binance 현물 가격 차이 z-score |
+| **가공 피쳐 정규화** | btc_r1_z | BTC 1시간 로그수익률 z-score |
+| **가공 피쳐 정규화** | btc_r6_z | BTC 6시간 로그수익률 z-score |
+| **가공 피쳐 정규화** | btc_r24_z | BTC 24시간 로그수익률 z-score |
+| **가공 피쳐 정규화** | btc_rel_log_volume_z | BTC 상대 로그 거래량 z-score |
+| **Raw StandardScaler** | hl_range_raw_z | 고저 스프레드(H-L) z-score |
+| **Raw StandardScaler** | oc_change_raw_z | 시가 대비 종가 변화(C-O) z-score |
+| **Raw StandardScaler** | volume_raw_z | ETH 현물 거래량 z-score |
+| **Raw StandardScaler** | fut_volume_raw_z | 선물 거래량 z-score |
+| **Raw StandardScaler** | funding_raw_z | Funding Rate 원본 값 z-score |
+| **Raw StandardScaler** | btc_volume_raw_z | BTC 거래량 z-score |
+
+- 학습하는 전체 구간에 대해 z-score 이용하여 스케일링하고 저장.
+- 추론시에는 학습 때 저장한 스케일러 이용.
