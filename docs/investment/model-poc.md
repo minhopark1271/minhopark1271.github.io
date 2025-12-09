@@ -735,3 +735,153 @@ Regression Correlation Analysis:
 
 - 학습하는 전체 구간에 대해 z-score 이용하여 스케일링하고 저장.
 - 추론시에는 학습 때 저장한 스케일러 이용.
+- split_opt=3
+- SMOOTHING_TEMPERATURE = 1.0
+- LAMBDA_REG = 1.0
+- LAMBDA_CLS_CLOSE = 1.0
+- LAMBDA_CLS_HIGH = 1.0
+- LAMBDA_CLS_LOW = 1.0
+- LEARNING_RATE = 0.001
+- DROPOUT_RATE = 0.3
+
+```
+2025-12-09 14:22:45,368 - __main__ - INFO - Loaded model for inference from models/1765256371_178_1.9344_vca_0.7342_vha_0.7018_vla_0.7007_vmae_0.0070.weights.h5
+
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification (Close):
+  Accuracy: 0.3738
+  Per-class distribution: [('DOWN', 1207, 1221), ('STAY', 1218, 1116), ('UP', 1224, 1312)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1207): DOWN: 37.4%, STAY: 27.7%, UP: 34.9%
+    STAY (n=1218): DOWN: 33.7%, STAY: 34.0%, UP: 32.3%
+    UP (n=1224): DOWN: 29.2%, STAY: 30.1%, UP: 40.7%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1221): DOWN: 37.0%, STAY: 33.7%, UP: 29.3%
+    STAY (n=1116): DOWN: 29.9%, STAY: 37.1%, UP: 33.0%
+    UP (n=1312): DOWN: 32.1%, STAY: 30.0%, UP: 38.0%
+
+Classification (High):
+  Accuracy: 0.3686
+  Per-class distribution: [('STAY', 1276, 1496), ('UP', 1323, 1039), ('BUST', 1050, 1114)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=1276): STAY: 45.7%, UP: 28.4%, BUST: 25.9%
+    UP (n=1323): STAY: 40.3%, UP: 29.0%, BUST: 30.7%
+    BUST (n=1050): STAY: 36.2%, UP: 27.8%, BUST: 36.0%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1496): STAY: 39.0%, UP: 35.6%, BUST: 25.4%
+    UP (n=1039): STAY: 34.9%, UP: 37.0%, BUST: 28.1%
+    BUST (n=1114): STAY: 29.6%, UP: 36.4%, BUST: 33.9%
+
+Classification (Low):
+  Accuracy: 0.3661
+  Per-class distribution: [('CRASH', 1089, 1062), ('DOWN', 1360, 1198), ('STAY', 1200, 1389)]
+
+  [Actual > Predicted Distribution]
+    CRASH (n=1089): CRASH: 34.3%, DOWN: 26.9%, STAY: 38.8%
+    DOWN (n=1360): CRASH: 28.9%, DOWN: 35.4%, STAY: 35.7%
+    STAY (n=1200): CRASH: 24.7%, DOWN: 35.2%, STAY: 40.1%
+
+  [Predicted > Actual Distribution]
+    CRASH (n=1062): CRASH: 35.1%, DOWN: 37.0%, STAY: 27.9%
+    DOWN (n=1198): CRASH: 24.5%, DOWN: 40.2%, STAY: 35.3%
+    STAY (n=1389): CRASH: 30.5%, DOWN: 34.9%, STAY: 34.6%
+
+Regression (MAE):
+  Min return: 0.011351
+  Max return: 0.011576
+  Close return: 0.016979
+  Direction accuracy: 0.5311
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.0524, Spearman: -0.0014
+    R²: -0.5111
+  max_return:
+    Pearson: 0.0753, Spearman: 0.0819
+    R²: -0.8504
+  close_return:
+    Pearson: 0.0219, Spearman: 0.0527
+    R²: -0.6556
+```
+
+- split_opt 3 > 1 및 LEARNING_RATE 0.001 > 0.0001로 바꿔서 시도
+- split_opt=1
+- SMOOTHING_TEMPERATURE = 1.0
+- LAMBDA_REG = 1.0
+- LAMBDA_CLS_CLOSE = 1.0
+- LAMBDA_CLS_HIGH = 1.0
+- LAMBDA_CLS_LOW = 1.0
+- LEARNING_RATE = 0.001
+- DROPOUT_RATE = 0.3
+
+```
+2025-12-09 14:41:08,624 - __main__ - INFO - Loaded model for inference from ./models/1765258866_36_3.1962_vca_0.3993_vha_0.4341_vla_0.4122_vmae_0.0102.weights.h5
+
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification (Close):
+  Accuracy: 0.3867
+  Per-class distribution: [('DOWN', 1207, 1223), ('STAY', 1218, 1124), ('UP', 1224, 1302)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1207): DOWN: 35.2%, STAY: 22.9%, UP: 41.8%
+    STAY (n=1218): DOWN: 32.6%, STAY: 41.5%, UP: 25.9%
+    UP (n=1224): DOWN: 32.8%, STAY: 27.9%, UP: 39.3%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1223): DOWN: 34.8%, STAY: 32.5%, UP: 32.8%
+    STAY (n=1124): DOWN: 24.6%, STAY: 44.9%, UP: 30.4%
+    UP (n=1302): DOWN: 38.8%, STAY: 24.3%, UP: 36.9%
+
+Classification (High):
+  Accuracy: 0.3960
+  Per-class distribution: [('STAY', 1276, 1216), ('UP', 1323, 1099), ('BUST', 1050, 1334)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=1276): STAY: 41.1%, UP: 29.7%, BUST: 29.2%
+    UP (n=1323): STAY: 31.2%, UP: 32.8%, BUST: 36.0%
+    BUST (n=1050): STAY: 26.5%, UP: 27.2%, BUST: 46.3%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1216): STAY: 43.2%, UP: 34.0%, BUST: 22.9%
+    UP (n=1099): STAY: 34.5%, UP: 39.5%, BUST: 26.0%
+    BUST (n=1334): STAY: 27.9%, UP: 35.7%, BUST: 36.4%
+
+Classification (Low):
+  Accuracy: 0.4272
+  Per-class distribution: [('CRASH', 1089, 1407), ('DOWN', 1360, 1437), ('STAY', 1200, 805)]
+
+  [Actual > Predicted Distribution]
+    CRASH (n=1089): CRASH: 54.5%, DOWN: 36.5%, STAY: 9.0%
+    DOWN (n=1360): CRASH: 35.0%, DOWN: 42.0%, STAY: 23.0%
+    STAY (n=1200): CRASH: 28.1%, DOWN: 39.1%, STAY: 32.8%
+
+  [Predicted > Actual Distribution]
+    CRASH (n=1407): CRASH: 42.2%, DOWN: 33.8%, STAY: 24.0%
+    DOWN (n=1437): CRASH: 27.6%, DOWN: 39.7%, STAY: 32.6%
+    STAY (n=805): CRASH: 12.2%, DOWN: 38.9%, STAY: 48.9%
+
+Regression (MAE):
+  Min return: 0.008351
+  Max return: 0.007895
+  Close return: 0.012308
+  Direction accuracy: 0.5177
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.2687, Spearman: 0.2974
+    R²: -0.0685
+  max_return:
+    Pearson: 0.1513, Spearman: 0.1414
+    R²: -0.0608
+  close_return:
+    Pearson: 0.0074, Spearman: 0.0236
+    R²: -0.0003
+```
