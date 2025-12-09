@@ -255,43 +255,78 @@ cadli BTC-USDT OHLCV 기준
 - 가격: 로그수익률($r_t=\ln(C_t/C_{t-1})$), r1, r6, r24
 - 거래량: 상대 거래량 ($v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$) - log_volume은 스케일 문제로 제거
 
-### 입력 총정리
+### 입력 총정리 (Standard Scaler 피쳐 포함)
 
-| 카테고리 | 피쳐명 | 공식/방법 | 설명 |
-|---------|-------|-----------|------|
-| **가격 (ETH-USDT)** | r1 | $r_t=\ln(C_t/C_{t-1})$ | 1시간 로그수익률 |
-| | r6 | $r_t=\ln(C_t/C_{t-6})$ | 6시간 로그수익률 |
-| | r24 | $r_t=\ln(C_t/C_{t-24})$ | 24시간 로그수익률 |
-| **추세 지표** | EMA12_dev | $d_t=(C_t-EMA_{12})/C_t$ | 종가 대비 EMA12 편차 비율 |
-| | EMA26_dev | $d_t=(C_t-EMA_{26})/C_t$ | 종가 대비 EMA26 편차 비율 |
-| | MACD_hist_norm | $Hist. = (MACD-Signal)/ATR$ | ATR로 정규화된 MACD 히스토그램 |
-| | RSI14_norm | $RSI^\pm_t = (RSI_t - 50)/50$ | [-1,1]로 정규화된 RSI |
-| **변동성** | ATR14_rel | $ATR^\ast_t = ATR_t / C_t$ | 종가 대비 상대 변동성 |
-| **거래량** | rel_log_volume | $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$ | 20일 이동평균 대비 상대 거래량 (로그) |
-| **계절성** | month_sin | $\sin(2\pi \cdot month / 12)$ | 월 주기 인코딩 (sin) |
-| | month_cos | $\cos(2\pi \cdot month / 12)$ | 월 주기 인코딩 (cos) |
-| | day_sin | $\sin(2\pi \cdot day / 31)$ | 일 주기 인코딩 (sin) |
-| | day_cos | $\cos(2\pi \cdot day / 31)$ | 일 주기 인코딩 (cos) |
-| | weekday_sin | $\sin(2\pi \cdot weekday / 7)$ | 요일 주기 인코딩 (sin) |
-| | weekday_cos | $\cos(2\pi \cdot weekday / 7)$ | 요일 주기 인코딩 (cos) |
-| | hour_sin | $\sin(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (sin) |
-| | hour_cos | $\cos(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (cos) |
-| **선물 가격** | futures_premium | $Premium_t = (F_t - S_t) / S_t$ | 현물 대비 선물 프리미엄 |
-| **선물 거래량** | futures_rel_log_volume | $FV_{rel,t} = \ln((1+V_{futures,t})/(1+MA_{20}(V_{futures,t})))$ | 선물 20일 이동평균 대비 상대 거래량 (로그) |
-| | volume_ratio | $VR_t = \ln(V_{futures} / V_{spot})$ | 현물 대비 선물 거래량 비율 |
-| **선물 지표** | oi_change | $\Delta OI_t = \ln(OI_t / OI_{t-1})$ | Open Interest 변화율 |
-| | mark_spread | $MarkSpread_t = \frac{Mark_t - S_t}{S_t}$ | Mark Price와 현물 가격 간 차이 |
-| | funding_rate | $FR_t \times 100$ | Funding Rate (%) |
-| **시장간 차이** | spot_spread | $Spread^{(ex)}_t = \frac{P^{(binance)}_t - P^{(cadli)}_t}{P^{(cadli)}_t}$ | cadli 대비 binance 현물 가격 차이 |
-| **연관 자산 (BTC)** | btc_r1 | $r_t=\ln(C_t/C_{t-1})$ | BTC 1시간 로그수익률 |
-| | btc_r6 | $r_t=\ln(C_t/C_{t-6})$ | BTC 6시간 로그수익률 |
-| | btc_r24 | $r_t=\ln(C_t/C_{t-24})$ | BTC 24시간 로그수익률 |
-| | btc_rel_log_volume | $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$ | BTC 20일 이동평균 대비 상대 거래량 (로그) |
-| **결손 지표** | missing_oi | 0/1 | OI 데이터 결손 여부 |
-| | missing_fr | 0/1 | FR 데이터 결손 여부 |
+| No. | 카테고리 | 피쳐명 | 공식/방법 | 설명 |
+|-----|---------|-------|-----------|------|
+| 1 | **가격 (ETH-USDT)** | r1 | $r_t=\ln(C_t/C_{t-1})$ | 1시간 로그수익률 |
+| 2 | | r6 | $r_t=\ln(C_t/C_{t-6})$ | 6시간 로그수익률 |
+| 3 | | r24 | $r_t=\ln(C_t/C_{t-24})$ | 24시간 로그수익률 |
+| 4 | **추세 지표** | EMA12_dev | $d_t=(C_t-EMA_{12})/C_t$ | 종가 대비 EMA12 편차 비율 |
+| 5 | | EMA26_dev | $d_t=(C_t-EMA_{26})/C_t$ | 종가 대비 EMA26 편차 비율 |
+| 6 | | MACD_hist_norm | $Hist. = (MACD-Signal)/ATR$ | ATR로 정규화된 MACD 히스토그램 |
+| 7 | | RSI14_norm | $RSI^\pm_t = (RSI_t - 50)/50$ | [-1,1]로 정규화된 RSI |
+| 8 | **변동성** | ATR14_rel | $ATR^\ast_t = ATR_t / C_t$ | 종가 대비 상대 변동성 |
+| 9 | **거래량** | rel_log_volume | $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$ | 20일 이동평균 대비 상대 거래량 (로그) |
+| 10 | **계절성** | month_sin | $\sin(2\pi \cdot month / 12)$ | 월 주기 인코딩 (sin) |
+| 11 | | month_cos | $\cos(2\pi \cdot month / 12)$ | 월 주기 인코딩 (cos) |
+| 12 | | day_sin | $\sin(2\pi \cdot day / 31)$ | 일 주기 인코딩 (sin) |
+| 13 | | day_cos | $\cos(2\pi \cdot day / 31)$ | 일 주기 인코딩 (cos) |
+| 14 | | weekday_sin | $\sin(2\pi \cdot weekday / 7)$ | 요일 주기 인코딩 (sin) |
+| 15 | | weekday_cos | $\cos(2\pi \cdot weekday / 7)$ | 요일 주기 인코딩 (cos) |
+| 16 | | hour_sin | $\sin(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (sin) |
+| 17 | | hour_cos | $\cos(2\pi \cdot hour / 24)$ | 시간 주기 인코딩 (cos) |
+| 18 | **선물 가격** | futures_premium | $Premium_t = (F_t - S_t) / S_t$ | 현물 대비 선물 프리미엄 |
+| 19 | **선물 거래량** | futures_rel_log_volume | $FV_{rel,t} = \ln((1+V_{futures,t})/(1+MA_{20}(V_{futures,t})))$ | 선물 20일 이동평균 대비 상대 거래량 (로그) |
+| 20 | | volume_ratio | $VR_t = \ln(V_{futures} / V_{spot})$ | 현물 대비 선물 거래량 비율 |
+| 21 | **선물 지표** | oi_change | $\Delta OI_t = \ln(OI_t / OI_{t-1})$ | Open Interest 변화율 |
+| 22 | | mark_spread | $MarkSpread_t = \frac{Mark_t - S_t}{S_t}$ | Mark Price와 현물 가격 간 차이 |
+| 23 | | funding_rate | $FR_t \times 100$ | Funding Rate (%) |
+| 24 | **시장간 차이** | spot_spread | $Spread^{(ex)}_t = \frac{P^{(binance)}_t - P^{(cadli)}_t}{P^{(cadli)}_t}$ | cadli 대비 binance 현물 가격 차이 |
+| 25 | **연관 자산 (BTC)** | btc_r1 | $r_t=\ln(C_t/C_{t-1})$ | BTC 1시간 로그수익률 |
+| 26 | | btc_r6 | $r_t=\ln(C_t/C_{t-6})$ | BTC 6시간 로그수익률 |
+| 27 | | btc_r24 | $r_t=\ln(C_t/C_{t-24})$ | BTC 24시간 로그수익률 |
+| 28 | | btc_rel_log_volume | $v_{rel} = \ln((1+V)/(1+MA_{20}(V)))$ | BTC 20일 이동평균 대비 상대 거래량 (로그) |
+| 29 | **결손 지표** | missing_oi | 0/1 | OI 데이터 결손 여부 |
+| 30 | | missing_fr | 0/1 | FR 데이터 결손 여부 |
+| 31 | **가공 피쳐 Z-score** | r1_z | $z = (x - \mu) / \sigma$ | 1시간 로그수익률 z-score |
+| 32 | | r6_z | $z = (x - \mu) / \sigma$ | 6시간 로그수익률 z-score |
+| 33 | | r24_z | $z = (x - \mu) / \sigma$ | 24시간 로그수익률 z-score |
+| 34 | | EMA12_dev_z | $z = (x - \mu) / \sigma$ | EMA12 편차 비율 z-score |
+| 35 | | EMA26_dev_z | $z = (x - \mu) / \sigma$ | EMA26 편차 비율 z-score |
+| 36 | | MACD_hist_norm_z | $z = (x - \mu) / \sigma$ | MACD 히스토그램 z-score |
+| 37 | | ATR14_rel_z | $z = (x - \mu) / \sigma$ | 상대 변동성(ATR) z-score |
+| 38 | | rel_log_volume_z | $z = (x - \mu) / \sigma$ | 상대 거래량(log) z-score |
+| 39 | | futures_premium_z | $z = (x - \mu) / \sigma$ | 선물 프리미엄 z-score |
+| 40 | | futures_rel_log_volume_z | $z = (x - \mu) / \sigma$ | 선물 상대 로그 거래량 z-score |
+| 41 | | volume_ratio_z | $z = (x - \mu) / \sigma$ | 선물/현물 거래량 비율 z-score |
+| 42 | | oi_change_z | $z = (x - \mu) / \sigma$ | OI 로그 변화율 z-score |
+| 43 | | funding_rate_z | $z = (x - \mu) / \sigma$ | Funding Rate(%) z-score |
+| 44 | | mark_spread_z | $z = (x - \mu) / \sigma$ | Mark Price vs 현물 차이 z-score |
+| 45 | | spot_spread_z | $z = (x - \mu) / \sigma$ | binance vs cadli 가격 차이 z-score |
+| 46 | | btc_r1_z | $z = (x - \mu) / \sigma$ | BTC 1시간 로그수익률 z-score |
+| 47 | | btc_r6_z | $z = (x - \mu) / \sigma$ | BTC 6시간 로그수익률 z-score |
+| 48 | | btc_r24_z | $z = (x - \mu) / \sigma$ | BTC 24시간 로그수익률 z-score |
+| 49 | | btc_rel_log_volume_z | $z = (x - \mu) / \sigma$ | BTC 상대 로그 거래량 z-score |
+| 50 | **Raw OHLCV Z-score** | hl_range_raw_z | $z = (H_t - L_t)$ z-score | 고저 스프레드(H-L) z-score |
+| 51 | | oc_change_raw_z | $z = (C_t - O_t)$ z-score | 시가 대비 종가 변화(C-O) z-score |
+| 52 | | volume_raw_z | $z = V_t$ z-score | ETH 현물 거래량 z-score |
+| 53 | | fut_volume_raw_z | $z = V_{futures,t}$ z-score | 선물 거래량 z-score |
+| 54 | | funding_raw_z | $z = FR_t$ z-score | Funding Rate 원본 값 z-score |
+| 55 | | btc_volume_raw_z | $z = V_{BTC,t}$ z-score | BTC 거래량 z-score |
 
-- **일별 데이터 (14일)**: 가격, 추세, 변동성, 거래량, 계절성, 선물 지표, 시장간 차이, BTC 연관성
-- **시간별 데이터 (72시간)**: 동일 피쳐 + 고빈도 계절성 (시간별)
+**피쳐 수 요약**
+- Original Features: 31개 (가격, 추세, 변동성, 거래량, 계절성, 선물, 시장간 차이, BTC, 결손 지표)
+- Z-scored Features: 24개 (가공 피쳐 18개 + Raw OHLCV 6개)
+- **총 입력 피쳐: 55개** (Raw OHLCV 6개는 z-score만 사용, 원본 제외)
+
+**StandardScaler 적용 방법**
+- Training: 전체 학습 데이터에 대해 fit_transform, scaler 저장
+- Inference/Evaluation: 저장된 scaler로 transform만 수행
+- Pre-clipping: $\mu \pm 5\sigma$ 범위로 극단값 클리핑 후 스케일링
+- Post-clipping: z-score를 [-5, 5] 범위로 클리핑
+
+**시간별 데이터 (72시간)**: 위 56개 피쳐 사용
 
 ---
 
@@ -701,40 +736,14 @@ Regression Correlation Analysis:
 
 ---
 
-## Logs; Trouble shooting & Variations ~ 20251205_case5
+## Logs; Trouble shooting & Variations ~ 20251209_case5
 
-### Standard Scaler 사용하는 피쳐 추가
+### 수정사항
 
-| 카테고리 | 피쳐명 | 설명 |
-|---------|--------|------|
-| **가공 피쳐 정규화** | r1_z | 1시간 로그수익률 z-score |
-| **가공 피쳐 정규화** | r6_z | 6시간 로그수익률 z-score |
-| **가공 피쳐 정규화** | r24_z | 24시간 로그수익률 z-score |
-| **가공 피쳐 정규화** | EMA12_dev_z | EMA12 편차 비율 z-score |
-| **가공 피쳐 정규화** | EMA26_dev_z | EMA26 편차 비율 z-score |
-| **가공 피쳐 정규화** | MACD_hist_norm_z | ATR로 정규화된 MACD 히스토그램 z-score |
-| **가공 피쳐 정규화** | ATR14_rel_z | 종가 대비 상대 변동성(ATR) z-score |
-| **가공 피쳐 정규화** | rel_log_volume_z | 20일 이동평균 대비 상대 거래량(log) z-score |
-| **가공 피쳐 정규화** | futures_premium_z | 현물 대비 선물 프리미엄 z-score |
-| **가공 피쳐 정규화** | futures_rel_log_volume_z | 선물 상대 로그 거래량 z-score |
-| **가공 피쳐 정규화** | volume_ratio_z | 선물/현물 거래량 비율 z-score |
-| **가공 피쳐 정규화** | oi_change_z | Open Interest 로그 변화율 z-score |
-| **가공 피쳐 정규화** | funding_rate_z | Funding Rate(%) z-score |
-| **가공 피쳐 정규화** | mark_spread_z | Mark Price vs 현물 가격 차이 z-score |
-| **가공 피쳐 정규화** | spot_spread_z | cadli 대비 binance 현물 가격 차이 z-score |
-| **가공 피쳐 정규화** | btc_r1_z | BTC 1시간 로그수익률 z-score |
-| **가공 피쳐 정규화** | btc_r6_z | BTC 6시간 로그수익률 z-score |
-| **가공 피쳐 정규화** | btc_r24_z | BTC 24시간 로그수익률 z-score |
-| **가공 피쳐 정규화** | btc_rel_log_volume_z | BTC 상대 로그 거래량 z-score |
-| **Raw StandardScaler** | hl_range_raw_z | 고저 스프레드(H-L) z-score |
-| **Raw StandardScaler** | oc_change_raw_z | 시가 대비 종가 변화(C-O) z-score |
-| **Raw StandardScaler** | volume_raw_z | ETH 현물 거래량 z-score |
-| **Raw StandardScaler** | fut_volume_raw_z | 선물 거래량 z-score |
-| **Raw StandardScaler** | funding_raw_z | Funding Rate 원본 값 z-score |
-| **Raw StandardScaler** | btc_volume_raw_z | BTC 거래량 z-score |
+- Evaluation에서 Standard Scaler다시 fit하는 버그 수정
 
-- 학습하는 전체 구간에 대해 z-score 이용하여 스케일링하고 저장.
-- 추론시에는 학습 때 저장한 스케일러 이용.
+### split opt 3
+
 - split_opt=3
 - SMOOTHING_TEMPERATURE = 1.0
 - LAMBDA_REG = 1.0
@@ -809,6 +818,8 @@ Regression Correlation Analysis:
     Pearson: 0.0219, Spearman: 0.0527
     R²: -0.6556
 ```
+
+### split opt 1
 
 - split_opt 3 > 1 및 LEARNING_RATE 0.001 > 0.0001로 바꿔서 시도
 - split_opt=1
@@ -885,3 +896,232 @@ Regression Correlation Analysis:
     Pearson: 0.0074, Spearman: 0.0236
     R²: -0.0003
 ```
+
+---
+
+## Logs; Trouble shooting & Variations ~ 20251210_case6
+
+### 실수로 빠트린 6개 피쳐 추가
+
+- EMA12_dev 추세 지표
+- EMA26_dev 추세 지표
+- mark_spread 선물 지표
+- EMA12_dev_z 가공 피쳐 Z-score
+- EMA26_dev_z 가공 피쳐 Z-score
+- mark_spread_z 가공 피쳐 Z-score
+
+### 입력 조건 및 결과
+
+- split_opt=1
+- SMOOTHING_TEMPERATURE = 1.0
+- LAMBDA_REG = 1.0
+- LAMBDA_CLS_CLOSE = 1.0
+- LAMBDA_CLS_HIGH = 1.0
+- LAMBDA_CLS_LOW = 1.0
+- LEARNING_RATE = 0.0001
+- DROPOUT_RATE = 0.3
+
+```
+2025-12-09 16:34:54,093 - __main__ - INFO - Loaded model for inference from ./models/1765265692_40_3.1959_vca_0.3948_vha_0.4262_vla_0.4248_vmae_0.0103.weights.h5
+
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification (Close):
+  Accuracy: 0.3845
+  Per-class distribution: [('DOWN', 1207, 1260), ('STAY', 1218, 1423), ('UP', 1224, 966)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1207): DOWN: 36.7%, STAY: 32.2%, UP: 31.1%
+    STAY (n=1218): DOWN: 31.9%, STAY: 49.2%, UP: 18.9%
+    UP (n=1224): DOWN: 35.0%, STAY: 35.5%, UP: 29.5%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1260): DOWN: 35.2%, STAY: 30.9%, UP: 34.0%
+    STAY (n=1423): DOWN: 27.3%, STAY: 42.1%, UP: 30.6%
+    UP (n=966): DOWN: 38.8%, STAY: 23.8%, UP: 37.4%
+
+Classification (High):
+  Accuracy: 0.3845
+  Per-class distribution: [('STAY', 1276, 1126), ('UP', 1323, 1223), ('BUST', 1050, 1300)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=1276): STAY: 36.7%, UP: 34.7%, BUST: 28.6%
+    UP (n=1323): STAY: 30.6%, UP: 34.7%, BUST: 34.7%
+    BUST (n=1050): STAY: 24.1%, UP: 30.6%, BUST: 45.3%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1126): STAY: 41.6%, UP: 36.0%, BUST: 22.5%
+    UP (n=1223): STAY: 36.2%, UP: 37.5%, BUST: 26.2%
+    BUST (n=1300): STAY: 28.1%, UP: 35.3%, BUST: 36.6%
+
+Classification (Low):
+  Accuracy: 0.4229
+  Per-class distribution: [('CRASH', 1089, 1390), ('DOWN', 1360, 1280), ('STAY', 1200, 979)]
+
+  [Actual > Predicted Distribution]
+    CRASH (n=1089): CRASH: 52.3%, DOWN: 36.0%, STAY: 11.7%
+    DOWN (n=1360): CRASH: 35.5%, DOWN: 36.7%, STAY: 27.8%
+    STAY (n=1200): CRASH: 28.1%, DOWN: 32.4%, STAY: 39.5%
+
+  [Predicted > Actual Distribution]
+    CRASH (n=1390): CRASH: 41.0%, DOWN: 34.7%, STAY: 24.2%
+    DOWN (n=1280): CRASH: 30.6%, DOWN: 39.0%, STAY: 30.4%
+    STAY (n=979): CRASH: 13.0%, DOWN: 38.6%, STAY: 48.4%
+
+Regression (MAE):
+  Min return: 0.008858
+  Max return: 0.008073
+  Close return: 0.012622
+  Direction accuracy: 0.5106
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.1565, Spearman: 0.1834
+    R²: -0.0113
+  max_return:
+    Pearson: 0.1237, Spearman: 0.1428
+    R²: -0.0924
+  close_return:
+    Pearson: 0.0078, Spearman: -0.0079
+    R²: -0.0216
+```
+
+- 피쳐 빠진 것 추가하기 전/후 별 차이 없음. 오히려 약간 떨어짐
+- 한 번 더 돌리고 결과 확인
+
+```
+2025-12-09 17:08:08,046 - __main__ - INFO - Loaded model for inference from ./models/1765267686_38_3.1961_vca_0.3987_vha_0.4255_vla_0.4205_vmae_0.0104.weights.h5
+
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification (Close):
+  Accuracy: 0.3774
+  Per-class distribution: [('DOWN', 1207, 1385), ('STAY', 1218, 1095), ('UP', 1224, 1169)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1207): DOWN: 39.3%, STAY: 22.1%, UP: 38.6%
+    STAY (n=1218): DOWN: 36.9%, STAY: 39.7%, UP: 23.3%
+    UP (n=1224): DOWN: 37.7%, STAY: 28.1%, UP: 34.2%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1385): DOWN: 34.2%, STAY: 32.5%, UP: 33.3%
+    STAY (n=1095): DOWN: 24.4%, STAY: 44.2%, UP: 31.4%
+    UP (n=1169): DOWN: 39.9%, STAY: 24.3%, UP: 35.8%
+
+Classification (High):
+  Accuracy: 0.3735
+  Per-class distribution: [('STAY', 1276, 789), ('UP', 1323, 1015), ('BUST', 1050, 1845)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=1276): STAY: 28.7%, UP: 27.8%, BUST: 43.5%
+    UP (n=1323): STAY: 20.7%, UP: 28.6%, BUST: 50.7%
+    BUST (n=1050): STAY: 14.2%, UP: 26.9%, BUST: 59.0%
+
+  [Predicted > Actual Distribution]
+    STAY (n=789): STAY: 46.4%, UP: 34.7%, BUST: 18.9%
+    UP (n=1015): STAY: 35.0%, UP: 37.2%, BUST: 27.8%
+    BUST (n=1845): STAY: 30.1%, UP: 36.4%, BUST: 33.6%
+
+Classification (Low):
+  Accuracy: 0.4283
+  Per-class distribution: [('CRASH', 1089, 1911), ('DOWN', 1360, 905), ('STAY', 1200, 833)]
+
+  [Actual > Predicted Distribution]
+    CRASH (n=1089): CRASH: 71.9%, DOWN: 20.2%, STAY: 7.9%
+    DOWN (n=1360): CRASH: 48.2%, DOWN: 27.1%, STAY: 24.7%
+    STAY (n=1200): CRASH: 39.4%, DOWN: 26.3%, STAY: 34.2%
+
+  [Predicted > Actual Distribution]
+    CRASH (n=1911): CRASH: 41.0%, DOWN: 34.3%, STAY: 24.8%
+    DOWN (n=905): CRASH: 24.3%, DOWN: 40.8%, STAY: 34.9%
+    STAY (n=833): CRASH: 10.3%, DOWN: 40.3%, STAY: 49.3%
+
+Regression (MAE):
+  Min return: 0.008725
+  Max return: 0.008092
+  Close return: 0.012370
+  Direction accuracy: 0.5171
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.0706, Spearman: 0.1700
+    R²: -0.1824
+  max_return:
+    Pearson: 0.0552, Spearman: 0.0761
+    R²: -0.1229
+  close_return:
+    Pearson: -0.0319, Spearman: -0.0274
+    R²: -0.0119
+```
+
+- EMA 항목 제거
+
+```
+2025-12-09 17:22:35,840 - __main__ - INFO - Loaded model for inference from ./models/1765268554_40_3.1993_vca_0.3890_vha_0.4248_vla_0.4202_vmae_0.0104.weights.h5
+
+=== Evaluation Results (2025-07-01 to 2025-11-30) ===
+Samples: 3649
+
+Classification (Close):
+  Accuracy: 0.3913
+  Per-class distribution: [('DOWN', 1207, 1058), ('STAY', 1218, 1641), ('UP', 1224, 950)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1207): DOWN: 32.7%, STAY: 36.2%, UP: 31.1%
+    STAY (n=1218): DOWN: 24.8%, STAY: 56.4%, UP: 18.8%
+    UP (n=1224): DOWN: 29.5%, STAY: 42.2%, UP: 28.3%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1058): DOWN: 37.3%, STAY: 28.5%, UP: 34.1%
+    STAY (n=1641): DOWN: 26.6%, STAY: 41.9%, UP: 31.5%
+    UP (n=950): DOWN: 39.5%, STAY: 24.1%, UP: 36.4%
+
+Classification (High):
+  Accuracy: 0.3963
+  Per-class distribution: [('STAY', 1276, 1495), ('UP', 1323, 909), ('BUST', 1050, 1245)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=1276): STAY: 48.4%, UP: 23.3%, BUST: 28.4%
+    UP (n=1323): STAY: 39.1%, UP: 28.4%, BUST: 32.5%
+    BUST (n=1050): STAY: 34.4%, UP: 22.5%, BUST: 43.1%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1495): STAY: 41.3%, UP: 34.6%, BUST: 24.1%
+    UP (n=909): STAY: 32.7%, UP: 41.4%, BUST: 26.0%
+    BUST (n=1245): STAY: 29.1%, UP: 34.5%, BUST: 36.4%
+
+Classification (Low):
+  Accuracy: 0.4303
+  Per-class distribution: [('CRASH', 1089, 1245), ('DOWN', 1360, 1232), ('STAY', 1200, 1172)]
+
+  [Actual > Predicted Distribution]
+    CRASH (n=1089): CRASH: 49.9%, DOWN: 35.2%, STAY: 15.0%
+    DOWN (n=1360): CRASH: 30.7%, DOWN: 35.3%, STAY: 34.0%
+    STAY (n=1200): CRASH: 23.7%, DOWN: 30.8%, STAY: 45.6%
+
+  [Predicted > Actual Distribution]
+    CRASH (n=1245): CRASH: 43.6%, DOWN: 33.6%, STAY: 22.8%
+    DOWN (n=1232): CRASH: 31.1%, DOWN: 39.0%, STAY: 30.0%
+    STAY (n=1172): CRASH: 13.9%, DOWN: 39.4%, STAY: 46.7%
+
+Regression (MAE):
+  Min return: 0.008741
+  Max return: 0.008046
+  Close return: 0.012320
+  Direction accuracy: 0.5155
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.1281, Spearman: 0.2016
+    R²: -0.1806
+  max_return:
+    Pearson: 0.1257, Spearman: 0.1341
+    R²: -0.1391
+  close_return:
+    Pearson: -0.0363, Spearman: -0.0296
+    R²: -0.0030
+```
+
+- EMA 피쳐 빼고 계산한 것이 오히려 성능이 좋음

@@ -199,6 +199,12 @@ VS Code 내부적으로 MCP 서버 마켓플레이를 운영하고 있어서 클
 
 ---
 
+## Claude Code에 MCP 설정
+
+[MCP를 통해 Claude Code를 도구에 연결](https://code.claude.com/docs/ko/mcp)
+
+---
+
 ## MCP 서버 개발
 
 [Build an MCP server](https://modelcontextprotocol.io/docs/develop/build-server)

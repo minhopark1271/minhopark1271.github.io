@@ -107,6 +107,12 @@ VS Code와 동일
 
 ---
 
+## Claude Code MCP 연결
+
+[MCP를 통해 Claude Code를 도구에 연결](https://code.claude.com/docs/ko/mcp)
+
+---
+
 ## ChatGPT로 MCP 사용
 
 - 웹앱 > 계정 > 설정 > 연동 앱 및 커넥터 > 고급 설정 > 개발자 모드
