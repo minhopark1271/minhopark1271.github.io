@@ -1127,3 +1127,311 @@ Regression Correlation Analysis:
 ```
 
 - EMA 피쳐 빼고 계산한 것이 오히려 성능이 좋음
+
+---
+
+## Logs; Trouble shooting & Variations ~ 20251210_case7
+
+### 수정사항
+
+- ema는 뺌
+- bin 3개 있으니깐 특히 close의 경우에 변동성 항목과 직접 연관되어 가운데 <> 극단 으로 나뉘고, 방향성은 익히지 못하는 듯
+- min, max, close 각각 bin 2개로 수정
+- future slide 6 > 12, 24도 테스트 해보기
+- split_opt=1
+
+```
+2025-12-10 14:54:06,033 - __main__ - INFO - Loaded model for inference from ./models/1765346044_28_2.0264_vca_0.5042_vha_0.6092_vla_0.5998_vmae_0.0107.weights.h5
+
+======================================================================
+  📊 EVALUATION SUMMARY (2025-07-01 to 2025-11-30)
+======================================================================
+  Samples: 3649
+
+  📈 Classification Accuracy:
+     Close: 0.4889
+     High:  0.5475
+     Low:   0.6136
+
+  📉 Regression Pearson Correlation:
+     Min:   0.0235
+     Max:   0.0360
+     Close: -0.0021
+
+  🎯 Close Direction Accuracy: 0.5086 (50.86%)
+======================================================================
+
+Classification (Close):
+  Accuracy: 0.4889
+  Per-class distribution: [('DOWN', 1761, 1244), ('UP', 1888, 2405)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1761): DOWN: 32.4%, UP: 67.6%
+    UP (n=1888): DOWN: 35.7%, UP: 64.3%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1244): DOWN: 45.8%, UP: 54.2%
+    UP (n=2405): DOWN: 49.5%, UP: 50.5%
+
+Classification (High):
+  Accuracy: 0.5475
+  Per-class distribution: [('STAY', 2029, 1746), ('UP', 1620, 1903)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=2029): STAY: 52.3%, UP: 47.7%
+    UP (n=1620): STAY: 42.2%, UP: 57.8%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1746): STAY: 60.8%, UP: 39.2%
+    UP (n=1903): STAY: 50.8%, UP: 49.2%
+
+Classification (Low):
+  Accuracy: 0.6136
+  Per-class distribution: [('DOWN', 1605, 1787), ('STAY', 2044, 1862)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1605): DOWN: 61.7%, STAY: 38.3%
+    STAY (n=2044): DOWN: 38.9%, STAY: 61.1%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1787): DOWN: 55.5%, STAY: 44.5%
+    STAY (n=1862): DOWN: 33.0%, STAY: 67.0%
+
+Regression (MAE):
+  Min return: 0.009202
+  Max return: 0.008326
+  Close return: 0.012783
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.0235, Spearman: 0.0094
+    R²: -0.2530
+  max_return:
+    Pearson: 0.0360, Spearman: 0.0618
+    R²: -0.1948
+  close_return:
+    Pearson: -0.0021, Spearman: -0.0509
+    R²: -0.0549
+```
+
+- split_opt=2
+
+```
+2025-12-10 15:07:32,465 - __main__ - INFO - Loaded model for inference from ./models/1765346851_48_1.9189_vca_0.5336_vha_0.6463_vla_0.6567_vmae_0.0107.weights.h5
+
+======================================================================
+  📊 EVALUATION SUMMARY (2025-07-01 to 2025-11-30)
+======================================================================
+  Samples: 3649
+
+  📈 Classification Accuracy:
+     Close: 0.5086
+     High:  0.5802
+     Low:   0.5963
+
+  📉 Regression Pearson Correlation:
+     Min:   0.3124
+     Max:   0.1884
+     Close: -0.0096
+
+  🎯 Close Direction Accuracy: 0.5015 (50.15%)
+======================================================================
+
+
+──────────────────────────────────────────────────────────────────────
+  DETAILED RESULTS
+──────────────────────────────────────────────────────────────────────
+
+Classification (Close):
+  Accuracy: 0.5086
+  Per-class distribution: [('DOWN', 1761, 2142), ('UP', 1888, 1507)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1761): DOWN: 59.9%, UP: 40.1%
+    UP (n=1888): DOWN: 57.6%, UP: 42.4%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=2142): DOWN: 49.3%, UP: 50.7%
+    UP (n=1507): DOWN: 46.8%, UP: 53.2%
+
+Classification (High):
+  Accuracy: 0.5802
+  Per-class distribution: [('STAY', 2029, 2123), ('UP', 1620, 1526)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=2029): STAY: 64.6%, UP: 35.4%
+    UP (n=1620): STAY: 50.2%, UP: 49.8%
+
+  [Predicted > Actual Distribution]
+    STAY (n=2123): STAY: 61.7%, UP: 38.3%
+    UP (n=1526): STAY: 47.1%, UP: 52.9%
+
+Classification (Low):
+  Accuracy: 0.5963
+  Per-class distribution: [('DOWN', 1605, 1734), ('STAY', 2044, 1915)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1605): DOWN: 58.1%, STAY: 41.9%
+    STAY (n=2044): DOWN: 39.2%, STAY: 60.8%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1734): DOWN: 53.8%, STAY: 46.2%
+    STAY (n=1915): DOWN: 35.1%, STAY: 64.9%
+
+Regression (MAE):
+  Min return: 0.008196
+  Max return: 0.007865
+  Close return: 0.012317
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.3124, Spearman: 0.3153
+    R²: 0.0537
+  max_return:
+    Pearson: 0.1884, Spearman: 0.1852
+    R²: -0.0220
+  close_return:
+    Pearson: -0.0096, Spearman: -0.0103
+    R²: -0.0043
+```
+
+- split_opt=3
+
+```
+2025-12-10 16:06:33,552 - __main__ - INFO - Loaded model for inference from ./models/1765350391_234_1.0911_vca_0.8261_vha_0.8378_vla_0.8504_vmae_0.0073.weights.h5
+
+======================================================================
+  📊 EVALUATION SUMMARY (2025-07-01 to 2025-11-30)
+======================================================================
+  Samples: 3649
+
+  📈 Classification Accuracy:
+     Close: 0.5152
+     High:  0.5314
+     Low:   0.5229
+
+  📉 Regression Pearson Correlation:
+     Min:   0.0738
+     Max:   0.0358
+     Close: -0.0107
+
+  🎯 Close Direction Accuracy: 0.5163 (51.63%)
+======================================================================
+
+
+──────────────────────────────────────────────────────────────────────
+  DETAILED RESULTS
+──────────────────────────────────────────────────────────────────────
+
+Classification (Close):
+  Accuracy: 0.5152
+  Per-class distribution: [('DOWN', 1761, 1800), ('UP', 1888, 1849)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1761): DOWN: 50.9%, UP: 49.1%
+    UP (n=1888): DOWN: 47.9%, UP: 52.1%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1800): DOWN: 49.8%, UP: 50.2%
+    UP (n=1849): DOWN: 46.8%, UP: 53.2%
+
+Classification (High):
+  Accuracy: 0.5314
+  Per-class distribution: [('STAY', 2029, 2011), ('UP', 1620, 1638)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=2029): STAY: 57.4%, UP: 42.6%
+    UP (n=1620): STAY: 52.2%, UP: 47.8%
+
+  [Predicted > Actual Distribution]
+    STAY (n=2011): STAY: 57.9%, UP: 42.1%
+    UP (n=1638): STAY: 52.7%, UP: 47.3%
+
+Classification (Low):
+  Accuracy: 0.5229
+  Per-class distribution: [('DOWN', 1605, 1746), ('STAY', 2044, 1903)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1605): DOWN: 50.2%, STAY: 49.8%
+    STAY (n=2044): DOWN: 46.0%, STAY: 54.0%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1746): DOWN: 46.1%, STAY: 53.9%
+    STAY (n=1903): DOWN: 42.0%, STAY: 58.0%
+
+Regression (MAE):
+  Min return: 0.011425
+  Max return: 0.010429
+  Close return: 0.016413
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.0738, Spearman: 0.0360
+    R²: -0.4871
+  max_return:
+    Pearson: 0.0358, Spearman: 0.0686
+    R²: -0.5264
+  close_return:
+    Pearson: -0.0107, Spearman: 0.0218
+    R²: -0.5817
+```
+
+- target future slide = 6 > 24 로 바꿔도 도찐개찐
+
+---
+
+## Time Window 수정 고려
+
+값(현재 72, 즉 3일치 데이터)을 조정할 때의 영향과 Time Series Forecasting, 특히 LSTM 모델에서의 Best Practice에 대해 설명해 드리겠습니다.
+
+### 1. 값 변경 시 예상되는 영향
+
+**A. 48로 줄이는 경우 (2일)**
+
+*   **장점:**
+    *   **학습 속도 향상:** 시퀀스 길이가 짧아져 연산량이 줄어듭니다.
+    *   **최신성 반영:** 먼 과거의 노이즈를 배제하고, 가장 최근의 시장 변동(Momentum)에 집중합니다.
+*   **단점:**
+    *   **패턴 유실:** 3일 이상의 기간에 걸쳐 형성되는 패턴이나 추세를 놓칠 수 있습니다.
+    *   **정보 부족:** 모델이 판단할 수 있는 문맥(Context)이 줄어듭니다.
+
+**B. 144(6일) ~ 216(9일)으로 늘리는 경우**
+
+*   **장점:**
+    *   **주기성 포착:** 암호화폐나 주식 시장의 **주간 패턴(Weekly Seasonality, 168시간)**을 포함하거나 근접하게 되어, 요일별 특성 등을 학습할 가능성이 높아집니다.
+    *   **장기 의존성:** 더 긴 호흡의 추세 전환을 감지할 수 있습니다.
+*   **단점:**
+    *   **학습 난이도 상승:** LSTM이 장기 의존성(Long-term dependency) 문제를 어느 정도 해결했지만, 시퀀스가 너무 길어지면 여전히 초기 정보가 희석되거나 학습 효율이 떨어질 수 있습니다.
+    *   **과적합(Overfitting):** 과거의 특정 패턴에 과도하게 맞춰질 위험이 있습니다.
+
+### 2. Time Series & LSTM Best Practice
+
+학계와 실무에서 통용되는 일반적인 가이드라인은 다음과 같습니다.
+
+**1. 주요 주기(Cycle)를 포함하라**
+
+*   데이터에 주기성이 있다면 그 주기를 포함하는 것이 좋습니다.
+*   **Hourly Data의 경우:**
+    *   **일간 주기(Daily):** 24시간
+    *   **주간 주기(Weekly):** 168시간
+*   **Best Practice:** 현재 설정된 **72(3일)**는 단기 추세를 보기에 적절한 타협점입니다. 만약 더 긴 패턴을 보고 싶다면 어중간한 144, 216보다는 **168(정확히 1주일)**을 테스트해보는 것이 논리적입니다.
+
+**2. 시퀀스 길이의 한계 (Vanishing Gradient)**
+
+*   LSTM은 보통 **50~200 스텝** 정도까지는 잘 작동하지만, 그 이상 길어지면 성능 향상이 둔화되거나 오히려 떨어지는 경향이 있습니다.
+*   **200 이상의 긴 시퀀스**를 다뤄야 한다면, 단순 LSTM보다는 **Attention 메커니즘**을 추가하거나 Transformer 계열 모델을 사용하는 것이 현대적인 Best Practice입니다.
+
+**3. Feature Engineering으로 보완**
+
+*   단순히 Window를 늘리는 대신, **장기 지표를 별도의 Feature로 주입**하는 방법이 효율적입니다.
+*   예: Window는 72로 유지하되, 입력 Feature에 `7일 이동평균`, `30일 변동성` 값을 추가하여 모델이 굳이 긴 시퀀스를 훑지 않아도 장기 추세를 알 수 있게 합니다.
+
+### 요약 및 추천
+
+*   **현재(72):** 단기 트레이딩에 적합한 무난한 설정입니다.
+*   **실험 추천:**
+    *   **168 (1주일):** 주간 패턴이 중요한지 확인하고 싶다면 168로 늘려보세요. (LSTM이 감당 가능한 수준입니다.)
+    *   **48:** 스캘핑에 가까운 초단기 대응이 목표가 아니라면 너무 짧을 수 있습니다.
+
+결론적으로, **72에서 168 사이**가 LSTM 단일 모델로는 가장 효율적인 구간으로 보입니다.
+

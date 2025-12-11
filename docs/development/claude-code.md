@@ -36,7 +36,7 @@ Claude Code는 Anthropic의 공식 CLI 도구로, 소프트웨어 개발 작업�
 
 ---
 
-### 주요 사용 패턴
+## 주요 사용 패턴
 
 ```
 # 직전 작업 쓰레드 재시작
@@ -86,6 +86,19 @@ claude --resume
 
 ---
 
-### Super Claude
+## Super Claude
 
 - [SuperClaude](https://github.com/SuperClaude-Org/SuperClaude_Framework)
+
+---
+
+## Skills
+
+- [Agent Skills](https://code.claude.com/docs/ko/skills)
+
+---
+
+## Plugin
+
+- [Plugin](https://code.claude.com/docs/ko/plugins)
+
