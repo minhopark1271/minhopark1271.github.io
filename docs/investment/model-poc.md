@@ -1435,3 +1435,85 @@ Regression Correlation Analysis:
 
 결론적으로, **72에서 168 사이**가 LSTM 단일 모델로는 가장 효율적인 구간으로 보입니다.
 
+### 테스트 결과
+
+- 느리기만 하고 별 소득없었음.
+
+```
+2025-12-11 13:21:00,507 - __main__ - INFO - Loaded model for inference from models/1765415912_32_2.0248_vca_0.5091_vha_0.6026_vla_0.6077_vmae_0.0104.weights.h5
+
+======================================================================
+  📊 EVALUATION SUMMARY (2025-07-01 to 2025-11-30)
+======================================================================
+  Samples: 3632
+
+  📈 Classification Accuracy:
+     Close: 0.5179
+     High:  0.5534
+     Low:   0.6178
+
+  📉 Regression Pearson Correlation:
+     Min:   0.0051
+     Max:   -0.0032
+     Close: 0.0084
+
+  🎯 Close Direction Accuracy: 0.5184 (51.84%)
+======================================================================
+
+
+──────────────────────────────────────────────────────────────────────
+  DETAILED RESULTS
+──────────────────────────────────────────────────────────────────────
+
+Classification (Close):
+  Accuracy: 0.5179
+  Per-class distribution: [('DOWN', 1747, 314), ('UP', 1885, 3318)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1747): DOWN: 8.9%, UP: 91.1%
+    UP (n=1885): DOWN: 8.4%, UP: 91.6%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=314): DOWN: 49.4%, UP: 50.6%
+    UP (n=3318): DOWN: 48.0%, UP: 52.0%
+
+Classification (High):
+  Accuracy: 0.5534
+  Per-class distribution: [('STAY', 2016, 1676), ('UP', 1616, 1956)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=2016): STAY: 51.3%, UP: 48.7%
+    UP (n=1616): STAY: 39.7%, UP: 60.3%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1676): STAY: 61.8%, UP: 38.2%
+    UP (n=1956): STAY: 50.2%, UP: 49.8%
+
+Classification (Low):
+  Accuracy: 0.6178
+  Per-class distribution: [('DOWN', 1597, 1799), ('STAY', 2035, 1833)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1597): DOWN: 62.9%, STAY: 37.1%
+    STAY (n=2035): DOWN: 39.1%, STAY: 60.9%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=1799): DOWN: 55.8%, STAY: 44.2%
+    STAY (n=1833): DOWN: 32.4%, STAY: 67.6%
+
+Regression (MAE):
+  Min return: 0.008856
+  Max return: 0.008103
+  Close return: 0.012340
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.0051, Spearman: 0.0052
+    R²: -0.2105
+  max_return:
+    Pearson: -0.0032, Spearman: -0.0099
+    R²: -0.1482
+  close_return:
+    Pearson: 0.0084, Spearman: 0.0181
+    R²: -0.0002
+```
