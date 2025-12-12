@@ -102,3 +102,8 @@ claude --resume
 
 - [Plugin](https://code.claude.com/docs/ko/plugins)
 
+```bash
+# 로컬 claude code에 anthropic에서 운영하는 plugin marketplace 등록
+/plugin marketplace add anthropics/claude-code
+```
+

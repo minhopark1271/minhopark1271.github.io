@@ -1537,8 +1537,11 @@ Regression Correlation Analysis:
 **변경 대상**
 - 예측 대상: binance BTC-USDT
    - 가격, 추세/변동성/거래량 지표
-- 선물 대상: binance BTC-USDT-VANILLA-PERPETUAL, BTC-USDC-VANYLLA-PERPETUAL, BTC-USD-INVERSE_PERPETUAL
+- 선물
    - 가격, 거래량, open interest, mark price, funding rate
+   - binance, BTC-USDT-VANILLA-PERPETUAL
+   - binance, BTC-USDC-VANYLLA-PERPETUAL
+   - binance, BTC-USD-INVERSE_PERPETUAL
 - 스프레드 대상: cadli BTC-USDT
    - 가격
 - 연관 자산: binance ETH-USDT
