@@ -1517,3 +1517,30 @@ Regression Correlation Analysis:
     Pearson: 0.0084, Spearman: 0.0181
     R²: -0.0002
 ```
+
+---
+
+## Logs; Trouble shooting & Variations ~ 20251212_case8
+
+### 대상 변경
+
+**기존 대상**
+- 예측 대상: cadli ETH-USDT
+   - 가격, 추세/변동성/거래량 지표
+- 선물 대상: binance ETH-USDT-VANILLA-PERPETUAL
+   - 가격, 거래량, open interest, mark price, funding rate
+- 스프레드 대상: binance ETH-USDT
+   - 가격
+- 연관 자산: cadli BTC-USDT
+   - 가격, 거래량
+
+**변경 대상**
+- 예측 대상: binance BTC-USDT
+   - 가격, 추세/변동성/거래량 지표
+- 선물 대상: binance BTC-USDT-VANILLA-PERPETUAL, BTC-USDC-VANYLLA-PERPETUAL, BTC-USD-INVERSE_PERPETUAL
+   - 가격, 거래량, open interest, mark price, funding rate
+- 스프레드 대상: cadli BTC-USDT
+   - 가격
+- 연관 자산: binance ETH-USDT
+   - 가격, 거래량
+
