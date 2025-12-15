@@ -1520,7 +1520,7 @@ Regression Correlation Analysis:
 
 ---
 
-## Logs; Trouble shooting & Variations ~ 20251212_case8
+## Logs; Trouble shooting & Variations ~ 20251215_case8
 
 ### 대상 변경
 
@@ -1547,3 +1547,85 @@ Regression Correlation Analysis:
 - 연관 자산: binance ETH-USDT
    - 가격, 거래량
 
+
+```
+2025-12-15 13:09:36,725 - __main__ - INFO - Loaded model for inference from ./models/1765771774_22_1.9966_vca_0.5240_vha_0.6315_vla_0.6168_vmae_0.0092.weights.h5
+
+======================================================================
+  📊 EVALUATION SUMMARY (2025-07-01 to 2025-11-30)
+======================================================================
+  Samples: 3649
+
+  📈 Classification Accuracy:
+     Close: 0.5308
+     High:  0.5895
+     Low:   0.6366
+
+  📉 Regression Pearson Correlation:
+     Min:   0.1153
+     Max:   0.0887
+     Close: 0.0102
+
+  🎯 Close Direction Accuracy: 0.5007 (50.07%)
+======================================================================
+
+
+──────────────────────────────────────────────────────────────────────
+  DETAILED RESULTS
+──────────────────────────────────────────────────────────────────────
+
+Classification (Close):
+  Accuracy: 0.5308
+  Per-class distribution: [('DOWN', 1807, 597), ('UP', 1842, 3052)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1807): DOWN: 19.1%, UP: 80.9%
+    UP (n=1842): DOWN: 13.6%, UP: 86.4%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=597): DOWN: 58.0%, UP: 42.0%
+    UP (n=3052): DOWN: 47.9%, UP: 52.1%
+
+Classification (High):
+  Accuracy: 0.5895
+  Per-class distribution: [('STAY', 1956, 1082), ('UP', 1693, 2567)]
+
+  [Actual > Predicted Distribution]
+    STAY (n=1956): STAY: 39.4%, UP: 60.6%
+    UP (n=1693): STAY: 18.4%, UP: 81.6%
+
+  [Predicted > Actual Distribution]
+    STAY (n=1082): STAY: 71.2%, UP: 28.8%
+    UP (n=2567): STAY: 46.2%, UP: 53.8%
+
+Classification (Low):
+  Accuracy: 0.6366
+  Per-class distribution: [('DOWN', 1835, 2233), ('STAY', 1814, 1416)]
+
+  [Actual > Predicted Distribution]
+    DOWN (n=1835): DOWN: 74.7%, STAY: 25.3%
+    STAY (n=1814): DOWN: 47.5%, STAY: 52.5%
+
+  [Predicted > Actual Distribution]
+    DOWN (n=2233): DOWN: 61.4%, STAY: 38.6%
+    STAY (n=1416): DOWN: 32.8%, STAY: 67.2%
+
+Regression (MAE):
+  Min return: 0.009426
+  Max return: 0.006022
+  Close return: 0.007735
+
+Regression Correlation Analysis:
+  min_return:
+    Pearson: 0.1153, Spearman: 0.1069
+    R²: -1.5087
+  max_return:
+    Pearson: 0.0887, Spearman: 0.0694
+    R²: -0.7182
+  close_return:
+    Pearson: 0.0102, Spearman: -0.0157
+    R²: -0.2565
+```
+
+- 결론: 바꾼게 나은듯?
+- 데이트레이딩 모델로 넘어가서(1m, 5m, 15m 봉) 좀 더 보자
