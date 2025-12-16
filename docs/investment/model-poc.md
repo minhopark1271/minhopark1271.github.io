@@ -1,5 +1,5 @@
 ---
-title: SWING 모델
+title: SWING용 예측 모델
 parent: 투자
 nav_order: 6
 math: true
@@ -328,7 +328,7 @@ cadli BTC-USDT OHLCV 기준
 - Pre-clipping: $\mu \pm 5\sigma$ 범위로 극단값 클리핑 후 스케일링
 - Post-clipping: z-score를 [-5, 5] 범위로 클리핑
 
-**시간별 데이터 (72시간)**: 위 56개 피쳐 사용
+**시간별 데이터 (72시간)**: 위 555555 사용
 
 ---
 
