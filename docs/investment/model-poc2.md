@@ -328,3 +328,6 @@ Regression Correlation Analysis:
     Pearson: -0.0066, Spearman: 0.0175
     R²: -0.0019
 ```
+
+
+다음 작업은 [model-poc3](model-poc3) 에 이어서.
