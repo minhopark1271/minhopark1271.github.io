@@ -1,5 +1,6 @@
 ---
 title: 개발
+parent: 개발
 nav_order: 20
 has_children: true
 ---
