@@ -1,6 +1,5 @@
 ---
 title: 논문
-parent: 논문
 nav_order: 100
 has_children: true
 ---
