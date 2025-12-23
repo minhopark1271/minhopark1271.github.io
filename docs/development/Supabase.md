@@ -15,6 +15,7 @@ nav_order: 24
 - [Supabase 공식 사이트](https://supabase.com/)
 - [Supabase GitHub](https://github.com/supabase/supabase)
 - [Supabase 문서](https://supabase.com/docs)
+- [내 프로젝트 대시보드](https://supabase.com/dashboard/project/eytgntmhfhclrlhdvsde)
 
 ## 목차
 {:.no_toc}

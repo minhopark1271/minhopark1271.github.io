@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/investment/derivatives.md",
+                "file": "docs/development/supabase.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "derivatives"
+              "title": "supabase"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/investment/derivatives.md",
+                "file": "docs/development/supabase.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for derivatives"
+              "title": "Backlinks for supabase"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/investment/derivatives.md",
+                "file": "docs/development/supabase.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from derivatives"
+              "title": "Outgoing links from supabase"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/investment/derivatives.md",
+                "file": "docs/development/supabase.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of derivatives"
+              "title": "Outline of supabase"
             }
           }
         ]
@@ -185,8 +185,9 @@
   },
   "active": "b0c45cee1d044bd4",
   "lastOpenFiles": [
-    "_site/docs/development/classification-metrics.html",
     "docs/development/classification-metrics.md",
+    "docs/investment/derivatives.md",
+    "_site/docs/development/classification-metrics.html",
     "docs/development/uv.md",
     "docs/investment/yfinance.md",
     "docs/investment/strategy.md",
@@ -194,7 +195,6 @@
     "docs/investment/model-poc.md",
     "docs/investment/indicators.md",
     "docs/investment/index.md",
-    "docs/investment/derivatives.md",
     "docs/investment/coindesk.md",
     "docs/development/codex.md",
     "docs/development/create-mcp-server.md",
