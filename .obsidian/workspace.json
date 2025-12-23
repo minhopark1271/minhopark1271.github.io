@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/development/supabase.md",
+                "file": "docs/development/cross-entropy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "supabase"
+              "title": "cross-entropy"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/development/supabase.md",
+                "file": "docs/development/cross-entropy.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for supabase"
+              "title": "Backlinks for cross-entropy"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/development/supabase.md",
+                "file": "docs/development/cross-entropy.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from supabase"
+              "title": "Outgoing links from cross-entropy"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/development/supabase.md",
+                "file": "docs/development/cross-entropy.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of supabase"
+              "title": "Outline of cross-entropy"
             }
           }
         ]
@@ -185,6 +185,9 @@
   },
   "active": "b0c45cee1d044bd4",
   "lastOpenFiles": [
+    "docs/development/supabase.md",
+    "_site/docs/development/cross-entropy.html",
+    "docs/development/cross-entropy.md",
     "docs/development/classification-metrics.md",
     "docs/investment/derivatives.md",
     "_site/docs/development/classification-metrics.html",
@@ -203,13 +206,11 @@
     "docs/development/youtube-api.md",
     "docs/development/vercel.md",
     "docs/development/using-mcp-server.md",
-    "docs/development/supabase.md",
     "docs/development/streamlit.md",
     "docs/development/speckit-2.md",
     "docs/development/speckit.md",
     "docs/development/rag.md",
     "docs/development/prd.md",
-    "docs/development/mcp.md",
-    "docs/development/makefile.md"
+    "docs/development/mcp.md"
   ]
 }
