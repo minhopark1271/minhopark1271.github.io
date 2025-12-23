@@ -1,7 +1,7 @@
 ---
 title: Vercel (TBU)
 parent: 개발
-nav_order: 100
+nav_order: 25
 ---
 
 # Vercel

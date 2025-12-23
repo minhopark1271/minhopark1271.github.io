@@ -1,7 +1,7 @@
 ---
 title: PRD (TBU)
 parent: 개발
-nav_order: 100
+nav_order: 22
 ---
 
 # PRD(Product Requirement Document)

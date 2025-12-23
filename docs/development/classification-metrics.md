@@ -1,7 +1,7 @@
 ---
 title: 분류모델 평가지표
 parent: 개발
-nav_order: 101
+nav_order: 26
 ---
 
 # 분류모델 평가지표
