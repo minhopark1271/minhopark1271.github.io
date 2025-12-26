@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/development/attention-layer.md",
+                "file": "docs/development/vercel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "attention-layer"
+              "title": "vercel"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/development/attention-layer.md",
+                "file": "docs/development/vercel.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for attention-layer"
+              "title": "Backlinks for vercel"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/development/attention-layer.md",
+                "file": "docs/development/vercel.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from attention-layer"
+              "title": "Outgoing links from vercel"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/development/attention-layer.md",
+                "file": "docs/development/vercel.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of attention-layer"
+              "title": "Outline of vercel"
             }
           }
         ]
@@ -185,9 +185,21 @@
   },
   "active": "b0c45cee1d044bd4",
   "lastOpenFiles": [
+    "_site/docs/news/2025-12-25-시사-정치.html",
+    "_site/docs/news/2025-12-25-기술-AI.html",
+    "_site/docs/news/2025-12-25-경제-투자.html",
+    "docs/news/2025-12-25-시사-정치.md",
+    "docs/news/2025-12-25-기술-AI.md",
+    "docs/news/2025-12-25-경제-투자.md",
+    "_site/docs/news/2025-12-24-시사-정치.html",
+    "_site/docs/news/2025-12-24-기술-AI.html",
+    "_site/docs/news/2025-12-24-경제-투자.html",
+    "docs/news/2025-12-24-시사-정치.md",
+    "docs/news/2025-12-24-기술-AI.md",
+    "docs/news/2025-12-24-경제-투자.md",
+    "docs/development/attention-layer.md",
     "docs/development/cross-entropy.md",
     "_site/docs/development/attention-layer.html",
-    "docs/development/attention-layer.md",
     "_site/docs/news/2025-12-23-시사-정치.html",
     "_site/docs/news/2025-12-23-기술-AI.html",
     "_site/docs/news/2025-12-23-경제-투자.html",
@@ -198,7 +210,6 @@
     "_site/docs/development/cross-entropy.html",
     "docs/development/classification-metrics.md",
     "docs/investment/derivatives.md",
-    "_site/docs/development/classification-metrics.html",
     "docs/development/uv.md",
     "docs/investment/yfinance.md",
     "docs/investment/strategy.md",
@@ -209,12 +220,6 @@
     "docs/investment/coindesk.md",
     "docs/development/codex.md",
     "docs/development/create-mcp-server.md",
-    "docs/development/git-submodule.md",
-    "docs/development/git-worktree.md",
-    "docs/development/youtube-api.md",
-    "docs/development/vercel.md",
-    "docs/development/using-mcp-server.md",
-    "docs/development/streamlit.md",
-    "docs/development/speckit-2.md"
+    "docs/development/git-submodule.md"
   ]
 }
