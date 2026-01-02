@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2f52d67c62706e64",
+        "id": "315dec55ff2bd16e",
         "type": "tabs",
         "children": [
           {
-            "id": "b0c45cee1d044bd4",
+            "id": "e552844effed70e7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/development/vercel.md",
+                "file": "docs/projects/003-1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "vercel"
+              "title": "003-1"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/development/vercel.md",
+                "file": "docs/projects/003-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for vercel"
+              "title": "Backlinks for 003-1"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/development/vercel.md",
+                "file": "docs/projects/003-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from vercel"
+              "title": "Outgoing links from 003-1"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/development/vercel.md",
+                "file": "docs/projects/003-1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of vercel"
+              "title": "Outline of 003-1"
             }
           }
         ]
@@ -183,43 +183,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "b0c45cee1d044bd4",
+  "active": "e552844effed70e7",
   "lastOpenFiles": [
-    "_site/docs/news/2025-12-25-시사-정치.html",
-    "_site/docs/news/2025-12-25-기술-AI.html",
-    "_site/docs/news/2025-12-25-경제-투자.html",
-    "docs/news/2025-12-25-시사-정치.md",
-    "docs/news/2025-12-25-기술-AI.md",
-    "docs/news/2025-12-25-경제-투자.md",
-    "_site/docs/news/2025-12-24-시사-정치.html",
-    "_site/docs/news/2025-12-24-기술-AI.html",
-    "_site/docs/news/2025-12-24-경제-투자.html",
-    "docs/news/2025-12-24-시사-정치.md",
-    "docs/news/2025-12-24-기술-AI.md",
-    "docs/news/2025-12-24-경제-투자.md",
-    "docs/development/attention-layer.md",
-    "docs/development/cross-entropy.md",
-    "_site/docs/development/attention-layer.html",
-    "_site/docs/news/2025-12-23-시사-정치.html",
-    "_site/docs/news/2025-12-23-기술-AI.html",
-    "_site/docs/news/2025-12-23-경제-투자.html",
-    "docs/news/2025-12-23-시사-정치.md",
-    "docs/news/2025-12-23-기술-AI.md",
-    "docs/news/2025-12-23-경제-투자.md",
-    "docs/development/supabase.md",
-    "_site/docs/development/cross-entropy.html",
-    "docs/development/classification-metrics.md",
-    "docs/investment/derivatives.md",
-    "docs/development/uv.md",
-    "docs/investment/yfinance.md",
-    "docs/investment/strategy.md",
-    "docs/investment/normalization.md",
-    "docs/investment/model-poc.md",
-    "docs/investment/indicators.md",
-    "docs/investment/index.md",
-    "docs/investment/coindesk.md",
-    "docs/development/codex.md",
-    "docs/development/create-mcp-server.md",
-    "docs/development/git-submodule.md"
+    "docs/projects/016.md",
+    "_site/docs/news/2026-01-01-시사-정치.html",
+    "_site/docs/news/2026-01-01-기술-AI.html",
+    "_site/docs/news/2026-01-01-경제-투자.html",
+    "_site/docs/news/2025-12-31-시사-정치.html",
+    "_site/docs/news/2025-12-31-기술-AI.html",
+    "_site/docs/news/2025-12-31-경제-투자.html",
+    "_site/docs/news/2025-12-30-시사-정치.html",
+    "_site/docs/news/2025-12-30-기술-AI.html",
+    "_site/docs/news/2025-12-30-경제-투자.html",
+    "_site/docs/news/2025-12-29-시사-정치.html",
+    "docs/news/2025-12-26-시사-정치.md",
+    "docs/news/2025-12-26-기술-AI.md",
+    "docs/news/2025-12-26-경제-투자.md",
+    "docs/news/2025-12-27-기술-AI.md",
+    "docs/news/2025-12-27-경제-투자.md",
+    "docs/news/2025-12-28-기술-AI.md",
+    "docs/news/2025-12-28-경제-투자.md",
+    "docs/news/2025-12-29-시사-정치.md",
+    "docs/news/2025-12-29-기술-AI.md",
+    "docs/news/2025-12-29-경제-투자.md",
+    "docs/news/2025-12-30-시사-정치.md",
+    "docs/news/2025-12-30-기술-AI.md",
+    "docs/news/2025-12-30-경제-투자.md",
+    "docs/news/2025-12-31-시사-정치.md",
+    "docs/news/2025-12-31-기술-AI.md",
+    "docs/news/2025-12-31-경제-투자.md",
+    "docs/news/2026-01-01-시사-정치.md",
+    "docs/news/2026-01-01-기술-AI.md",
+    "docs/news/2026-01-01-경제-투자.md",
+    "docs/projects/013.md",
+    "docs/projects/012.md",
+    "docs/projects/005.md",
+    "docs/projects/004.md",
+    "docs/projects/003-3.md",
+    "docs/projects/003-2.md"
   ]
 }
