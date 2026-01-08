@@ -1,8 +1,8 @@
 # Site settings
 title: Mimi Note
 description: "All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences."
-baseurl: ""
 url: "https://minhopark1271.github.io"
+baseurl: ""
 
 # Theme settings
 # remote_theme: just-the-docs/just-the-docs  # Using local theme instead
