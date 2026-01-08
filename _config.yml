@@ -70,6 +70,9 @@ kramdown:
     block:
       line_numbers: false
 
+# Google Analytics
+ga_tracking: G-KQRR05QRV4
+
 # HTML compression
 compress_html:
   clippings: all
