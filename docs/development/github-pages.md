@@ -2,6 +2,7 @@
 title: Github Pages
 parent: 개발
 nav_order: 1
+description: "GitHub Pages는 GitHub에서 제공하는 무료 정적 웹사이트 호스팅 서비스입니다."
 ---
 
 # GitHub Pages 사용한 블로그 생성 및 배포

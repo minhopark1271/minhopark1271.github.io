@@ -2,6 +2,7 @@
 title: MCP Server 개발
 parent: 개발
 nav_order: 9
+description: "1. Resources (리소스): 클라이언트가 읽을 수 있는 파일 유사 데이터 (예: API 응답, 파일 내용 등) 2. Tools (도구): LLM이 사용자 승인 하에 호출할 수 있는 실행 가능한 함수/작업 단위 3. Prompts (프롬프트): 사용자가..."
 ---
 
 # MCP Server 개발

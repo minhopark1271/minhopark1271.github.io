@@ -2,6 +2,7 @@
 title: Vercel
 parent: 개발
 nav_order: 25
+description: "프론트엔드 애플리케이션 배포에 최적화된 클라우드 플랫폼. Next.js 개발팀이 만든 서비스로, React/Next.js 앱 배포의 사실상 표준."
 ---
 
 # Vercel

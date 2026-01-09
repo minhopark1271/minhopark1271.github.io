@@ -2,6 +2,7 @@
 title: SWING용 예측 모델
 parent: 투자
 nav_order: 6
+description: "- BTC or ETH - BTC, ETH는 변동성이 상대적으로 낮고 안정성은 높으므로 긴 시간텀 거래에 적합"
 ---
 
 # SWING 모델 구성

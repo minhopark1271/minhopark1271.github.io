@@ -2,6 +2,7 @@
 title: Claude Code 사용팁
 parent: 개발
 nav_order: 29
+description: "Boris Cherny의 Claude Code 워크플로우를 정리한 글입니다. 생산성을 극대화하는 실전 팁들을 담고 있습니다."
 ---
 
 # Claude Code 사용팁

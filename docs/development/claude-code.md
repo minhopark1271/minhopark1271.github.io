@@ -2,6 +2,7 @@
 title: Claude Code
 parent: 개발
 nav_order: 14
+description: "Claude Code는 Anthropic의 공식 CLI 도구로, 소프트웨어 개발 작업을 지원하는 대화형 도구입니다."
 ---
 
 # Claude Code

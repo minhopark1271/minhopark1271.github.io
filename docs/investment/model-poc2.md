@@ -2,6 +2,7 @@
 title: DAY TRADING용 예측 모델
 parent: 투자
 nav_order: 7
+description: "- BTC, ETH - XRP, SOL, ADA, ZEC, DOGE - 당초 계획은 BTC, ETH 대상 SWING MODEL이 잘 작동하면 변동성이 높은 알트를 대상으로 더 짧은 시간으로 모델을 구성해 보는 것이었으나, 경향성을 품을 만한 피쳐가 가장 많은..."
 ---
 
 # DAY TRADING 모델 구성

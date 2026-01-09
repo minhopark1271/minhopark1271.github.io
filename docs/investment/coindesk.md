@@ -2,6 +2,7 @@
 title: Coindesk
 parent: 투자
 nav_order: 1
+description: "| 코드       | 정식 명칭                                                   | 설명                                                                         ..."
 ---
 
 # Coindesk API

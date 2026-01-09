@@ -2,6 +2,7 @@
 title: Cross Entropy
 parent: 개발
 nav_order: 27
+description: "머신러닝에서 분류 문제의 손실 함수로 가장 널리 사용되는 크로스 엔트로피에 대해 알아본다."
 ---
 
 # 크로스 엔트로피 (Cross Entropy)

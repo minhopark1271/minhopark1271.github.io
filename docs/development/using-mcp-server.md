@@ -2,6 +2,7 @@
 title: MCP 서버 연결
 parent: 개발
 nav_order: 8
+description: "Use MCP servers in VS Code"
 ---
 
 # MCP Server 연결

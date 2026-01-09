@@ -2,6 +2,7 @@
 title: yfinance
 parent: 투자
 nav_order: 1
+description: "Yahoo used to have its own official API but this was shutdown in 2017."
 ---
 
 # Financial data source - yfinance lib.

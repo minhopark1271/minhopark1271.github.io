@@ -2,6 +2,7 @@
 title: MCP 개요
 parent: 개발
 nav_order: 7
+description: "LLM이 외부 데이터와 도구에 표준화된 방식으로 접근할 수 있게 해주는 개방적 프로토콜 Anthropic에서 제안"
 ---
 
 # MCP(Model Context Protocol)

@@ -2,6 +2,7 @@
 title: Linux
 parent: 개발
 nav_order: 15
+description: "리눅스 배포판은 크게 Debian 계열, Red Hat 계열, 그리고 그 외의 독립 계열로 나눌 수 있다. 아래는 서버·개발 환경에서 많이 사용하는 배포판 중심으로 정리한 내용이다."
 ---
 
 # Linux

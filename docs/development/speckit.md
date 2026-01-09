@@ -2,6 +2,7 @@
 title: Spec Kit
 parent: 개발
 nav_order: 10
+description: "` uv tool install specify-cli --from git+https://github.com/github/spec-kit.git `"
 ---
 
 # Spec Kit 친해지기

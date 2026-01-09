@@ -2,6 +2,7 @@
 title: Git Worktree
 parent: 개발
 nav_order: 5
+description: "` project/.git/ project/                 (main branch) project-feature/         (feature branch) `"
 ---
 
 # Git Worktree

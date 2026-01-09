@@ -19,3 +19,34 @@
   };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- JSON-LD Structured Data for SEO -->
+{% if page.title %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{% if page.parent %}Article{% else %}WebPage{% endif %}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "headline": "{{ page.title | escape }}",
+  {% if page.description %}"description": "{{ page.description | escape }}",{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: 'MinHo Park' }}",
+    "url": "{{ site.author.url | default: site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ '/assets/images/icon4.png' | absolute_url }}"
+    }
+  },
+  "image": "{{ page.image | default: '/assets/images/icon4.png' | absolute_url }}",
+  "inLanguage": "{{ site.lang | default: 'ko' }}"
+}
+</script>
+{% endif %}

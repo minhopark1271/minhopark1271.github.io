@@ -2,6 +2,7 @@
 title: Codex
 parent: 개발
 nav_order: 12
+description: "1. VS Code Extensions 마켓플레이스에서 Codex – OpenAI’s coding agent 설치 2. Codex에서 ChatGPT Plus 계정 인증 3. (Mac OS only) ChatGPT 앱 채팅창 하단 A 눌러서 VS Code 공동작업 설정"
 ---
 
 # ChatGPT - Codex - VS Code 연동

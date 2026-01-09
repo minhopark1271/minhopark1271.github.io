@@ -2,6 +2,7 @@
 title: 컨테이너
 parent: 개발
 nav_order: 30
+description: "쿠버네티스, 도커, 컨테이너의 핵심 개념을 인프라 레벨에서 정리한다."
 ---
 
 # 컨테이너

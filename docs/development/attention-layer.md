@@ -2,6 +2,7 @@
 title: Attention Layer
 parent: 개발
 nav_order: 28
+description: "딥러닝에서 Attention 메커니즘은 모델이 입력의 어떤 부분에 "주의를 기울일지" 동적으로 결정하는 방법이다. 특히 시계열, 자연어 처리에서 핵심적인 역할을 한다."
 ---
 
 # Attention Layer

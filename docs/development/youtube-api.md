@@ -2,6 +2,7 @@
 title: Youtube API
 parent: 개발
 nav_order: 13
+description: "- OAuth 2.0 사용자 인증 정보가 포함된 JSON 다운로드 - 토큰 발행시 사용 - OAuth consent screen - Clients에 사용자 추가된 것 확인"
 ---
 
 # Youtube API

@@ -2,6 +2,7 @@
 title: Streamlit
 parent: 개발
 nav_order: 4
+description: "- Architecture and execution - Multipage apps - App design - Connections, secrets, and authentication - Custom components - Configuration and..."
 ---
 
 # Streamlit

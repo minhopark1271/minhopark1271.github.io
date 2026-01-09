@@ -3,6 +3,7 @@ title: Mimi Note
 description: "All the essentials; Tech, AI, development, business, investment, hobbies, and travel from investigations and experiences."
 url: "https://minhopark1271.github.io"
 baseurl: ""
+lang: ko
 
 # Theme settings
 # remote_theme: just-the-docs/just-the-docs  # Using local theme instead
@@ -33,6 +34,23 @@ aux_links:
   "LinkedIn": "https://www.linkedin.com/in/minho-park-"
   "GitHub": "https://github.com/minhopark1271?tab=repositories"
 aux_links_new_tab: true
+
+# SEO / Social sharing
+social:
+  name: MinHo Park
+  links:
+    - https://www.linkedin.com/in/minho-park-
+    - https://github.com/minhopark1271
+
+author:
+  name: MinHo Park
+  url: https://minhopark1271.github.io
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/icon4.png
 
 # Footer settings
 footer_content: "Copyright &copy; 2025 MinHo Park. Distributed by an <a href=\"https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt\">MIT license.</a>"
