@@ -2,7 +2,7 @@
 title: Spec Kit 2
 parent: 개발
 nav_order: 11
-description: "` /constitution"
+description: "Spec Kit으로 기존 프로젝트 개선하기. constitution, specify, plan, tasks, implement 사이클 실전 적용. Phase별 브랜치 관리와 체크리스트 운영."
 ---
 
 # Spec Kit 기존 프로젝트 개선에 사용 - Trial & Error Season 2

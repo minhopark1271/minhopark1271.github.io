@@ -2,7 +2,7 @@
 title: Makefile
 parent: 개발
 nav_order: 16
-description: "Makefile은 make 프로그램이 읽어서 빌드와 자동화 작업을 수행하기 위해 작성되는 규칙 기반 설정 파일이다. 일반적인 쉘 스크립트가 “명령을 순서대로 실행하는 절차적 구조”라면, Makefile은 파일 간 의존성(Dependency)에 따라 필요한 작업만..."
+description: "Makefile 완벽 가이드. Shell 스크립트와 차이점, 타겟/의존성/명령 구조, 증분 빌드와 병렬 빌드. GNU Make 핵심 개념과 예시 코드."
 ---
 
 # Makefile

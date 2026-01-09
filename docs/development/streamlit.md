@@ -2,7 +2,7 @@
 title: Streamlit
 parent: 개발
 nav_order: 4
-description: "- Architecture and execution - Multipage apps - App design - Connections, secrets, and authentication - Custom components - Configuration and..."
+description: "Streamlit 대시보드 개발 가이드. Python으로 데이터 앱 빠르게 만들기. Multi-Page App, MySQL 연동, Community Cloud 배포 방법."
 ---
 
 # Streamlit

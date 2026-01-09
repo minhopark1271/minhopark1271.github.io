@@ -2,7 +2,7 @@
 title: Claude Code 사용팁
 parent: 개발
 nav_order: 29
-description: "Boris Cherny의 Claude Code 워크플로우를 정리한 글입니다. 생산성을 극대화하는 실전 팁들을 담고 있습니다."
+description: "Claude Code 생산성 극대화 팁. 병렬 실행, CLAUDE.md 팀 협업, Plan 모드 활용, 슬래시 커맨드, 피드백 루프로 품질 2~3배 향상하는 실전 워크플로우."
 ---
 
 # Claude Code 사용팁

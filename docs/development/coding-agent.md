@@ -2,7 +2,7 @@
 title: Coding Agent
 parent: 개발
 nav_order: 3
-description: "- 고급 AI 코딩 보조로, 실시간 제안, 오류 탐지, 자동 리팩토링을 제공 - 개인화에 강함: 사용자의 코딩 패턴을 학습해 제안을 점차 사용자 스타일에 맞춤 - 인기 IDE(VS Code, IntelliJ 등) 통합 지원"
+description: "AI 코딩 에이전트 비교: Cursor AI vs GitHub Copilot. 기능, 가격, 장단점 분석. 실시간 제안, 오류 탐지, 리팩토링 능력 및 IDE 통합 비교."
 ---
 
 # Coding Agent

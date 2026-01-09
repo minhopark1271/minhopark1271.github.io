@@ -2,7 +2,7 @@
 title: UV
 parent: 개발
 nav_order: 2
-description: "파이썬 버전 및 가상환경 관리 툴 An extremely fast Python package and project manager, written in Rust."
+description: "UV 패키지 매니저 완벽 가이드. Rust로 작성된 초고속 Python 버전 및 가상환경 관리. pyproject.toml, uv.lock, 핵심 명령어 사용법."
 ---
 
 # UV

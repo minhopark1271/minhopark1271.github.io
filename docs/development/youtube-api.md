@@ -2,7 +2,7 @@
 title: Youtube API
 parent: 개발
 nav_order: 13
-description: "- OAuth 2.0 사용자 인증 정보가 포함된 JSON 다운로드 - 토큰 발행시 사용 - OAuth consent screen - Clients에 사용자 추가된 것 확인"
+description: "YouTube API 인증 설정 가이드. Google Cloud Console에서 OAuth 2.0 발급, consent screen 설정, youtube.readonly 스코프 추가 방법."
 ---
 
 # Youtube API

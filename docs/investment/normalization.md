@@ -2,7 +2,7 @@
 title: 입력 정규화
 parent: 투자
 nav_order: 5
-description: "| 이름 | 수식 | 중심 기준 | 이상치 내성 | 특징 및 활용 | |------|------|-------------|---------------|----------------| | Z-Score (StandardScaler) | $z = \frac{x -..."
+description: "머신러닝 입력 정규화 완벽 비교. Z-Score, Min-Max, RobustScaler, Quantile Transformer 장단점. 이상치에 강한 RobustScaler 실시간 추론 대응법."
 ---
 
 # 입력 정규화

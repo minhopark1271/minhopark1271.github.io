@@ -2,7 +2,7 @@
 title: Supabase
 parent: 개발
 nav_order: 24
-description: "오픈소스 Firebase 대안. PostgreSQL 기반 BaaS(Backend as a Service) 플랫폼. "Build in a weekend, scale to millions""
+description: "Supabase 완벽 가이드. PostgreSQL 기반 오픈소스 Firebase 대안. 인증, 실시간 DB, 스토리지, Edge Functions. Firebase 대비 장단점 비교."
 ---
 
 # Supabase

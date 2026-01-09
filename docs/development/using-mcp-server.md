@@ -2,7 +2,7 @@
 title: MCP 서버 연결
 parent: 개발
 nav_order: 8
-description: "Use MCP servers in VS Code"
+description: "MCP Server 연결 가이드. VS Code, Cursor, Claude Code, ChatGPT에서 MCP 서버 설정하기. STDIO/HTTP/SSE 프로토콜별 mcp.json 설정법."
 ---
 
 # MCP Server 연결

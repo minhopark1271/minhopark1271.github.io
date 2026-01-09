@@ -2,7 +2,7 @@
 title: DAY TRADING용 평가 모델
 parent: 투자
 nav_order: 8
-description: "- 피쳐 엔지니어링은 앞단에서 얼추 함. - 가격예 예측은 무작위성과 노이즈가 커서 사실상 패턴 학습이 활용에 유효한 수준에 미치지 못함. - 출력 및 목적함수를 최적화해서 예외적으로 수익률이 좋은 케이스만 골라내는 평가모델로 변경."
+description: "암호화폐 선택적 트레이딩 모델. PnL 중심 목적함수, Gate/Action 헤드로 고수익 구간만 선별. Quantile 예측으로 리스크/TP/SL 추정."
 ---
 
 # DAY TRADING용 평가 모델 구성

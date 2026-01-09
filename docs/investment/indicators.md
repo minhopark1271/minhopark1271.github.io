@@ -2,7 +2,7 @@
 title: 기술 지표
 parent: 투자
 nav_order: 2
-description: "이동평균은 일정 기간 동안의 가격 평균을 계산하여 가격의 추세를 파악하는 가장 기본적인 기술적 지표입니다."
+description: "트레이딩 기술적 지표 완벽 정리. SMA, EMA, RSI, MACD, 볼린저밴드, ATR, OBV, VWAP 계산식과 활용법. 지표 조합 전략과 유의사항."
 ---
 
 # 차트 지표

@@ -2,7 +2,7 @@
 title: Github Pages
 parent: 개발
 nav_order: 1
-description: "GitHub Pages는 GitHub에서 제공하는 무료 정적 웹사이트 호스팅 서비스입니다."
+description: "GitHub Pages 블로그 완벽 가이드. Jekyll 설치부터 테마 적용, SEO 설정, Google Search Console 등록, GitHub Actions 자동 배포까지."
 ---
 
 # GitHub Pages 사용한 블로그 생성 및 배포

@@ -2,7 +2,7 @@
 title: 컨테이너
 parent: 개발
 nav_order: 30
-description: "쿠버네티스, 도커, 컨테이너의 핵심 개념을 인프라 레벨에서 정리한다."
+description: "컨테이너, Docker, Kubernetes 핵심 개념 정리. 네임스페이스, cgroups, 레이어 파일시스템부터 Pod, Service, Ingress까지 인프라 레벨 완벽 가이드."
 ---
 
 # 컨테이너

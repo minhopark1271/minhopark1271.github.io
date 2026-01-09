@@ -2,7 +2,7 @@
 title: Coindesk
 parent: 투자
 nav_order: 1
-description: "| 코드       | 정식 명칭                                                   | 설명                                                                         ..."
+description: "Coindesk API 완벽 가이드. 암호화폐 인덱스, 현물, 선물 OHLCV 데이터 조회. Open Interest, Funding Rate API 활용법. BTC, ETH 시장 데이터 수집."
 ---
 
 # Coindesk API

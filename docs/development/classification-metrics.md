@@ -2,7 +2,7 @@
 title: 분류모델 평가지표
 parent: 개발
 nav_order: 26
-description: "분류 모델의 성능을 평가하는 핵심 지표들: 혼동행렬, 정밀도, 재현율, F1 스코어, ROC-AUC, PR-AUC"
+description: "머신러닝 분류 모델 평가지표 완벽 정리. 혼동행렬, 정밀도, 재현율, F1 스코어, ROC-AUC, PR-AUC 개념과 Python 구현 예제."
 ---
 
 # 분류모델 평가지표

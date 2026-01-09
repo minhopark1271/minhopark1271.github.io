@@ -2,7 +2,7 @@
 title: yfinance
 parent: 투자
 nav_order: 1
-description: "Yahoo used to have its own official API but this was shutdown in 2017."
+description: "yfinance Python 라이브러리 완벽 가이드. Yahoo Finance 데이터 수집 API. 주식 OHLCV, 재무제표, 옵션체인 조회. Ticker, Market, Sector 클래스 사용법."
 ---
 
 # Financial data source - yfinance lib.

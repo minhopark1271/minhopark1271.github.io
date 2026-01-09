@@ -2,7 +2,7 @@
 title: Git Submodule
 parent: 개발
 nav_order: 6
-description: "- 공용 코드 재사용 - 버전 고정이 필요한 서브 프로젝트 - 여러 저장소를 하나의 상위 저장소에서 통합 관리"
+description: "Git Submodule 완벽 가이드. 서브모듈 추가, 초기화, 업데이트, 푸시 절차. 공용 코드 재사용과 버전 고정이 필요한 프로젝트 통합 관리."
 ---
 
 # Git Submodule

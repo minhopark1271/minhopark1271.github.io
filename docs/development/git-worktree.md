@@ -2,7 +2,7 @@
 title: Git Worktree
 parent: 개발
 nav_order: 5
-description: "` project/.git/ project/                 (main branch) project-feature/         (feature branch) `"
+description: "Git Worktree 완벽 가이드. 같은 저장소에서 여러 브랜치 동시 작업하기. 핫픽스 브랜치 급하게 수정할 때 stash 없이 깔끔하게 처리하는 방법."
 ---
 
 # Git Worktree

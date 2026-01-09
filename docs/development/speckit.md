@@ -2,7 +2,7 @@
 title: Spec Kit
 parent: 개발
 nav_order: 10
-description: "` uv tool install specify-cli --from git+https://github.com/github/spec-kit.git `"
+description: "GitHub Spec Kit 완벽 가이드. AI 코딩 에이전트를 위한 스펙 기반 개발(SDD). constitution, specify, plan, tasks, implement 명령어 사용법."
 ---
 
 # Spec Kit 친해지기

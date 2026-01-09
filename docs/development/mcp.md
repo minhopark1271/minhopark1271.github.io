@@ -2,7 +2,7 @@
 title: MCP 개요
 parent: 개발
 nav_order: 7
-description: "LLM이 외부 데이터와 도구에 표준화된 방식으로 접근할 수 있게 해주는 개방적 프로토콜 Anthropic에서 제안"
+description: "MCP(Model Context Protocol) 완벽 가이드. Anthropic이 제안한 LLM 외부 도구 연동 표준. STDIO/HTTP 프로토콜, 마켓플레이스, VS Code/Cursor/Claude Code 연동법."
 ---
 
 # MCP(Model Context Protocol)
