@@ -85,6 +85,21 @@ Assuming [Jekyll] and [Bundler] are installed on your computer:
 
     The built site is stored in the directory `_site`.
 
+### Viewing unpublished pages (시사-정치)
+
+The `시사-정치` category pages are hidden from production but visible locally.
+
+```bash
+# Include 시사-정치 pages (published: false)
+bundle exec jekyll serve --unpublished
+```
+
+| Environment | Command | 시사-정치 |
+|-------------|---------|-----------|
+| Local | `jekyll serve --unpublished` | ✅ Visible |
+| Local | `jekyll serve` | ❌ Hidden |
+| GitHub Pages | (default build) | ❌ Hidden |
+
 ## Publishing your built site on a different platform
 
 Just upload all the files in the directory `_site`.
