@@ -1,6 +1,6 @@
 ---
 title: 고관절 찝힘
-parent: 골프
+parent: 기타
 nav_order: 10
 ---
 
