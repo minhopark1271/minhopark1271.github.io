@@ -150,3 +150,10 @@ K-POP 솔로 및 듀오 아티스트 추천 목록
 | 111 | Suran & DEAN | 3~7 | 1+1=0 | | |
 | 112 | TAEYEON & DEAN | 3~7 | Starlight | | |
 | 113 | ZICO & IU | 3~7 | SoulMate | | |
+
+---
+
+### 추가 발견
+
+- 스무살
+- 최유리
