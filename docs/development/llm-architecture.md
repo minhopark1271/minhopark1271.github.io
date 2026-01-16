@@ -2,13 +2,13 @@
 title: LLM Architecture
 parent: 개발
 nav_order: 31
-description: LLM(Large Language Model) 아키텍처의 핵심 구조와 개념을 정리합니다.
+description: LLM(Large Language Model) 아키텍처의 핵심 구조와 개념
 ---
 
 # LLM Architecture
 {:.no_toc}
 
-LLM 아키텍처를 이해하기 위한 자료 모음.
+LLM 아키텍처를 이해하기 위한 핵심 키워드
 
 ---
 
