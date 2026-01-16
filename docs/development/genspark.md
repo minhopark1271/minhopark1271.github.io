@@ -20,7 +20,6 @@ description: "Genspark AI 완벽 가이드. Super Agent, Sparkpage, AI Slides �
 
 - [Genspark 공식 사이트](https://www.genspark.ai/)
 - [Genspark 소개 영상 (YouTube)](https://www.youtube.com/watch?v=p2jP5-r07CI)
-- [Genspark AI Review 2025](https://skywork.ai/blog/genspark-ai-review-2025-super-agent-ai-search/)
 
 ---
 
@@ -155,12 +154,6 @@ Genspark의 핵심 기능으로, AI 에이전트가 동적으로 생성하는 �
 | **Manus** | 작업 자동화 에이전트 | 태스크 자동화 특화 |
 
 Genspark는 리서치 엔진과 슈퍼 에이전트의 중간 지점에 위치한다. Sparkpage라는 구조화된 리서치 브리프가 차별점이다.
-
----
-
-## 가격
-
-2025년 초 기준, 명확한 가격 정책이 공개되지 않았다. Freemium 모델로 무료 사용 후 유료 업그레이드 옵션이 있는 것으로 알려져 있다.
 
 ---
 
