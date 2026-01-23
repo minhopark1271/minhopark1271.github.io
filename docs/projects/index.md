@@ -1,6 +1,6 @@
 ---
 title: 프로젝트
-nav_order: 50
+nav_order: 60
 has_children: true
 ---
 

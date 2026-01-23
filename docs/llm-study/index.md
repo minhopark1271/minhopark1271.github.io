@@ -1,6 +1,6 @@
 ---
 title: LLM 공부
-nav_order: 25
+nav_order: 50
 has_children: true
 ---
 
