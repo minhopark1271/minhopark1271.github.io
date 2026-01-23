@@ -45,6 +45,25 @@ Binance 현물 거래의 기본 수수료 구조.
 
 최신 수수료율은 [Binance 공식 수수료 페이지](https://www.binance.com/en/fee/schedule)에서 확인.
 
+### BNB로 거래 수수료 할인받는 방법 (Spot/Margin 공통)
+
+Binance에서는 거래 페어(BTC/BNB 등)와 무관하게, BNB를 보유하고 수수료를 BNB로 지불하도록 설정하면 됨.
+
+1. BNB를 Spot 지갑에 보유
+    - 수수료 차감은 기본적으로 Spot Wallet의 BNB 잔고를 사용함
+    - BNB 잔고가 부족하면 할인 적용이 안 되고, 일반 방식(Quote 자산 등)으로 수수료가 청구될 수 있음
+
+2) “BNB로 수수료 지불” 옵션 켜기
+    - 웹(PC): Dashboard → Fees → Using BNB Deduction → ON
+    - 앱(App): Profile/Settings → Fee settings → Use BNB to pay fees → ON
+
+3) 할인 적용 확인
+    - 보통 Spot 거래 수수료 25% 할인
+    - 예: 기본 0.1% → 0.075%
+
+- [Using BNB Deduction 설정/할인 안내](https://www.binance.com/en/support/faq/detail/115000583311)
+- [Spot/Margin 수수료 구조 확인](https://www.binance.com/en/fee)
+
 ### 수수료 할인 방법
 
 1. **BNB 결제**: 거래 수수료를 BNB로 결제 시 25% 할인
