@@ -61,6 +61,7 @@ Binance에서는 거래 페어(BTC/BNB 등)와 무관하게, BNB를 보유하고
     - 보통 Spot 거래 수수료 25% 할인
     - 예: 기본 0.1% → 0.075%
 
+- [Binance to Extend the 25% Trading Fee Discount When Using BNB](https://www.binance.com/en/support/announcement/detail/844f0bae047d4be4903303cb743734e1)
 - [Using BNB Deduction 설정/할인 안내](https://www.binance.com/en/support/faq/detail/115000583311)
 - [Spot/Margin 수수료 구조 확인](https://www.binance.com/en/fee)
 
