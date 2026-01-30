@@ -1,5 +1,5 @@
 ---
-title: 기본적 분석 (Fundamental Analysis)
+title: 기본적 분석
 parent: 투자
 nav_order: 11
 description: 주식/ETF 투자에 필수적인 펀더멘털 분석 지표 총정리. 실적, 밸류에이션, 수익성, 재무안정성, 현금흐름, 성장성 지표와 핵심 체크리스트를 설명합니다.
