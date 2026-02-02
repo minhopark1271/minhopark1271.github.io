@@ -22,10 +22,10 @@
 }
 
 // Toggle button - positioned fixed to align with fixed sidebar
+// Button position must match sidebar width calculation from layout.scss
 .sidebar-toggle {
   display: none; // Hidden on mobile
   position: fixed;
-  left: calc(#{$nav-width-md} - 12px); // Just the Docs sidebar width
   top: 50%;
   transform: translateY(-50%);
   z-index: 101;
@@ -71,13 +71,23 @@
   }
 
   // Desktop only (md breakpoint = 50rem)
+  // md: sidebar width = $nav-width-md (fixed)
   @include mq(md) {
     display: flex;
+    left: calc(#{$nav-width-md} - 12px);
   }
 
-  // Adjust for larger screens
+  // lg: sidebar width = max($nav-width, calc((100% - $nav-width - $content-width) / 2 + $nav-width))
+  // Button must follow the same calculation
   @include mq(lg) {
-    left: calc(#{$nav-width} - 12px);
+    // stylelint-disable function-name-case
+    left: calc(
+      Max(
+        #{$nav-width},
+        calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width})
+      ) - 12px
+    );
+    // stylelint-enable function-name-case
   }
 }
 
