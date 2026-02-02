@@ -1,1 +1,134 @@
 // custom SCSS (or CSS) goes here
+
+// ============================================
+// Sidebar Toggle Feature (Desktop Only)
+// ============================================
+
+// Fix: Since toggle button breaks ".side-bar + .main" sibling selector,
+// we need to re-apply the margin-left using general sibling selector
+.side-bar ~ .main {
+  @include mq(md) {
+    margin-left: $nav-width-md;
+  }
+
+  @include mq(lg) {
+    // stylelint-disable function-name-case
+    margin-left: Max(
+      #{$nav-width},
+      calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width})
+    );
+    // stylelint-enable function-name-case
+  }
+}
+
+// Toggle button - positioned fixed to align with fixed sidebar
+.sidebar-toggle {
+  display: none; // Hidden on mobile
+  position: fixed;
+  left: calc(#{$nav-width-md} - 12px); // Just the Docs sidebar width
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 101;
+
+  width: 24px;
+  height: 48px;
+  padding: 0;
+
+  background-color: $sidebar-color;
+  border: 1px solid $border-color;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s ease, opacity 0.2s ease, left 0.3s ease;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+    background-color: $link-color;
+
+    .icon {
+      color: #fff;
+    }
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    color: $body-text-color;
+    transition: color 0.2s ease;
+  }
+
+  // Show collapse icon by default, hide expand icon
+  .icon-collapse {
+    display: block;
+  }
+
+  .icon-expand {
+    display: none;
+  }
+
+  // Desktop only (md breakpoint = 50rem)
+  @include mq(md) {
+    display: flex;
+  }
+
+  // Adjust for larger screens
+  @include mq(lg) {
+    left: calc(#{$nav-width} - 12px);
+  }
+}
+
+// Side bar transition for collapse animation
+.side-bar {
+  @include mq(md) {
+    transition: transform 0.3s ease;
+  }
+}
+
+// Main content transition
+.main {
+  @include mq(md) {
+    transition: margin-left 0.3s ease;
+  }
+}
+
+// ============================================
+// Collapsed State
+// ============================================
+.sidebar-collapsed {
+  // Slide sidebar off-screen
+  .side-bar {
+    @include mq(md) {
+      transform: translateX(-100%);
+    }
+  }
+
+  // Move toggle button to left edge
+  .sidebar-toggle {
+    @include mq(md) {
+      left: 0;
+      border-radius: 0 4px 4px 0;
+    }
+  }
+
+  // Adjust main content to take full width
+  .main {
+    @include mq(md) {
+      margin-left: 0 !important;
+    }
+  }
+
+  // Toggle button icon swap
+  .sidebar-toggle {
+    .icon-collapse {
+      display: none;
+    }
+
+    .icon-expand {
+      display: block;
+    }
+  }
+}

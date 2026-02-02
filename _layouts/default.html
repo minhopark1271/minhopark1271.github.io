@@ -16,6 +16,11 @@ layout: table_wrappers
   {% elsif site.nav_enabled != false and layout.nav_enabled == nil and page.nav_enabled == nil %}
     {% include components/sidebar.html %}
   {% endif %}
+  <!-- Desktop sidebar toggle button (outside sidebar for proper positioning) -->
+  <button id="sidebar-toggle" class="sidebar-toggle btn-reset" aria-label="Toggle sidebar" aria-expanded="true">
+    <svg viewBox="0 0 24 24" class="icon icon-collapse" aria-hidden="true"><use xlink:href="#svg-sidebar-collapse"></use></svg>
+    <svg viewBox="0 0 24 24" class="icon icon-expand" aria-hidden="true"><use xlink:href="#svg-sidebar-expand"></use></svg>
+  </button>
   <div class="main" id="top">
     {% include components/header.html %}
     <div class="main-content-wrap">
