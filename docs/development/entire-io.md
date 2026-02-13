@@ -1,5 +1,5 @@
 ---
-title: "Entire.io: AI 에이전트 시대의 Git 워크플로"
+title: "Entire"
 parent: 개발
 nav_order: 36
 description: "전 GitHub CEO가 창업한 Entire.io의 AI 에이전트 컨텍스트 버전 관리 플랫폼 소개. Checkpoints, Claude Code 연동, 세션 되감기 등 핵심 기능을 정리합니다."
