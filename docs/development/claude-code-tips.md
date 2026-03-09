@@ -16,6 +16,7 @@ Boris Cherny(Claude Code 제작자), Peter Steinberger(Moltbot 제작자), Andre
 - [AI 에이전트 워크플로우 - Peter Steinberger](https://news.hada.io/topic?id=26222)
 - [Claude Coding Notes - Andrej Karpathy](https://x.com/karpathy/status/2015883857489522876)
 - [Claude Code 창시자가 공개한 실전 사용 팁 - GeekNews](https://news.hada.io/topic?id=26330)
+- [Karpathy-Inspired Claude Code Guidelines - GitHub](https://github.com/forrestchang/andrej-karpathy-skills/blob/main/CLAUDE.md)
 
 ## 목차
 {:.no_toc}
@@ -702,6 +703,33 @@ LLM이 잘하는 것          LLM이 못하는 것
 ### 사회적 영향
 
 > "사회의 얼마나 많은 부분이 디지털 지식 작업에 의해 병목이 걸려 있는가?"
+
+---
+
+## Karpathy의 원칙을 CLAUDE.md로
+
+Karpathy가 지적한 LLM 코딩의 문제점들을 **4가지 원칙으로 정리한 CLAUDE.md 파일**이 공개되어 GitHub에서 7,000+ 스타를 기록했습니다.
+
+### 4가지 원칙
+
+| 원칙 | 해결하는 문제 |
+|------|-------------|
+| **Think Before Coding** | 잘못된 가정, 숨겨진 혼란, 트레이드오프 미제시 |
+| **Simplicity First** | 과도한 복잡성, 부풀려진 추상화 |
+| **Surgical Changes** | 요청과 무관한 코드 수정, 사이드 이펙트 |
+| **Goal-Driven Execution** | 테스트 우선, 검증 가능한 성공 기준으로 레버리지 확보 |
+
+### 적용 방법
+
+```bash
+# 프로젝트별 적용
+curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md
+
+# 전역 적용 (~/.claude/CLAUDE.md)
+curl -o ~/.claude/CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md
+```
+
+이 파일의 핵심은 Karpathy의 **선언적 접근** 철학과 일맥상통합니다. "무엇을 하라"가 아니라 "성공 기준을 제시하고 검증 루프를 돌려라"는 Goal-Driven Execution 원칙이 그 핵심입니다.
 
 ---
 
