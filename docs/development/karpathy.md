@@ -1,7 +1,7 @@
 ---
 title: Karpathy의 LLM 학습 자료
-parent: LLM 공부
-nav_order: 1
+parent: 개발
+nav_order: 50
 ---
 
 # Karpathy의 LLM 학습 자료
