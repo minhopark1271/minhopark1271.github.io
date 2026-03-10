@@ -51,6 +51,10 @@ defaults:
       path: ""
     values:
       image: /assets/images/icon4.png
+  - scope:
+      path: "docs/investment"
+    values:
+      published: false
 
 # Footer settings
 footer_content: "Copyright &copy; 2025 MinHo Park. Distributed by an <a href=\"https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt\">MIT license.</a>"
