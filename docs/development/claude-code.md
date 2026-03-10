@@ -18,7 +18,6 @@ description: "Claude Code CLI 완벽 가이드. 파일 작업, 코드 검색, Ba
 
 ## Links
 
-- [꼭 알아야하는 클로드 코드 필수 꿀팁 60가지, Youtube](https://www.youtube.com/watch?v=a1a9wV88MSM)
 - [claude-code, Github](https://github.com/anthropics/claude-code)
 
 ---
