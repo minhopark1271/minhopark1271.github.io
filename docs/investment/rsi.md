@@ -1,4 +1,5 @@
 ---
+published: false
 title: RSI
 parent: 투자
 nav_order: 16

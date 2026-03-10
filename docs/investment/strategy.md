@@ -1,4 +1,5 @@
 ---
+published: false
 title: 단타 전략
 parent: 투자
 nav_order: 4

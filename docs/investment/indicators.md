@@ -1,4 +1,5 @@
 ---
+published: false
 title: 기술 지표
 parent: 투자
 nav_order: 2

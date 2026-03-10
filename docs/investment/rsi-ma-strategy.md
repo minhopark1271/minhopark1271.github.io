@@ -1,4 +1,5 @@
 ---
+published: false
 title: RSI+MA 전략
 parent: 투자
 nav_order: 17

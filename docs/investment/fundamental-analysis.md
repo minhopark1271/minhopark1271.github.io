@@ -1,4 +1,5 @@
 ---
+published: false
 title: 기본적 분석
 parent: 투자
 nav_order: 11

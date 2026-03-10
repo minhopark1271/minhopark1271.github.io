@@ -1,4 +1,5 @@
 ---
+published: false
 title: 입력 정규화
 parent: 투자
 nav_order: 5

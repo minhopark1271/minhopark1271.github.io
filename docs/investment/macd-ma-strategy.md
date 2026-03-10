@@ -1,4 +1,5 @@
 ---
+published: false
 title: MACD+MA 전략
 parent: 투자
 nav_order: 18

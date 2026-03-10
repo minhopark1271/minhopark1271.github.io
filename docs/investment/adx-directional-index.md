@@ -1,4 +1,5 @@
 ---
+published: false
 title: 가격방향성 (ADX, DI)
 parent: 투자
 nav_order: 12

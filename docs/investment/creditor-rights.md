@@ -1,4 +1,5 @@
 ---
+published: false
 title: 채권 회수
 parent: 투자
 nav_order: 21

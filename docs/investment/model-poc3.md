@@ -1,4 +1,5 @@
 ---
+published: false
 title: DAY TRADING용 평가 모델
 parent: 투자
 nav_order: 8

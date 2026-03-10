@@ -1,4 +1,5 @@
 ---
+published: false
 title: SWING용 예측 모델
 parent: 투자
 nav_order: 6

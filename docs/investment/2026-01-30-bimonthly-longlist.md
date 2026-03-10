@@ -1,4 +1,5 @@
 ---
+published: false
 title: 2026-01-30 주요종목
 parent: 투자
 nav_order: -20260130
