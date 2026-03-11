@@ -1,6 +1,6 @@
 ---
 title: 창업
-nav_order: 40
+nav_order: 35
 has_children: true
 ---
 

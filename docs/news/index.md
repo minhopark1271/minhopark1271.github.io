@@ -1,6 +1,6 @@
 ---
 title: 유튜브 요약
-nav_order: 40
+nav_order: 45
 has_children: true
 ---
 
