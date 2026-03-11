@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 title: 입력 정규화
-parent: 투자
-nav_order: 5
+parent: 개발
+nav_order: 55
 description: "머신러닝 입력 정규화 완벽 비교. Z-Score, Min-Max, RobustScaler, Quantile Transformer 장단점. 이상치에 강한 RobustScaler 실시간 추론 대응법."
 ---
 

@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: OBV, VWAP
 parent: 투자
 nav_order: 19

@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: 투자 성과 지표
 parent: 투자
 nav_order: 14

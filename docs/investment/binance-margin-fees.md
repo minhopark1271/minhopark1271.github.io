@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Binance 마진 거래 수수료
 parent: 투자
 nav_order: 9

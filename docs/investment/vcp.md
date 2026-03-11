@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: VCP
 parent: 투자
 nav_order: 13
