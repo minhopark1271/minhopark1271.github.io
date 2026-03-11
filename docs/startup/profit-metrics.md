@@ -1,7 +1,7 @@
 ---
 title: 이익 지표 총정리
-parent: 투자
-nav_order: 22
+parent: 창업
+nav_order: 12
 description: 매출총이익, 공헌이익, 영업이익, EBITDA, 당기순이익 등 손익계산서 핵심 이익 지표의 개념, 계산법, 차이점과 투자 분석 활용법을 정리합니다.
 ---
 

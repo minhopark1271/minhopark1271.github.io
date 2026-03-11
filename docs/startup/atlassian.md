@@ -1,7 +1,7 @@
 ---
 title: Atlassian
-parent: 개발
-nav_order: 53
+parent: 창업
+nav_order: 2
 description: "Atlassian 제품군(Jira, Confluence, Trello 등)의 구조와 소규모 팀을 위한 칸반보드 요금제를 비교 정리합니다."
 ---
 

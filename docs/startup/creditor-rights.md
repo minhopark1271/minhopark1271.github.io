@@ -1,8 +1,8 @@
 ---
 published: false
 title: 채권 회수
-parent: 투자
-nav_order: 21
+parent: 창업
+nav_order: 11
 description: 채무 상환이 불확실할 때 채권자가 행사할 수 있는 권리를 총정리합니다. 담보권 실행, 보전처분, 강제집행부터 법인 채무자에 대한 파산·회생 신청, 법인격 부인론까지 채권 회수 수단 전체를 다룹니다.
 ---
 
