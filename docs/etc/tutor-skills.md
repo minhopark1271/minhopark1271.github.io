@@ -1,6 +1,6 @@
 ---
 title: LLM 튜터
-parent: 개발
+parent: 기타
 nav_order: 52
 description: Claude Code 기반 AI 학습 시스템 tutor-skills의 설치, 사용법, 워크플로우를 설명합니다. PDF/코드베이스를 Obsidian 학습 노트로 변환하고 대화형 퀴즈로 학습합니다.
 ---
