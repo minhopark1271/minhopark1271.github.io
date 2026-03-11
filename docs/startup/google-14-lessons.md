@@ -1,7 +1,7 @@
 ---
 title: 구글 14년의 교훈
-parent: 기타
-nav_order: 30
+parent: 창업
+nav_order: 15
 description: Google 14년차 엔지니어 Addy Osmani가 공유하는 팀 협업, 의사결정, 신뢰에 대한 14가지 실전 교훈 요약
 ---
 

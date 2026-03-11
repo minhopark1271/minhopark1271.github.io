@@ -2,7 +2,7 @@
 title: 홈
 layout: default
 nav_order: 10
-description: "AI, 개발, 사업, 투자, 취미"
+description: "개발, 투자, 경영, 유튜브 요약, 기타"
 permalink: /
 ---
 
@@ -10,4 +10,4 @@ permalink: /
 
 ## 소개
 
-AI, 개발, 투자, 공부, 취미
+개발, 투자, 경영, 유튜브 요약, 기타
