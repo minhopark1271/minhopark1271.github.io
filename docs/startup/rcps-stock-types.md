@@ -1,7 +1,7 @@
 ---
 published: false
 title: RCPS
-parent: 창업
+parent: 경영
 nav_order: 10
 description: 보통주부터 RCPS(상환전환우선주)까지 주식 발행 형태별 권리(의결권, 배당, 상환, 전환)와 차이점을 비교 정리합니다. 전환사채(CB), 신주인수권부사채(BW)도 함께 다룹니다.
 ---
