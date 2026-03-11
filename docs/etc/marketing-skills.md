@@ -1,6 +1,6 @@
 ---
 title: Marketing Skills
-parent: 개발
+parent: 기타
 nav_order: 47
 description: "AI 코딩 에이전트용 마케팅 스킬 모음 marketingskills의 주요 기능, 35개 스킬 카테고리, 설치 및 활용법을 소개합니다."
 ---
