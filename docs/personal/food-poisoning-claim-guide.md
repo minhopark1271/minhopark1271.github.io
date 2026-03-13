@@ -2,7 +2,7 @@
 title: 식중독 배상 가이드
 parent: 개인
 nav_order: 1
-draft: true
+published: false
 description: 임신 중 배달 음식 식중독 발생 시 쿠팡과 빠르게 합의하고, 태아 추가 청구권을 유보하는 실전 절차를 정리한 가이드입니다.
 ---
 
