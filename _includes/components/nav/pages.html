@@ -9,7 +9,8 @@
 {%- endcomment -%}
 
 {%- assign nav_parenthood = include.pages
-      | where_exp: "item", "item.title != nil" | group_by: "parent" -%}
+      | where_exp: "item", "item.title != nil"
+      | where_exp: "item", "item.draft != true" | group_by: "parent" -%}
 
 {%- assign nav_top_nodes = nav_parenthood
       | where_exp: "item", "item.name == ''" | map: "items" | first -%}
