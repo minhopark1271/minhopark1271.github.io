@@ -1,8 +1,7 @@
 ---
 title: 윈도우 PC 설정
-parent: 개인
-nav_order: 3
-published: false
+parent: 개발
+nav_order: 59
 description: 개발용 윈도우 PC 초기 설정 체크리스트. 키보드, 터미널, 패키지 매니저, IDE, SSH, Docker 등 Mac 설정을 윈도우로 치환한 가이드.
 ---
 
