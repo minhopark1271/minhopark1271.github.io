@@ -3,7 +3,7 @@ title: ETH 단기 대응
 parent: 투자
 nav_order: -20260318
 description: "FOMC 전후 ETH 매도-재매수 전략. BTC 50K 헷지 + ETH/USDT 35K 트레이딩 풀의 시나리오별 액션 플로우차트와 포지션 사이징."
-published: true
+published: false
 ---
 
 # 260318 ETH FOMC 단기 대응 전략
