@@ -1,7 +1,7 @@
 ---
 title: ETH 단기 예측
 parent: 투자
-nav_order: -20260317
+nav_order: -20260320
 description: "2026년 3월 ETH 급등 원인과 구조적 취약성, FOMC 전후 시나리오, 온체인 바닥 신호 7/7 점등의 의미를 종합 분석합니다."
 published: true
 ---
