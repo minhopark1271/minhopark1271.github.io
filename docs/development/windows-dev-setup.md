@@ -121,6 +121,24 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\catppuccin.omp.json" | Invo
 
 > **주의**: `notepad $PROFILE`은 반드시 `pwsh`(PowerShell 7)에서 실행해야 함. cmd에서는 `$PROFILE` 변수를 인식 못함.
 
+### pwsh 자동완성 강화
+
+기본 `Tab`은 후보를 하나씩 순회함. 목록형 자동완성 + 히스토리 기반 추천을 원하면 `$PROFILE`에 추가:
+
+```powershell
+Import-Module PSReadLine
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineOption -PredictionSource History
+```
+
+| 키 | 동작 |
+|---|---|
+| `Tab` | 후보 목록 표시 (MenuComplete) |
+| `Shift + Tab` | 이전 후보 |
+| `→` | 히스토리 추천 수락 (회색 글자) |
+
+> **주의**: `$PROFILE` 명령어가 안 먹으면 cmd에서 실행 중일 가능성 높음. `pwsh` 입력 후 재시도.
+
 ### Vim / Neovim 설치
 
 ```powershell
@@ -265,6 +283,23 @@ scoop install nvm
 fnm install --lts
 fnm use lts-latest
 ```
+
+---
+
+## Claude Code (AI 코딩 어시스턴트)
+
+Windows에서 Claude Code는 **Git Bash(bash.exe)가 필수**. Git for Windows 설치 시 포함됨.
+
+```bash
+npm install -g @anthropic-ai/claude-code
+claude
+```
+
+- [ ] Node.js 설치 확인 (`node --version`, v18 이상)
+- [ ] Git for Windows 설치 확인 (`git --version`)
+- [ ] bash.exe가 PATH에 없으면 환경 변수 설정:
+  - 시스템 환경 변수 → PATH에 `C:\Program Files\Git\bin` 추가
+- [ ] `claude` 실행 → Anthropic 계정 로그인
 
 ---
 
